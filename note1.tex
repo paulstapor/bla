@@ -1,0 +1,224 @@
+%
+% A new paper...
+% Title: Convergence of the Gutt Star Product
+% git-repository is gstar
+%
+% From now on, we proudly use the chairx style file for
+% everything. All stuff in there is soo useful!
+%
+
+
+%
+% Before we start, let's nag a bit about old latex constructs
+% just to learn... This will be removed in the final version
+%
+
+\RequirePackage[l2tabu, orthodox]{nag}
+
+
+%
+% we always start with 11pt, draft mode on for easier editing and
+% english as default language
+%
+
+\documentclass[
+11pt,                          % standard font size
+%draft,                         % draft or final?
+english                        % standard language
+]{article}
+
+
+%
+% some macro packages
+%
+
+\usepackage[english]{babel}    % with explicit language
+\usepackage{amsmath}           % ams mathematical stuff
+\usepackage[utf8]{inputenc}    % smart input of funny chars
+\usepackage[T1]{fontenc}       % also for the font encoding
+\usepackage{longtable}         % tables longer than one page
+\usepackage{exscale}           % large summation signs in 11pt
+\usepackage[final]{graphicx}   % to include pdf pictures
+\usepackage[sort]{cite}        % nicer citations
+\usepackage{array}             % nice tables
+\usepackage{wasysym}           % smiley symbols
+\usepackage[a4paper]{geometry} % geometry of page layout
+%\usepackage{gitinfo2}          % include git info: Version 2
+%\usepackage[multiuser]{fixme}  % correction notes, warnings etc.
+\usepackage{xspace}            % better spacing after macros
+\usepackage{tikz}              % for commutative diagrams and stuff
+\usepackage{ifdraft}           % to determine whether draft mode
+\usepackage{chairx}            % the Chair X style file
+\usepackage[expansion=false    % no font expansion
+           ]{microtype}        % only protrusion
+\usepackage[nottoc]{tocbibind} % refs and index in the toc
+\usepackage[backref=page,      % backrefs in the bibliography
+           final=true,         % always treat as final
+           pdfpagelabels       % use pdf page labels
+           ]{hyperref}         % hyperrefs are cool!
+
+%
+% Some own macros...
+%
+
+%\usepackage{mnsymbol}
+
+\newcommand{\ostar}{\star}
+\newcommand{\coproduct}{\Delta}
+\newcommand{\ocoproduct}{\Delta}
+
+\newcommand{\Eta}{\mathrm{H}}
+\newcommand{\Rho}{\operatorname{P}}
+\newcommand{\bch}[2]{\mathrm{BCH}\left(#1, #2\right)}
+\newcommand{\bchpart}[3]{\mathrm{BCH}_{#1}\left(#2, #3\right)}
+\newcommand{\bchparts}[4]{\mathrm{BCH}_{#1, #2}\left(#3, #4\right)}
+\newcommand{\bchtilde}[4]{\widetilde{\mathrm{BCH}}_{#1, #2}\left(#3; #4\right)}
+\newcommand\ot[2]{\stackrel{\mathclap{#1}}{#2}}
+%
+%\mathrel{\overset{\makebox[0pt]
+%	{\mbox{\normalfont\footnotesize\sffamily #1}}}{#2}}}
+
+
+%
+% pdf files for graphics in the following directory:
+%
+
+\graphicspath{{../tikz/}}
+
+
+%
+% tikz libraries to be loaded, feel free to add more...
+%
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathreplacing}
+
+
+%
+% page dimensions, scaling etc. Not final yet
+%
+
+
+\geometry{bindingoffset=0cm}
+\geometry{hcentering=true}
+\geometry{hscale=0.8}
+\geometry{vscale=0.8}
+
+
+%
+% check whether draft or not: synctex is soo cool
+%
+
+%\ifdraft{\synctex=1}{}
+
+
+%
+% fix me settings
+%
+
+%\fxusetheme{color}
+
+
+%
+% Get the authors from external file
+% This used in all documents of the paper project
+%
+
+%\input{../authors/authors}
+
+
+%
+% own local math macros follow here
+%
+
+
+%
+% title page for Convergence of the Gutt Star Product
+% authors are included from the authors file
+% This has to be adapted in the final version
+%
+
+\title{Convergence of the Gutt Star Product}
+
+\author{
+  \textbf{Chiara Esposito}\thanks{\texttt{chiara.esposito@mathematik.uni-wuerzburg.de}},
+  \addtocounter{footnote}{2}
+  \textbf{Paul Stapor}\thanks{\texttt{paul.stapor@stud-mail.uni-wuerzburg.de}},
+  \addtocounter{footnote}{2}
+  \textbf{Stefan Waldmann}\thanks{\texttt{stefan.waldmann@mathematik.uni-wuerzburg.de}}\\[0.5cm]
+  \chairXaddress
+}
+
+%\date{Current Version of gstar: \gitAuthorIsoDate\\[0.2cm]
+%  {\small
+%    Last changes by \gitAuthorName{} on \gitAuthorDate \\
+%    Git revision of gstar: \texttt{\gitAbbrevHash{}} \gitReferences
+%  }
+%}
+
+\date{September 2015}
+
+
+%
+% the text starts here
+%
+
+\begin{document}
+
+%
+% title page
+%
+
+\maketitle
+
+%
+% abstract
+%
+
+\begin{abstract}
+    In this work we consider the Gutt star product viewed as an
+    associative deformation of the symmetric algebra
+    $\Sym^\bullet(\lie{g})$ over a Lie algebra $\lie{g}$ and discuss
+    its continuity properties: we establish a locally convex topology
+    on $\Sym^\bullet(\lie{g})$ such that the Gutt star product becomes
+    continuous. Here we have to assume a mild technical condition on
+    $\lie{g}$: it has to be an \emph{Asymptotic Estimate} Lie
+    algebra. This condition is e.g. fulfilled automatically for all
+    finite-dimensional Lie algebras.  The resulting completion of the
+    symmetric algebra can be described explicitly and yields not only
+    a locally convex algebra but also the Hopf algebra structure maps
+    inherited from the universal enveloping algebra are continuous.
+    We show that all Hopf algebra structure maps depend analytically
+    on the deformation parameter. The construction enjoys good
+    functorial properties.
+\end{abstract}
+
+\newpage
+
+
+%
+% table of contents
+%
+
+\tableofcontents
+\newpage
+
+
+%
+% Introduction
+%
+
+\section{Introduction}
+\label{sec:Introduction}
+
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
