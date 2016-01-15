@@ -1,0 +1,164 @@
+
+\RequirePackage[l2tabu, orthodox]{nag}
+
+%
+% we always start with 11pt, draft mode on for easier editing and
+% english as default language
+%
+
+\documentclass[
+11pt,                          % standard font size
+english                        % standard language
+]{article}
+
+
+%
+% some macro packages
+
+\usepackage[english]{babel}    % with explicit language
+\usepackage{amsmath}           % ams mathematical stuff
+\usepackage[utf8]{inputenc}    % smart input of funny chars
+\usepackage[T1]{fontenc}       % also for the font encoding
+\usepackage{longtable}         % tables longer than one page
+\usepackage{exscale}           % large summation signs in 11pt
+\usepackage[final]{graphicx}   % to include pdf pictures
+\usepackage[sort]{cite}        % nicer citations
+\usepackage{array}             % nice tables
+\usepackage{wasysym}           % smiley symbols
+\usepackage[a4paper]{geometry} % geometry of page layout
+\usepackage{xspace}            % better spacing after macros
+\usepackage{tikz}              % for commutative diagrams and stuff
+\usepackage{ifdraft}           % to determine whether draft mode
+\usepackage{chairx}            % the Chair X style file
+\usepackage[expansion=false    % no font expansion
+           ]{microtype}        % only protrusion
+\usepackage[nottoc]{tocbibind} % refs and index in the toc
+\usepackage[backref=page,      % backrefs in the bibliography
+           final=true,         % always treat as final
+           pdfpagelabels       % use pdf page labels
+           ]{hyperref}         % hyperrefs are cool!
+
+%
+% Some own macros...
+
+\newcommand{\bch}[2]{\mathrm{BCH}\left(#1, #2\right)}
+\newcommand{\bchpart}[3]{\mathrm{BCH}_{#1}\left(#2, #3\right)}
+\newcommand{\bchparts}[4]{\mathrm{BCH}_{#1, #2}\left(#3, #4\right)}
+\newcommand\ot[2]{\stackrel{\mathclap{#1}}{#2}}
+\newcommand{\diff}[2]{\frac{d#1}{d#2}}
+\newcommand{\Tangent}{\mathrm{T}}
+
+%
+% tikz libraries to be loaded, feel free to add more...
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathreplacing}
+
+
+
+%
+% page dimensions, scaling etc. Not final yet
+
+\geometry{bindingoffset=0cm}
+\geometry{hcentering=true}
+\geometry{hscale=0.8}
+\geometry{vscale=0.8}
+
+
+%
+% header, title, etc.
+
+\title{Note1 - Banach-Lie}
+
+\author{
+  \textbf{Raimond Abt},
+  \textbf{Paul Stapor}
+  \\[0.5cm]
+}
+
+\date{November 2015}
+
+
+%
+% The real fun starts...
+
+\begin{document}
+
+
+%
+% title page
+
+\maketitle
+
+\begin{abstract}
+    Indeed, very much so...
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Quasi-nilpotent Banach-Lie algebras}
+
+As we know, there are different types of quasi-nilpotency of Banach-Lie algebras.
+We are interested in seeing some examples, so we will construct two explicit ones:
+the first will be topologically uniformly nil, the second topologically nil.
+The goal is to show, that in both classes of Banach-Lie algebras, there are objects
+which allow an explicit, locally convex topology on their universal enveloping 
+algebras.
+
+
+
+\subsection{Example 1}
+
+Take the free $\mathbb{C}$-algebra in the generators $\{x_n\}_{n \in \mathbb{N}}$ 
+together with the relation $x_i x_j = \delta_{i+1}^j$. Let $p \in [1, \infty)$
+and use the $\ell^p$-norm on this space to complete it. An arbitrary element in this algebra will have the form
+\begin{equation*}
+	a =
+	\sum\limits_{i < j}
+	a_{i, j} x_i x_{i + 1} \cdots x_{j - 1}
+	, \
+	a_{i,j} \in \mathbb{C}
+	\quad \text{ with } \quad
+	\norm{a}_p
+	=
+	\left(
+		\sum\limits_{i < j}
+		|a_{i, j}|^p
+	\right)^{1/p}.
+\end{equation*}
+
+
+
+\subsection{Example 2}
+
+The idea is to combine all algebras $\algebra{A}_p$ to one: Take the free  
+$\mathbb{C}$-algebra in the generators $\{x_n^m\}_{n,m \in \mathbb{N}}$, now with 
+the relation $x_n^m \cdot x_{n'}^{m'} = \delta_m^{m'} \delta_{n+1}^{n'}$. Now an 
+arbitrary element will have the form
+\begin{equation*}
+	a =
+	\sum\limits_{m \in \mathbb{N}}
+	\sum\limits_{i < j}
+	a_{i, j}^m x_i^m x_{i + 1}^m \cdots x_{j - 1}^m
+	, \
+	a_{i,j}^m \in \mathbb{C}
+	\quad \text{ with } \quad
+	\norm{a}
+	=
+	\sum\limits_{m \in \mathbb{N}}
+	\left(
+		\sum\limits_{i < j}
+		|a_{i, j}|^m
+	\right)^{1/m}.
+\end{equation*}
+One can see from what preceded, that this algebra is not uniformly topologically 
+nil any more, but still topologically nil. The idea will now be to endow the 
+universal enveloping algebra with weights like $\frac{n!}{(\log n + 1)^n}$ and 
+hope, that things work well.
+
+
+\end{document}
