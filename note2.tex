@@ -1,0 +1,310 @@
+%
+% A new paper...
+% Title: Convergence of the Gutt Star Product
+% git-repository is gstar
+%
+% From now on, we proudly use the chairx style file for
+% everything. All stuff in there is soo useful!
+%
+
+
+%
+% Before we start, let's nag a bit about old latex constructs
+% just to learn... This will be removed in the final version
+%
+
+\RequirePackage[l2tabu, orthodox]{nag}
+
+
+%
+% we always start with 11pt, draft mode on for easier editing and
+% english as default language
+%
+
+\documentclass[
+11pt,                          % standard font size
+%draft,                         % draft or final?
+english                        % standard language
+]{article}
+
+
+%
+% some macro packages
+%
+
+\usepackage[english]{babel}    % with explicit language
+\usepackage{amsmath}           % ams mathematical stuff
+\usepackage[utf8]{inputenc}    % smart input of funny chars
+\usepackage[T1]{fontenc}       % also for the font encoding
+\usepackage{longtable}         % tables longer than one page
+\usepackage{exscale}           % large summation signs in 11pt
+\usepackage[final]{graphicx}   % to include pdf pictures
+\usepackage[sort]{cite}        % nicer citations
+\usepackage{array}             % nice tables
+\usepackage{wasysym}           % smiley symbols
+\usepackage[a4paper]{geometry} % geometry of page layout
+%\usepackage{gitinfo2}          % include git info: Version 2
+%\usepackage[multiuser]{fixme}  % correction notes, warnings etc.
+\usepackage{xspace}            % better spacing after macros
+\usepackage{tikz}              % for commutative diagrams and stuff
+\usepackage{ifdraft}           % to determine whether draft mode
+\usepackage{chairx}            % the Chair X style file
+\usepackage[expansion=false    % no font expansion
+           ]{microtype}        % only protrusion
+\usepackage[nottoc]{tocbibind} % refs and index in the toc
+\usepackage[backref=page,      % backrefs in the bibliography
+           final=true,         % always treat as final
+           pdfpagelabels       % use pdf page labels
+           ]{hyperref}         % hyperrefs are cool!
+
+%
+% Some own macros...
+%
+
+%\usepackage{mnsymbol}
+
+\newcommand{\ostar}{\star}
+\newcommand{\coproduct}{\Delta}
+\newcommand{\ocoproduct}{\Delta}
+
+\newcommand{\Eta}{\mathrm{H}}
+\newcommand{\Rho}{\operatorname{P}}
+\newcommand{\bch}[2]{\mathrm{BCH}\left(#1, #2\right)}
+\newcommand{\bchpart}[3]{\mathrm{BCH}_{#1}\left(#2, #3\right)}
+\newcommand{\bchparts}[4]{\mathrm{BCH}_{#1, #2}\left(#3, #4\right)}
+\newcommand{\bchtilde}[4]{\widetilde{\mathrm{BCH}}_{#1, #2}\left(#3; #4\right)}
+\newcommand\ot[2]{\stackrel{\mathclap{#1}}{#2}}
+%
+%\mathrel{\overset{\makebox[0pt]
+%	{\mbox{\normalfont\footnotesize\sffamily #1}}}{#2}}}
+
+
+%
+% pdf files for graphics in the following directory:
+%
+
+\graphicspath{{../tikz/}}
+
+
+%
+% tikz libraries to be loaded, feel free to add more...
+%
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathreplacing}
+
+
+%
+% page dimensions, scaling etc. Not final yet
+%
+
+
+\geometry{bindingoffset=0cm}
+\geometry{hcentering=true}
+\geometry{hscale=0.8}
+\geometry{vscale=0.8}
+
+
+%
+% check whether draft or not: synctex is soo cool
+%
+
+%\ifdraft{\synctex=1}{}
+
+
+%
+% fix me settings
+%
+
+%\fxusetheme{color}
+
+
+%
+% Get the authors from external file
+% This used in all documents of the paper project
+%
+
+%\input{../authors/authors}
+
+
+%
+% own local math macros follow here
+%
+
+
+%
+% title page for Convergence of the Gutt Star Product
+% authors are included from the authors file
+% This has to be adapted in the final version
+%
+
+\title{Convergence of the Gutt Star Product}
+
+\author{
+  \textbf{Chiara Esposito}\thanks{\texttt{chiara.esposito@mathematik.uni-wuerzburg.de}},
+  \addtocounter{footnote}{2}
+  \textbf{Paul Stapor}\thanks{\texttt{paul.stapor@stud-mail.uni-wuerzburg.de}},
+  \addtocounter{footnote}{2}
+  \textbf{Stefan Waldmann}\thanks{\texttt{stefan.waldmann@mathematik.uni-wuerzburg.de}}\\[0.5cm]
+  \chairXaddress
+}
+
+%\date{Current Version of gstar: \gitAuthorIsoDate\\[0.2cm]
+%  {\small
+%    Last changes by \gitAuthorName{} on \gitAuthorDate \\
+%    Git revision of gstar: \texttt{\gitAbbrevHash{}} \gitReferences
+%  }
+%}
+
+\date{September 2015}
+
+
+%
+% the text starts here
+%
+
+\begin{document}
+
+%
+% title page
+%
+
+\maketitle
+
+%
+% abstract
+%
+
+
+\subsection*{A very cool Lemma}
+
+\begin{lemma}
+	Let $R$ be a unital ring of characteristic $0$, $n\in \mathbb{N}$ and $a_1, 
+	\ldots, a_n \in R$, then we have the identity
+	\begin{equation*}
+		\sum\limits_{\sigma \in S_n}
+		a_{\sigma(1)} \cdots a_{\sigma(n)}
+		=
+		\sum\limits_{k = 1}^n
+		(-1)^{n-k}
+		\sum\limits_{1 \leq i_1 < \cdots < i_k \leq n}
+		(a_{i_1} + \cdots + a_{i_k})^n.
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	We prove it by induction. The statement is clear for $n=1$. So we do the step $n 
+	\longmapsto n+1$:
+	\begin{align*}
+		\sum\limits_{\sigma \in S_{n+1}}
+		a_{\sigma(1)} \cdots a_{\sigma(n+1)}
+		&=
+		\sum\limits_{k=1}^{n+1}
+		a_k \cdot
+		\sum\limits_{\sigma \in S_n}
+		a_{\sigma(1)} 
+		\cdots \widehat{a_k} \cdots
+		a_{\sigma(n+1)} 
+		\\
+		&=
+		\sum\limits_{k=1}^{n+1}
+		a_k \cdot
+		\sum\limits_{\substack{
+			j = 1 \\
+			j \neq k
+		}}^{n+1}
+		(-1)^{n + 1 - j}
+		\sum\limits_{1 \leq i_1 < \cdots < k < \cdots < i_j \leq n+1}
+		(a_{i_1} + \cdots + a_{i_j})^n
+		\\
+		&=
+		\sum\limits_{k = 1}^{n + 1}
+		(-1)^{n + 1 - k}
+		\sum\limits_{1 \leq i_1 < \cdots < i_k \leq n + 1}
+		(a_{i_1} + \cdots + a_{i_k})^{n + 1}.
+	\end{align*}
+\end{proof}
+
+
+
+
+\subsection*{Type $(ii)$-BLA are of type $(ii')$}
+\begin{proof}
+	Let $\lie{g}$ be a type $(ii)$-Banach-Lie algebra and fix the series
+	$\chi_n = \mathcal{N}_1(n)$. Hence for every $\xi \in \mathbb{B}_1(0)$, we have
+	\begin{equation*}
+		\norm{(\ad_\xi)^n}^{\frac{1}{n}}
+		\leq
+		\chi_n.
+	\end{equation*}
+	Note that 
+	\begin{equation*}
+		\tag{$*$}
+		n \geq \sqrt[n]{n!} \geq \frac{n}{\E},
+	\end{equation*}
+	and hence for all $a_1, \ldots, a_k \in \mathbb{B}_1(0)$, we have
+	\begin{equation*}
+		\frac{1}{\E \sqrt[n]{n!}} (a_1 + \cdots + a_k)
+		\in \mathbb{B}_1(0).
+	\end{equation*}
+	This gives
+	\begin{align*}
+		\left\Vert
+			\frac{1}{n!}
+			\sum\limits_{\sigma \in S_n}
+			\ad_{\sigma(1)}
+			\circ \cdots \circ
+			\ad_{\sigma(n)}
+		\right\Vert
+		&=
+		\frac{1}{n!}
+		\left\Vert
+			\sum\limits_{k = 1}^n
+			(-1)^{n-k}
+			\sum\limits_{1 \leq i_1 < \cdots < i_k \leq n}
+			(\ad_{\xi_{i_1}} + \cdots + \ad_{\xi_{i_n}})^n
+		\right\Vert
+		\\
+		& \leq
+		\frac{1}{n!}
+		\sum\limits_{k = 1}^n
+		\sum\limits_{1 \leq i_1 < \cdots < i_k \leq n}
+		\left\Vert
+			(\ad_{\xi_{i_1} + \cdots + \xi_{i_n}})^n
+		\right\Vert
+		\\
+		& \leq
+		\frac{1}{n!}
+		\sum\limits_{k = 1}^n
+		\binom{n}{k}
+		k^n \chi_n^n
+		\\
+		& \leq
+		\frac{n^n}{n!}
+		\sum\limits_{k = 1}^n
+		\binom{n}{k}
+		\chi_n^n
+		\\
+		& \leq
+		(2 \E \chi_n)^n.
+	\end{align*}
+	Hence we find
+	\begin{equation*}
+		\mathcal{S}(n)
+		\leq
+		\sqrt[n]{(2 \E \chi_n)^n}
+		=
+		2 \E \chi_n,
+	\end{equation*}
+	which converges to zero if and only if $\chi_n$ does.
+\end{proof}
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
