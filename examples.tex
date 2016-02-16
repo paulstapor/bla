@@ -113,9 +113,10 @@ algebras.
 
 \subsection{Example 1}
 
-Take the free $\mathbb{C}$-algebra in the generators $\{x_n\}_{n \in \mathbb{N}}$ 
-together with the relation $x_i x_j = \delta_{i+1}^j$. Let $p \in [1, \infty)$
-and use the $\ell^p$-norm on this space to complete it. An arbitrary element in this algebra will have the form
+Take the free associative $\mathbb{C}$-algebra in the generators $\{x_n\}_{n \in 
+\mathbb{N}}$ together with the relation $x_i x_j = \delta_{i+1}^j$. Let $p \in [1, 
+\infty)$and use the $\ell^p$-norm on this space to complete it. An arbitrary 
+element in this algebra will have the form
 \begin{equation*}
 	a =
 	\sum\limits_{i < j}
@@ -130,6 +131,220 @@ and use the $\ell^p$-norm on this space to complete it. An arbitrary element in 
 		|a_{i, j}|^p
 	\right)^{1/p}.
 \end{equation*}
+We want to call this associative algebra $\algebra{A}_p$. Since we will need it for 
+our calculations, we state the following lemma.
+\begin{lemma}
+	Let $p \in [1, \infty)$, $n \in \mathbb{N}$ and $a^{(1)}, \ldots a^{(n)}$. 
+	Denote each element as
+	\begin{equation*}
+		a^{(k)}
+		=
+		\sum\limits_{i < j} a_{i, j}^{(k)} x_i \cdots x_{j-1}.
+	\end{equation*}
+	Then we have the following estimates.
+	\begin{lemmalist}
+		\item
+		The symmetrized product fulfils the inequality
+		\begin{equation}
+			\label{note1:lemma:Ex1ProductEstimateAssociative}
+			\left\Vert
+				\sum\limits_{\sigma \in S_n}
+				\frac{1}{n!}
+				a^{(\sigma(1))} \cdots a^{(\sigma(n))}
+			\right\Vert_p
+			\leq
+			\frac{1}{\sqrt[p]{n!}}
+			\norm{a^{(1)}}_p \cdots \norm{a^{(n)}}_p.
+		\end{equation}
+		
+		\item
+		$\algebra{A}_p$ is not topologically nilpotent but topologically uniformly 
+		nil as associative algebra with characteristic series fulfilling
+		\begin{equation}
+			\label{note1:lemma:Ex1NilpotencyAssociative}
+			\sqrt[p]{\frac{1}{n}} 
+			\leq 
+			\mathcal{N}_1(n) 
+			\leq 
+			\sqrt[p]{\frac{\E}{n}}.
+		\end{equation}	
+	\end{lemmalist}
+\end{lemma}
+\begin{proof}
+	We just need to compute
+	\begin{align*}
+		\left\Vert
+			\sum\limits_{\sigma \in S_n}
+			a^{(\sigma(1))} \cdots a^{(\sigma(n))}
+		\right\Vert_p^p
+		&=
+		\sum\limits_{\sigma \in S_n}
+		\sum\limits_{i_0 < i_1 < \cdots < i_n}
+		\left|
+			a_{i_0, i_1}^{(\sigma(1))}
+		\right|^p
+			\cdots
+		\left|
+			a_{i_{n-1}, i_n}^{(\sigma(n))}
+		\right|^p
+		\\
+		& \leq
+		\Bigg(
+			\sum\limits_{i < j}
+			\left|
+				a_{i,j}^{(1)}
+			\right|^p
+		\Bigg)
+		\cdots
+		\Bigg(
+			\sum\limits_{i < j}
+			\left|
+				a_{i,j}^{(n)}
+			\right|^p
+		\Bigg)
+		\\
+		& \leq
+		\left(
+			\sum\limits_{\sigma \in S_n}
+			\Bigg(
+				\sum\limits_{i < j}
+				\left|
+					a_{i,j}^{(1)}
+				\right|^p
+			\Bigg)
+			\cdots
+			\Bigg(
+				\sum\limits_{i < j}
+				\left|
+					a_{i,j}^{(n)}
+				\right|^p
+			\Bigg)
+		\right)^{1/p}
+		\\
+		&=
+		\sqrt[p]{n!}
+		\norm{a^{(1)}}_p \cdots \norm{a^{(n)}}_p.
+	\end{align*}
+	For the second part, it is clear that the symmetrized product coincides with 
+	the usual product, if $a^{(1)} = \cdots = a^{(n)} = a$. Taking $\norm{a}_p = 1$
+	and using $\frac{1}{n!} \leq \frac{\E^n}{n^n}$ we get the estimate of the right 
+	hand side for $\mathcal{N}_1(n)$ by taking the $n$-th root.
+	For the left hand side, we take
+	\begin{equation*}
+		a_n 
+		=
+		\frac{1}{\sqrt[p]{n}}
+		\sum\limits_{i=1}^n
+		x_i.
+	\end{equation*}
+	Note that $\norm{a_n}_p = 1$ for all $n$ and we get
+	\begin{equation*}
+		\norm{a_n^n}_p
+		=
+		\left\Vert
+			\left(
+				\frac{1}{\sqrt[p]{n}}
+				\sum\limits_{i=1}^n
+				x_i
+			\right)^n
+		\right\Vert_p
+		=
+		\sqrt[p]{\frac{1}{n^n}}
+		\norm{x_1 \cdots x_n}_p
+		=
+		\sqrt[p]{\frac{1}{n^n}},
+	\end{equation*}
+	yielding $\mathcal{N}_1(n) \geq \sqrt[p]{\frac{1}{n}}$.
+	Hence $\algebra{A}_p$ is at least uniformly topologically nil. But since
+	\begin{equation*}
+		\norm{a_1 \cdots a_n}_p
+		=
+		\norm{a_1}_p \cdots \norm{a_n}_p
+	\end{equation*}
+	for $a_i = x_i$ and $i = 1, \ldots, n$, we see that $\algebra{A}_p$ is 
+	\emph{not} topologically nilpotent, hence the statement is true.
+\end{proof}
+Now we want to pass to the Lie algebra $\algebra{A}'_p$ which comes from this 
+associative algebra. Note that we get almost the same properties concerning the 
+nilpotency.
+\begin{lemma}
+	The Banach-Lie algebra $\algebra{A}'_p$ has the following properties.
+	\begin{lemmalist}
+		\item
+		The symmetrized iterated Lie brackets fulfil the inequality
+		\begin{equation}
+			\label{note1:lemma:Ex1ProductEstimateLie}
+			\left\Vert
+				\sum\limits_{\sigma \in S_n}
+				\frac{1}{n!}
+				\left[a^{(\sigma(1))}, 
+					\left[
+						\ldots 
+						\left[a^{(\sigma(n))}, b \right]
+						\ldots 
+					\right]
+				\right]
+			\right\Vert_p
+			\leq
+			\sqrt[p]{\frac{2^n}{n!}}
+			\norm{a^{(1)}}_p \cdots \norm{a^{(n)}}_p \norm{b}_p.
+		\end{equation}
+		
+		\item
+		$\algebra{A}_p$ is not topologically nilpotent but topologically uniformly 
+		nil as Lie algebra with characteristic series fulfilling
+		\begin{equation}
+			\label{note1:lemma:Ex1NilpotencyLie}
+			\sqrt[p]{\frac{1}{n}} 
+			\leq 
+			\mathcal{N}_1(n) 
+			\leq 
+			\sqrt[p]{\frac{2 \E}{n}}.
+		\end{equation}	
+	\end{lemmalist}
+\end{lemma}
+\begin{proof}
+	We just have to compute explicitly the norm of the iterated brackets in 
+	Equation \eqref{note1:lemma:Ex1ProductEstimateLie} and use Estimate 
+	\eqref{note1:lemma:Ex1ProductEstimateAssociative} for the associative algebra.
+	Let $a^{(1)}, \ldots, a^{(n)}, b \in \algebra{A}'_p$ and we have
+	\begin{align*}
+		\Bigg\Vert
+			\sum\limits_{\sigma \in S_n}
+			\frac{1}{n!}
+		&
+			\left[a^{(\sigma(1))}, 
+				\left[
+					\ldots 
+					\left[a^{(\sigma(n))}, b \right]
+					\ldots 
+				\right]
+			\right]
+		\Bigg\Vert_p
+		\\
+		&=
+		\left\Vert
+			\sum\limits_{\sigma \in S_n}
+			\frac{1}{n!}
+			\sum\limits_{k = 0}^n
+			\sum\limits_{1 \leq \ell_1 < \cdots < \ell_k \leq n}
+			(-1)^k
+			\binom{n}{k}
+			a^{(\sigma(\ell_1))}
+			\cdots
+			a^{(\sigma(\ell_k))}
+			\cdot b \cdot
+			a^{(\sigma(1))}
+			\cdots
+			\widehat{a^{(\sigma(\ell))}}
+			\cdots
+			a^{(\sigma(1))}
+		\right\Vert_p
+		\\
+		& \leq
+		\frac{1}{n!}
+	\end{align*}
+\end{proof}
 
 
 
