@@ -412,9 +412,9 @@ We now propose a good criterion, which forbids this kind of effects.
 We now want to see that if a locally convex topology is $\E$-like, then effects 
 like in Remark \ref{Rem:BCHDesaster} can not occur. 
 \begin{proposition}
-	Let $\lie{g}$ be a Banach-Lie algebra and $\algebra{U}(\lie{g})$ has an $\E$-
-	like topology. Then the Baker-Campbell-Hausdorff series converges globally on 
-	$\lie{g}$.
+	Let $\lie{g}$ be a Banach-Lie algebra and $\algebra{U}(\lie{g})$ has an 
+	$\E$-like topology. Then the Baker-Campbell-Hausdorff series converges globally 
+	on $\lie{g}$.
 \end{proposition}
 \begin{proof}
 	We use the $\E$-like topology on $\algebra{U}(\lie{g})$.
@@ -534,62 +534,318 @@ be $\E$-like for nilpotent, locally convex Lie algebras.
 We have everything at the hand to state or main Theorem now:
 \begin{theorem}
 	\label{Thm:Main}
-	Let $\lie{g}$ be a Banach-Lie algebra. The $\lie{g}$ is $\E$-like if and only 
-	if it is of type $(ii')$.
+	A Banach-Lie algebra is $\E$-like if and only if it is uniformly 
+	quasi-nilpotent.
 \end{theorem}
 Since it is rather long and technical, we will split up the proof into two parts.
 
 
-\subsection{Necessity of Type $II'$-Nilpotency}
-It is rather easy to show, that being of type $(ii')$ is really necessary to be 
+\subsection{$\E$-like Banach Lie Algebras are of Type $II$}
+It is rather easy to show, that being of type $(ii)$ is really necessary to be 
 $\E$-like.
 \begin{proposition}
-	Let $\lie{g}$ be a Banach-Lie algebra, which is not of type $(ii')$. Then it is 
+	Let $\lie{g}$ be a Banach-Lie algebra, which is not of type $(ii)$. Then it is 
 	not $\E$-like.
 \end{proposition}
 \begin{proof}
 	The idea is to construct two sequences which converge to zero, but whose 
-	product does not converge: Being not of type $(ii')$ means, that there is an
-	$\varepsilon > 0$, such that $\lim_{n \rightarrow \infty} \mathcal{S}(n) > 
+	product does not converge: Being not of type $(ii)$ means, that there is an
+	$\varepsilon > 0$, such that $\lim_{n \rightarrow \infty} \mathcal{N}_1(n) > 
 	\varepsilon$. This means that for every $n \in \mathbb{N}$, there is a sequence 
-	$\left(\xi_1^k, \ldots, \xi_1^k\right)_{k \in \mathbb{N}} \subset 
-	\mathbb{B}_1(0)^n$, 
+	$\left(\xi_{n, k} \right)_{k \in \mathbb{N}} \subset \mathbb{B}_1(0)$, 
 	such that
 	\begin{equation*}
 		\lim_{k \longrightarrow \infty}
 		\left\Vert
-			\frac{1}{n!}
-			\sum\limits_{\sigma \in S_n}
-			\ad_{\xi_{\sigma(1)}^k}
-			\circ \cdots \circ
-			\ad_{\xi_{\sigma(n)}^k}
+			(\ad_{\xi_{n, k}})^n
 		\right\Vert^{\frac{1}{n}}
 		=
-		\mathcal{S}(n).
+		\mathcal{N}_1(n).
 	\end{equation*}
-	Let's fix an $\varepsilon' < \varepsilon$, then for every $n$, there is a $k 
-	\in \mathbb{N}$, such that
+	So for every $n, k \in \mathbb{N}$ we have
 	\begin{equation*}
 		\left\Vert
-			\frac{1}{n!}
-			\sum\limits_{\sigma \in S_n}
-			\ad_{\xi_{\sigma(1)}^k}
-			\circ \cdots \circ
-			\ad_{\xi_{\sigma(n)}^k}
+			(\ad_{\xi_{n, k}})^n
 		\right\Vert^{\frac{1}{n}}
-		> \varepsilon'.
+		> \varepsilon.
 	\end{equation*}
-	We denote those $\xi_1^k, \ldots, \xi_n^k$ as $\eta_1^n, \ldots, \eta_n^n$ and 
-	define $\eta^n = \eta_1^n \vee \cdots \vee \eta_n^n \in \Sym^n(\lie{g})$.
+	This means that we find for every element $\xi_{n,n}$ a sequence 
+	$(\alpha_{n, \ell})_{\ell \in \mathbb{N}}$ with $\norm{\alpha_{n, \ell}} = 1$ 
+	for all $n, \ell \in \mathbb{N}$ and
+	\begin{equation*}
+		\lim_{\ell \longrightarrow \infty}
+		(\ad_{\xi_{n,n}})^n(\alpha_{n,\ell})
+		> 
+		\varepsilon^n.
+	\end{equation*}
+	We define a new sequence $(\eta_n)_{n \in \mathbb{N}}$ with 
+	$\eta_n = \alpha_{n, \ell}$ where $\ell$ is chosen big enough to 
+	fulfil $(\ad_{\xi_{n,n}})^n(\alpha_{n,\ell}) > \varepsilon^n$.
+	Now let's assume we have an $\E$-like topology on $\algebra{U}(\lie{g})$, 
+	defined by a countable set of seminorms and we denote by $\algebra{P}$ the set 
+	of all continuous seminorms. Then we have for every $\xi \in \lie{g}$ and every 
+	$p \in \algebra{P}$
+	\begin{equation*}
+		p \left( \exp(\xi) \right)
+		=
+		p \left(
+			\sum\limits_{n=0}^\infty
+			\frac{\xi^n}{n!}
+		\right)
+		\leq
+		\sum\limits_{n=0}^\infty
+		\frac{p\left( \xi^n \right)}{n!}
+		<
+		\infty,
+	\end{equation*}
+	since the power series converges absolutely. Since the sequence $(\xi_{n,n})_{n 
+	\in \mathbb{N}}$ is bounded in $\lie{g}$, it is also bounded in $\algebra{U}
+	(\lie{g})$. Hence for every $t > 0$, the sequence $(\exp(t \xi_{n,n}))_{n \in 
+	\mathbb{N}}$ is bounded by the continuity of the exponential function and the 
+	sequence
+	\begin{equation*}
+		\left(
+			\frac{t^n}{n!}
+			p\left(
+				\xi_{n,n}^n
+			\right)
+		\right)_{n \in \mathbb{N}}
+	\end{equation*}
+	converges to zero (in $\lie{g}$ and in $\algebra{U}(\lie{g})$). The series 
+	$(\frac{1}{n} \eta_n)_{n \in \mathbb{n}}$ also converges to zero, again in 
+	$\lie{g}$ and $\algebra{U}(\lie{g})$.
+	Now we want to show that their product does \emph{not} converge to zero
+	to get a contradiction to the continuity of the multiplication. Therefore
+	we need again the projection map $\pi_1 \colon \algebra{U}(\lie{g}) 
+	\longrightarrow \lie{g}$ which is linear and continuous and should hence not 
+	spoil the convergence. For every fixed $t > 0$, we have
+	\begin{align*}
+		p \left(
+			\pi_1\left(
+				\frac{t^n \xi_{n,n}^n}{n!}
+				\cdot
+				\eta_n
+			\right)
+		\right)
+		&=
+		p\left(
+			\pi_1 \left(
+				\frac{1}{n!}
+				\sum\limits_{k=0}^n
+				\binom{n}{k}
+				B_k^* t^n
+				\xi_{n,n}^{\vee(k-n)}
+				\vee
+				(\ad_{\xi_{n,n}})^k(\eta_n)
+			\right)
+		\right)
+		\\
+		& =
+		p\left(
+			\frac{B_n^* t^n}{n!}
+			(\ad_{\xi_{n,n}})^n(\eta_n)
+		\right)
+		\\
+		& >
+		\frac{|B_n|^* t^n \varepsilon^n}{n!}.
+	\end{align*}
+	But we know that this series does not converge to zero, if we choose for 
+	example $t = \frac{3 \pi}{\varepsilon}$, which is allowed. Hence we have a 
+	contradiction.
 \end{proof}
 
 
-\subsection{Sufficiency of Type $II'$-Nilpotency}
+\subsection{Type $II'$ quasi-nilpotent Banach-Lie algebras are $\E$-like}
+
+For technical reasons, the reverse direction is split into two parts.
 
 \subsubsection{Part I}
+\begin{proposition}
+	Let $\lie{g}$ be a uniformly quasi-nilpotent Banach-Lie algebra and assume that 
+	there is a $p \geq 1$, such that $\lim_{n \rightarrow \infty} 
+	\frac{\mathcal{N}_1(n)}{\sqrt[p]{n!}} = 0$. Then there is an $\E$-like topology 
+	on $\algebra{U}(\lie{g})$.
+\end{proposition}
+\begin{proof}
+	The proof is constructive. We look at the situation in the symmetric tensor 
+	algebra and see that the product is continuous in $\Sym_{1^-}^{\bullet}
+	(\lie{g})$ by the following argumentation. Let's denote the norm on $\lie{g}$ 
+	for simplicity by $p$. Since $\lim_{n \rightarrow \infty} 
+	\frac{\mathcal{N}_1(n)}{\sqrt[p]{n}} = 0$, we know there is a $p \geq 1$ and a 
+	$c > 0$, such that $\mathcal{S}(n) \leq \frac{c}{\sqrt[p]{n}}$. Take $\xi_1, 
+	\ldots, \xi_k, \eta \in \lie{g}$, then we find for some $\varepsilon > 0$ with 
+	$R > 1 - \frac{1}{p} + \varepsilon$
+	\begin{align*}
+		p_R \big(
+		&
+			\xi_1 \tensor \cdots \tensor \xi_k
+			\star
+			\eta
+		\big)
+		\\
+		&=
+		\sum\limits_{n = 0}^k
+		\frac{|B_n^*|}{k!} \binom{k}{n}
+		(k + 1 - n)!^R
+		p^{k+1-n}
+		\left(
+			\sum	\limits_{\sigma \in S_k}
+			\xi_{\sigma(1)} \cdots \xi_{\sigma(k-n)}
+			\cdot
+			\left( 
+				\ad_{\xi_{\sigma(k-n+1)}} 
+				\circ \cdots \circ
+				\ad_{\xi_{\sigma(k)}}
+			\right)
+			(\eta)
+		\right)
+		\\
+		& \leq
+		(k + 1)^R
+		\sum\limits_{n = 0}^k
+		\frac{|B_n^*|}{n!}
+		\frac{1}{(k-n)!^{1 - R}}
+		p^{k+1-n}
+		\Bigg(
+			\sum\limits_{
+				I = \{i_1, \ldots, i_n\} \subset \{1, \ldots, k\}
+			}
+			(n-k)!
+			\xi_1 \cdots \widehat{\xi_I} \cdots \xi_k
+		\\
+		& \quad \cdot
+			\sum	\limits_{\sigma \in S_n}
+			\left( 
+				\ad_{\xi_{\sigma(1)}} 
+				\circ \cdots \circ
+				\ad_{\xi_{\sigma(n)}}
+			\right)
+			(\eta)
+		\Bigg)
+		\\
+		& \leq
+		(k + 1)^R
+		\sum\limits_{n = 0}^k
+		\frac{|B_n^*|}{n!}
+		\frac{(k-n)!}{(k-n)!^{1 - R}}
+		\sum\limits_{
+			I = \{i_1, \ldots, i_n\} \subset \{1, \ldots, k\}
+		}
+		p(\xi_1) \cdots \widehat{p(\xi_I)} \cdots p(\xi_k)
+		\\
+		& \quad \cdot
+		p \left(
+			\sum	\limits_{\sigma \in S_n}
+			\left( 
+				\ad_{\xi_{\sigma(1)}} 
+				\circ \cdots \circ
+				\ad_{\xi_{\sigma(n)}}
+			\right)
+			(\eta)
+		\right)
+		\\
+		& \leq
+		(k + 1)^R
+		\sum\limits_{n = 0}^k
+		\frac{|B_n^*|}{n!}
+		\frac{(k-n)!}{(k-n)!^{1 - R}}
+		\binom{k}{n}
+		\frac{c^n n!}{n!^{\frac{1}{p}}}
+		p(\xi_1) \cdots p(\xi_k) p(\eta)
+		\\
+		& \leq
+		(k + 1)^R
+		\sum\limits_{n = 0}^k
+		\frac{c^n |B_n^*|}{n!^{1 + \varepsilon}}
+		\binom{k}{n}^{1-R}
+		k!^R
+		p(\xi_1) \cdots p(\xi_k) p(\eta)
+		\\
+		& \leq
+		(k + 1)^R
+		\underbrace{
+			2^{k (1-R)}
+		}_{
+			=\kappa_1 k!^{\frac{1-R}{2}}
+		}
+		\underbrace{
+			\sum\limits_{n = 0}^k
+			\frac{c^n |B_n^*|}{n!^{1 + \varepsilon}}
+		}_{
+			= \kappa_2
+		}
+		k!^R
+		p^k(\xi_1 \tensor \cdots \tensor \xi_k) p(\eta)
+		\\
+		& \leq
+		(k-1)^R
+		\kappa
+		p_{R + \frac{1-R}{2}}
+		(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta).
+	\end{align*}
+	In the last step, we took $\kappa = \kappa_1 \kappa_2$. We can extend this 
+	estimate to any arbitrary tensor of degree at most $k$ on the left hand side.
+	Now we do the next step and take $\xi_1, \ldots, \xi_k, \eta_1, \ldots, 
+	\eta_\ell \in \lie{g}$. We can iterate this estimate to get
+	\begin{align*}
+		p_R \big(
+			\xi_1 \tensor \cdots \tensor \xi_k
+		&
+			\star
+			\eta_1 \tensor \cdots \tensor \eta_\ell
+		\big)
+		\\
+		& \leq
+		(k + \ell)^R (k + \ell - 1)^{1 - \frac{1 - R}{2}}
+		\cdots (k+1)^{{1 - \frac{1 - R}{2^{\ell - 1}}}}
+		\kappa^\ell
+		p_{1 - \frac{1-R}{2^\ell}}
+		\left( \xi_1 \tensor \cdots \tensor \xi_k \right)
+		p(\eta_1) \cdots p(\eta_\ell)
+		\\
+		& \leq
+		\left( \frac{(k+\ell)!}{\ell!} \right)^{\frac{1 + R}{2}}
+		\kappa^\ell
+		p_1 \left( \xi_1 \tensor \cdots \tensor \xi_k \right)
+		p^\ell \left( \eta_1 \tensor \cdots \tensor \eta_\ell \right)
+		\\
+		& \leq
+		2^{k + \ell}
+		\ell!^{\frac{1 + R}{2}}
+		\kappa^\ell
+		p_1 \left( \xi_1 \tensor \cdots \tensor \xi_k \right)
+		p^\ell \left( \eta_1 \tensor \cdots \tensor \eta_\ell \right)
+		\\
+		&=
+		(2p)_1 \left( \xi_1 \tensor \cdots \tensor \xi_k \right)
+		(2 \kappa p)_{\frac{1 + R}{2}} 
+		\left( \eta_1 \tensor \cdots \tensor \eta_\ell \right).
+	\end{align*}
+	Finally we can assume without loss of generality that $\ell \geq k$, since
+	we could do all estimates also for the right hand side in the same way.
+	By setting $R' = \frac{3}{4}(1-R)$, we find
+	\begin{equation*}
+		p_R \big(
+			\xi_1 \tensor \cdots \tensor \xi_k
+			\star
+			\eta_1 \tensor \cdots \tensor \eta_\ell
+		\big)
+		\leq
+		(2p)_{R'}
+		\left( \xi_1 \tensor \cdots \tensor \xi_k \right)
+		(2 \kappa p)_{R'}
+		\left( \eta_1 \tensor \cdots \tensor \eta_\ell \right)
+	\end{equation*}
+	and the proposition is proven.
+\end{proof}
+
 
 \subsubsection{Part II}
-
+Now we need to cover the last possible case: A uniformly quasi-nilpotent Banach-Lie 
+algebra, which has a characteristic sequence, which decreases slower than any power 
+of $n!$. An example for something like this would be $\chi(n) = (\log(n) + 1)^{-n}$ 
+for $n \in \mathbb{N}$.
 
 \section{Module Structures in the $\Tensor_R$-Topology}
 
