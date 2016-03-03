@@ -844,8 +844,307 @@ For technical reasons, the reverse direction is split into two parts.
 \subsubsection{Part II}
 Now we need to cover the last possible case: A uniformly quasi-nilpotent Banach-Lie 
 algebra, which has a characteristic sequence, which decreases slower than any power 
-of $n!$. An example for something like this would be $\chi(n) = (\log(n) + 1)^{-n}$ 
-for $n \in \mathbb{N}$.
+of $n!$. An example for something like this would be $\mathcal{N}_1(n) = 
+(\log(n) + 1)^{-n}$ for $n \in \mathbb{N}$.
+\begin{proposition}
+	Let $\lie{g}$ be a uniformly quasi-nilpotent Banach-Lie algebra and assume that 
+	for all $p \geq 1$, we have $\lim_{n \rightarrow \infty} 
+	\frac{\mathcal{N}_1(n)}{\sqrt[p]{n!}} = 0$. Then there is an $\E$-like topology 
+	on $\algebra{U}(\lie{g})$.
+\end{proposition}
+\begin{proof}
+	Now the idea is to use increasing sequences as counterweights and to modify the 
+	$\Tensor_{1^-}$-topology in this way. Therefore, we need 
+	to define a series $(\widetilde{\alpha}_n)_{n \in \mathbb{N}}$ with
+	\begin{equation*}
+		\widetilde{\alpha}
+		=
+		\log \left(
+			\mathcal{N}_1(n)^{-1}
+		\right).
+	\end{equation*}
+	Since $\mathcal{N}_1(n)$ is monotonously decreasing as $\norm{[\xi, \eta]} \leq 
+	\norm{\xi} \norm{\eta}$, $\widetilde{\alpha}_n$ will be monotonously increasing.
+	It is easy to see, that we can define a new series $(\alpha_n)_{n \in 
+	\mathbb{N}}$, which fulfils $\alpha_n \leq \widetilde{\alpha}_n$ for all $n \in 
+	\mathbb{N}$ and which is ``convex'', that means for all $n, m \in \mathbb{N}$, 
+	$n \leq m$ and $t \in \mathbb{N}$ with $n \leq t \leq m$, we have
+	\begin{equation*}
+		\alpha_t 
+		\leq 
+		\alpha_n \left( 1 - \frac{t - n}{m - n} \right) + 
+		\alpha_m \frac{t - n}{m - n}.
+	\end{equation*}
+	We can define a convex, smooth and monotonously increasing function
+	\begin{equation*}
+		f \colon
+		\mathbb{R}_0^+
+		\longrightarrow
+		\mathbb{R}^+
+		, \quad
+		\forall_{n \in \mathbb{N}}
+		\colon
+		f(n) 
+		=
+		\alpha_n,
+	\end{equation*}
+	which must fulfil in addition
+	\begin{equation*}
+		\forall_{p \geq 1}
+		\colon
+		\lim_{x \rightarrow \infty}
+		\frac{p f(x)}{x \log(x)}
+		=
+		0
+		\quad \text{ and } \quad
+		\lim_{x \rightarrow \infty}
+		\frac{f(x)}{x}
+		=
+		\infty
+	\end{equation*}
+	since $\mathcal{N}_1(n)$ decreases more slowly than any power of the factorials, 
+	but $\lie{g}$ is still uniformly quasi-nilpotent.
+	
+	We will need an analogue of the estimate $\binom{n}{m} \leq 2^n$ for the series 
+	$\alpha$. This will be achieved by the following lemma.
+	\begin{lemma}
+		Let $(\alpha_n)_{n \mathbb{N}}$ be a monotonously increasing, convex 
+		sequence, such that
+		\begin{equation*}
+			\lim_{n \rightarrow \infty}
+			\frac{\alpha_n}{n \log(n)}
+			=
+			0
+			\quad \text{ and } \quad
+			\lim_{n \rightarrow \infty}
+			\frac{\alpha_n}{n}
+			=
+			\infty.
+		\end{equation*}
+		Then there are constants $b, c \geq 0$, such that for every $n,m \in 
+		\mathbb{N}$ with $m \leq n$ the following inequality holds:
+		\begin{equation}
+		\label{Lemma:LogBinomialEstimate}
+			\alpha_n - \alpha_m - \alpha_{n-m}
+			\leq
+			b + c n.
+		\end{equation}
+	\end{lemma}
+	\begin{subproof}
+		This is a logarithmic version of the estimate for the binomial coefficient.
+		First note that we can assign to the sequence $\alpha$ a smooth, 
+		monotonously increasing and convex function $f$ as we did before.
+		Note that $\lim_{x \rightarrow \infty} f'(x) = \infty$, since $f$ is convex 
+		and $\lim_{x \rightarrow \infty} \frac{f(x)}{x} = \infty$. Now we can use
+		the theorem of de l'H\^{o}spital to get
+		\begin{equation*}
+			0 
+			=
+			\lim_{x \rightarrow \infty}
+			\frac{f(x)}{x \log(x)}
+			=
+			\lim_{x \rightarrow \infty}
+			\frac{f'(x)}{\log(x) + 1}
+			=
+			\lim_{x \rightarrow \infty}
+			x f''(x)
+		\end{equation*}
+		and hence the is a $c \geq 0$ with $f''(x) \leq \frac{c}{x}$. 
+		Now assume $z = x + y$ for positive real numbers $x,y,z$. By Taylor's 
+		theorem, we find
+		\begin{align*}
+			\tag{I}
+			f(z)
+			&=
+			f(x) + y f'(x)
+			+ \int\limits_{x}^{z} (z - t) f''(t) dt
+			\\
+			\tag{II}
+			&=
+			f(y) + x f'(y)
+			+ \int\limits_{y}^{z} (z - t) f''(t) dt.
+		\end{align*}
+		For reasons of convexity, the function
+		\begin{equation*}
+			g(z,x)
+			=
+			g(z) - g(x) - g(z-x)
+		\end{equation*}
+		is maximal for fixed $z \in \mathbb{R}^+$ if $2x = z$. So we have proven
+		Equation \eqref{Lemma:LogBinomialEstimate}, if we can show 
+		$f(2x) - 2f(x) \leq cx + d$. Using (I) for $x = y$, we find
+		\begin{equation*}
+			f(2x)
+			=
+			f(x) - x f'(x) +
+			\int\limits_x^{2x} (2x-t) f''(t) dt
+			\quad
+			\Longleftrightarrow
+			\quad
+			f(2x) - 2 f(x)
+			=
+			x f'(x) - f(x) +
+			\int\limits_x^{2x} (2x-t) f''(t) dt.
+		\end{equation*}
+		Now we use a backward Taylor development to find
+		\begin{align*}
+			&&
+			f(0)
+			&=
+			f(x) - xf'(x) + \int_x^0 (0-t) f''(t) dt
+			\\
+			& \Longleftrightarrow &
+			xf'(x) - f(x)
+			&=
+			\int_0^x t f''(t) dt - f(0)
+			\\&&
+			& \leq
+			\int_0^x t f''(t) dt
+			\\&&
+			& \leq
+			\int_0^x t \frac{c}{t} dt
+			\\&&
+			&=
+			cx.
+		\end{align*}
+		We then get
+		\begin{align*}
+			f(2x) - 2 f(x)
+			& \leq
+			cx + \int\limits_x^{2x} (2x-t) f''(t) dt
+			\\
+			& \leq
+			cx + 
+			\int\limits_x^{2x} (2x-t) f\frac{c}{t} dt
+			\\
+			&=
+			cx + cx (\log(4) - 1)
+			\\
+			&=
+			c \log(4) x
+		\end{align*}
+	\end{subproof}
+	Now we can start doing the estimation. Let's define by $(\omega_n)$ a convex, 
+	monotonously increasing series, which is smaller equal than the inverse of 
+	$\max{\mathcal{N}_1(n), 2}$, but still growing faster than any exponential. This 
+	is exactly, what we did before. Define a series $(\alpha)$ by $\alpha_n = 
+	\sqrt{\omega_n}$. We will use $\alpha^{\frac{1}{2^m}}$ as counterweights for $m 
+	\in \mathbb{N}_0$, in order to get a Fr\'echet topology.
+	By doing analogous computations to the first part, we arrive at
+	\begin{align*}
+		p_\alpha \big(
+		&
+			\xi_1 \tensor \cdots \tensor \xi_k
+			\star_z
+			\eta
+		\big)
+		=
+		(k+1) 
+		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta)
+		\sum\limits_{n=0}^k
+		\frac{|B_n^*| |z|^n}{n!}
+		\frac{1}{\alpha_{k+1-n} \omega_n}
+		\\
+		& \leq
+		(k+1) 
+		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta)
+		\frac{1}{\alpha_{k+1}}
+		\sum\limits_{n=0}^k
+		\frac{|B_n^*| |z|^n}{n! \alpha_n}
+		\frac{\alpha_{k+1}}{\alpha_{k+1-n} \alpha_n}
+		\\
+		& \leq
+		(k+1) 
+		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta)
+		\frac{1}{\alpha_{k+1}}
+		\left(
+			\sum\limits_{n=0}^k
+			\frac{|B_n^*| |z|^n}{n! \alpha_n}
+		\right)
+		\left(
+			\sum\limits_{n=0}^k
+			\frac{\alpha_{k+1}}{\alpha_{k+1-n} \alpha_n}
+		\right)
+		\\
+		& \leq
+		(k+1) 
+		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta)
+		\frac{1}{\alpha_{k+1}}
+		\kappa_1
+		c^{k+1}
+		\\
+		& \leq
+		(k+1) 
+		p_{\alpha'}(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta)
+		\frac{\sqrt{\alpha_k}}{\alpha_{k+1}^{3/4}}
+		\kappa_1
+		\kappa_2
+		\\
+		&=
+		\kappa
+		(k+1)
+		\frac{1}{\sqrt[4]{\alpha_{k+1}}}
+		\frac{\sqrt{\alpha_k}}{\sqrt{\alpha_{k+1}}}
+		p_{\alpha'}(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta).
+	\end{align*}
+	We use the notation $\alpha' = \sqrt{\alpha}$ and $\alpha^{(n)} = 
+	\alpha^{\frac{1}{2^n}}$ to keep things readable. We find the estimate on all 
+	tensors of degree at most $k$ by the infimum argument and can iterate to higher 
+	tensors on the right hand side now:
+	\begin{align*}
+		p_\alpha \big(
+		&
+			\xi_1 \tensor \cdots \tensor \xi_k
+			\star_z
+			\eta_1 \tensor \cdots \tensor \eta_\ell
+		\big)
+		\\
+		& \leq
+		\kappa^\ell
+		\frac{(k + \ell)!}{k!}
+		\frac{\alpha_{k + \ell - 1}'}{\alpha_{k + \ell}' \alpha_{k+\ell}''}
+		\frac{\alpha_{k + \ell - 2}''}
+		{\alpha_{k + \ell - 1}'' \alpha_{k+\ell-1}^{(3)}}
+		\cdots
+		\frac{\alpha_{k}^{(\ell)}}
+		{\alpha_{k + 1}^{(\ell)} \alpha_{k+1}^{(\ell + 1)}}
+		p_{\alpha^{(\ell)}} (\xi_1 \tensor \cdots \tensor \xi_k)
+		p^\ell ( \eta_1 \tensor \cdots \tensor \eta_\ell )
+		\\
+		& \leq
+		\kappa^\ell
+		2^{k + \ell}
+		\ell!
+		\frac{1}{\alpha_{k + \ell}'}
+		k!
+		p^k (\xi_1 \tensor \cdots \tensor \xi_k)
+		p^\ell ( \eta_1 \tensor \cdots \tensor \eta_\ell )
+		\\
+		& \leq
+		\kappa^\ell
+		2^{k + \ell}
+		\frac{k! \ell!}{\alpha_k' \alpha_\ell '}
+		p^k (\xi_1 \tensor \cdots \tensor \xi_k)
+		p^\ell ( \eta_1 \tensor \cdots \tensor \eta_\ell )
+		\\
+		&=
+		(2p)_{\alpha'} (\xi_1 \tensor \cdots \tensor \xi_k)
+		(2 \kappa p)_{\alpha'} ( \eta_1 \tensor \cdots \tensor \eta_\ell ).
+	\end{align*}
+	This, together with the infimum argument, finishes the proof, since it is clear 
+	from the way we can describe the completion of $\left( \Sym^{\bullet}(\lie{g}), 
+	\star_z \right)$, that exponential functions are part of it. The continuity of 
+	the grading maps is also clear from the construction. Hence the topology is 
+	$\E$-like.
+\end{proof}
+
+
 
 \section{Module Structures in the $\Tensor_R$-Topology}
 
