@@ -1,0 +1,1160 @@
+%
+% A new paper...
+% Title: Convergence of the Gutt Star Product
+% git-repository is gstar
+%
+% From now on, we proudly use the chairx style file for
+% everything. All stuff in there is soo useful!
+%
+
+
+%
+% Before we start, let's nag a bit about old latex constructs
+% just to learn... This will be removed in the final version
+%
+
+\RequirePackage[l2tabu, orthodox]{nag}
+
+
+%
+% we always start with 11pt, draft mode on for easier editing and
+% english as default language
+%
+
+\documentclass[
+11pt,                          % standard font size
+%draft,                         % draft or final?
+english                        % standard language
+]{article}
+
+
+%
+% some macro packages
+%
+
+\usepackage[english]{babel}    % with explicit language
+\usepackage{amsmath}           % ams mathematical stuff
+\usepackage[utf8]{inputenc}    % smart input of funny chars
+\usepackage[T1]{fontenc}       % also for the font encoding
+\usepackage{longtable}         % tables longer than one page
+\usepackage{exscale}           % large summation signs in 11pt
+\usepackage[final]{graphicx}   % to include pdf pictures
+\usepackage[sort]{cite}        % nicer citations
+\usepackage{array}             % nice tables
+\usepackage{wasysym}           % smiley symbols
+\usepackage[a4paper]{geometry} % geometry of page layout
+%\usepackage{gitinfo2}          % include git info: Version 2
+%\usepackage[multiuser]{fixme}  % correction notes, warnings etc.
+\usepackage{xspace}            % better spacing after macros
+\usepackage{tikz}              % for commutative diagrams and stuff
+\usepackage{ifdraft}           % to determine whether draft mode
+\usepackage{chairx}            % the Chair X style file
+\usepackage[expansion=false    % no font expansion
+           ]{microtype}        % only protrusion
+\usepackage[nottoc]{tocbibind} % refs and index in the toc
+\usepackage[backref=page,      % backrefs in the bibliography
+           final=true,         % always treat as final
+           pdfpagelabels       % use pdf page labels
+           ]{hyperref}         % hyperrefs are cool!
+
+%
+% Some own macros...
+%
+
+%\usepackage{mnsymbol}
+
+\newcommand{\ostar}{\star}
+\newcommand{\coproduct}{\Delta}
+\newcommand{\ocoproduct}{\Delta}
+
+\newcommand{\Eta}{\mathrm{H}}
+\newcommand{\Rho}{\operatorname{P}}
+\newcommand{\bch}[2]{\mathrm{BCH}\left(#1, #2\right)}
+\newcommand{\bchpart}[3]{\mathrm{BCH}_{#1}\left(#2, #3\right)}
+\newcommand{\bchparts}[4]{\mathrm{BCH}_{#1, #2}\left(#3, #4\right)}
+\newcommand{\bchtilde}[4]{\widetilde{\mathrm{BCH}}_{#1, #2}\left(#3; #4\right)}
+\newcommand\ot[2]{\stackrel{\mathclap{#1}}{#2}}
+%
+%\mathrel{\overset{\makebox[0pt]
+%	{\mbox{\normalfont\footnotesize\sffamily #1}}}{#2}}}
+
+
+%
+% pdf files for graphics in the following directory:
+%
+
+\graphicspath{{../tikz/}}
+
+
+%
+% tikz libraries to be loaded, feel free to add more...
+%
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathreplacing}
+
+
+%
+% page dimensions, scaling etc. Not final yet
+%
+
+
+\geometry{bindingoffset=0cm}
+\geometry{hcentering=true}
+\geometry{hscale=0.8}
+\geometry{vscale=0.8}
+
+
+%
+% check whether draft or not: synctex is soo cool
+%
+
+%\ifdraft{\synctex=1}{}
+
+
+%
+% fix me settings
+%
+
+%\fxusetheme{color}
+
+
+%
+% Get the authors from external file
+% This used in all documents of the paper project
+%
+
+%\input{../authors/authors}
+
+
+%
+% own local math macros follow here
+%
+
+
+%
+% title page for Convergence of the Gutt Star Product
+% authors are included from the authors file
+% This has to be adapted in the final version
+%
+
+\title{Quasi-Nilpotency in Banach-Lie Algebras}
+
+\author{
+  \textbf{Paul Stapor}\thanks{\texttt{paul.stapor@stud-mail.uni-wuerzburg.de}},
+  \addtocounter{footnote}{2}
+  \\[0.5cm]
+  \chairXaddress
+}
+
+%\date{Current Version of gstar: \gitAuthorIsoDate\\[0.2cm]
+%  {\small
+%    Last changes by \gitAuthorName{} on \gitAuthorDate \\
+%    Git revision of gstar: \texttt{\gitAbbrevHash{}} \gitReferences
+%  }
+%}
+
+\date{September 2015}
+
+
+%
+% the text starts here
+%
+
+\begin{document}
+
+%
+% title page
+%
+
+\maketitle
+
+%
+% abstract
+%
+
+\begin{abstract}
+    Nilpotency is a well-studied property in finite-dimensional algebras, but the 
+    transition to topological infinite-dimensional algebras is not easy, since there 
+    are many inequivalent notions of so called ``quasi-nilpotency'', which all imply 
+    true nilpotency in finite dimensions. In this work, we translate some notions 
+    from the better known associative theory to Lie algebras, in particular 
+    Banach-Lie algebras, clarify their relations among each other and give many 
+    examples. We will see that these notions can be linked to possible topologies on 
+    the universal enveloping algebra $\algebra{U}(\lie{g})$ of a Banach-Lie algebra 
+    $\lie{g}$ and show that one of them is equivalent to the existence of 
+    topologies which allow group-like elements in their completions. Finally, we 
+    generalize some of these results to locally convex Lie algebras.
+\end{abstract}
+
+\newpage
+
+
+%
+% table of contents
+%
+
+\tableofcontents
+\newpage
+
+
+%
+% Introduction
+%
+
+\section{Introduction}
+\label{sec:Introduction}
+
+
+
+\section{Topologies on Universal Enveloping Algebras}
+
+\subsection{The $\Tensor_R$-topology}
+
+\subsection{Nilpotent locally convex Lie-Algebras}
+
+Bimodules here...
+
+
+
+\subsection{$\E$-like Topologies}
+We are particularly interested in the question, when a Banach-Lie algebra $\lie{g}$ allows a locally convex topology on $\algebra{U}(\lie{g})$, which has such a big completion that exponential functions and hence group-like elements are part of the completion. This would the case for every locally multiplicatively convex structure, for example and hence especially for a topology induced by a norm. Unfortunately, this would lead to the fact, that we do not find the original topology on $\lie{g}$ in $\algebra{U}(\lie{g})$.
+\begin{remark}
+	\label{Rem:BCHDesaster}
+	Assume for every $\xi, \eta \in \lie{g}$ we would have $\exp(\xi)$ and 
+	$\exp(\eta)$ in $\widehat{\algebra{U}(\lie{g})}$. Then of course their product 
+	would be also part of the completion. But from 
+	\cite{esposito.stapor.waldmann:2015a:pre} we see that in this case
+	\begin{equation*}
+		\exp(\xi) \cdot \exp(\eta)
+		=
+		\exp\left(
+			\bch{\xi}{\eta}
+		\right),
+	\end{equation*}
+	so for all $\xi, \eta \in \lie{g}$, we could give a sense to the element 
+	$\exp\left( \bch{\xi}{\eta} \right)$, although we know that $\bch{\xi}{\eta}$ 
+	does not need to exist at all. 
+\end{remark}
+We now propose a good criterion, which forbids this kind of effects.
+\begin{definition}
+	Let $\lie{g}$ be a Banach-Lie algebra and $\tau$ a metrizable topology on 
+	$\algebra{U}(\lie{g})$. Then we say $\tau$ is an $\E$-like topology, if the 
+	three following things hold:
+	\begin{definitionlist}
+		\item
+		The multiplication in $(\algebra{U}(\lie{g}), \tau)$ is continuous.
+		
+		\item
+		For every $\xi \in \lie{g}$, the exponential series $\sum_{n=0}^\infty 
+		\frac{\xi^n}{n!}$ converges in the completion of $(\algebra{U}(\lie{g}), 
+		\tau)$.
+		
+		\item
+		The topology of $\lie{g}$ as a subspace of  the completion of $(\algebra{U}
+		(\lie{g}), \tau)$ is equivalent to the norm topology of $\lie{g}$ as 
+		Banach-Lie algebra.
+	\end{definitionlist}
+	We say that a Banach-Lie algebra is $\E$-like, when its universal enveloping 
+	algebra has an $\E$-like topology.
+\end{definition}
+We now want to see that if a locally convex topology is $\E$-like, then effects 
+like in Remark \ref{Rem:BCHDesaster} can not occur. 
+\begin{proposition}
+	Let $\lie{g}$ be a Banach-Lie algebra and $\algebra{U}(\lie{g})$ has an 
+	$\E$-like topology. Then the Baker-Campbell-Hausdorff series converges globally 
+	on $\lie{g}$.
+\end{proposition}
+\begin{proof}
+	We use the $\E$-like topology on $\algebra{U}(\lie{g})$.
+	Since $\widehat{\algebra{U}(\lie{g})}$ is a Fr\'echet space and $\lie{g}$ is a 
+	closed subspace, the can look at the quotient 
+	\begin{equation*}
+		\algebra{U}'(\lie{g})
+		=
+		\frac{\widehat{\algebra{U}(\lie{g})}}{\lie{g}},
+	\end{equation*}
+	which will be a Fr\'echet space again, since $\lie{g}$ is closed and the 
+	topology on $\widehat{\algebra{U}(\lie{g})}$ is second countable. We can see 
+	$\algebra{U}'(\lie{g})$ as a subspace of $\widehat{\algebra{U}(\lie{g})}$ an 
+	get two continuous projections
+	\begin{equation*}
+		\pi' \colon
+		\widehat{\algebra{U}(\lie{g})}
+		\longrightarrow
+		\algebra{U}'(\lie{g})
+		\quad \text{ and }
+		\pi \colon
+		\widehat{\algebra{U}(\lie{g})}
+		\longrightarrow
+		\lie{g}
+	\end{equation*}
+	fulfilling $\pi + \pi' = \id$. So in an $\E$-like topology, we have for $\xi, 
+	\eta \in \lie{g}$ and $t,s \in \mathbb{K}$
+	\begin{align*}
+		\pi \left( \exp(t \xi) \cdot \exp(s \eta) \right)
+		& =
+		\pi
+		\left(
+			\lim_{N \rightarrow \infty}
+			\left(
+				\sum\limits_{n=0}^N
+				\frac{t^n \xi^n}{n!}
+			\right)
+			\cdot
+			\lim_{M \rightarrow \infty}
+			\left(
+				\sum\limits_{m=0}^M
+				\frac{s^m \eta^m}{m!}
+			\right)
+		\right)
+		\\
+		& \ot{(a)}{=}
+		\pi
+		\left(
+			\lim_{N \rightarrow \infty}
+			\lim_{M \rightarrow \infty}
+			\left(
+				\sum\limits_{n=0}^N
+				\frac{t^n \xi^n}{n!}
+			\right)
+			\cdot
+			\left(
+				\sum\limits_{m=0}^M
+				\frac{s^m \eta^m}{m!}
+			\right)
+		\right)
+		\\
+		& \ot{(b)}{=}
+		\lim_{N \rightarrow \infty}
+		\lim_{M \rightarrow \infty}
+		\pi
+		\left(	
+			\left(
+				\sum\limits_{n=0}^N
+				\frac{t^n \xi^n}{n!}
+			\right)
+			\cdot
+			\left(
+				\sum\limits_{m=0}^M
+				\frac{s^m \eta^m}{m!}
+			\right)
+		\right)
+		\\
+		& \ot{(c)}{=}
+		\lim_{N \rightarrow \infty}
+		\lim_{M \rightarrow \infty}
+		\sum\limits_{n=0}^{N}
+		\sum\limits_{m=0}^{M}
+		\bchparts{n}{m}{t \xi}{s \eta}
+		\\
+		& \ot{(d)}{=}
+		\lim_{L \rightarrow \infty}
+		\sum\limits_{\ell=0}^{L}
+		\sum\limits_{a + b = \ell}
+		\bchparts{a}{b}{t \xi}{s \eta}{n}{m}
+		\\
+		& =
+		\lim_{L \rightarrow \infty}
+		\sum\limits_{\ell=0}^{L}
+		\bchpart{\ell}{t \xi}{s \eta}{n}{m},
+	\end{align*}
+	where we used the continuity of multiplication in $(a)$ and the one of $\pi$ in 
+	$(b)$. In $(c)$ we just evaluated $\pi$ and used the fact that the 
+	Baker-Campbell-Hausdorff series is a power series in $(d)$ and hence converges 
+	absolutely. So it must converge globally on $\lie{g}$, when the latter is seen 
+	as a subspace of $\widehat{\algebra{U}(\lie{g})}$. But since the topology is 
+	$\E$-like and therefore equivalent to the one of $\lie{g}$ as Banach-Lie 
+	algebra, $\lie{g}$ must be globally BCH.
+\end{proof}
+From \cite{woj} we see immediately, that being quasi-nilpotent is a necessary 
+condition for being $\E$-like for a Banach-Lie algebra. For a finite-dimensional 
+Lie algebra, this means that it must be nilpotent, since there quasi-nilpotency 
+implies nilpotency. Furthermore, in \cite{stapor:2015a}, it is shown that being 
+topologically uniformly nilpotent Banach-Lie algebras are $\E$-like. There and in 
+\cite{esposito.stapor.waldmann:2015a:pre}, the so called $\Sym_{1^-}$ was shown to 
+be $\E$-like for nilpotent, locally convex Lie algebras.
+
+
+
+
+\section{Quasi-Nilpotency in Banach-Lie Algebras}
+\label{sec:QuasiNilpotency}
+
+\subsection{Classes of Quasi-Nilpotent Banach-Lie Algebras}
+First, we want to classify, how we can ``measure'' the nilpotency of a Banach-Lie 
+algebra. In an associative Banach algebra $\algebra{A}$, the usual way is looking 
+at the spectral radii of the elements $a \in \algebra{A}$ or at the joint spectral 
+radii of bounded subsets of $\algebra{A}$. Unfortunately, for a Banach-Lie algebra, 
+a good notion of the spectral radius of elements is not so obvious. In 
+\cite{galindo.palacios:}, Galindo and Palacios constructed something that they 
+called the ``Lie-spectral radius''. We want to go a different way. Let $\lie{g}$ be 
+a Banach-Lie algebra, then we know that $\lie{g}$ itself is not an associative 
+Banach algebra, but the bounded linear operators on it $\Bounded(\lie{g})$ surely 
+form such an algebra using the spectral norm. Since the map $\ad \colon \lie{g} 
+\longrightarrow \Bounded(\lie{g})$ is a continuous homomorphism of Lie algebras, we 
+know that its image forms a closed (and hence complete) subspace of 
+$\Bounded(\lie{g})$ by the closed graph theorem. The subalgebra generated by 
+$\Im(\ad)$ is now a subalgebra of $\Bounded(\lie{g})$ and hence a normed (but not 
+necessarily complete) associative algebra. However, we can now use the notions from 
+the associative theory by applying them to this subalgebra of $\Bounded(\lie{g})$.
+\begin{definition}
+	\label{Def:Nilpotencies1}
+	Let $\lie{g}$ be a Banach-Lie algebra in which the Lie bracket fulfils the 
+	estimate
+	\begin{equation*}
+		\norm{ [\xi, \eta] }
+		\leq
+		\norm{\xi}
+		\norm{\eta}.
+	\end{equation*}
+	Denote by $\mathbb{B}_1(0)$ all elements $\xi \in \lie{g}$ with 
+	$\norm{\xi} = 1$. We say that
+	\begin{definitionlist}
+		\item
+		$\lie{g}$ is topologically nil (or radical, or quasi-nilpotent, or 
+		(quasi-nilpotent) of type $(i)$), if every $\xi \in \lie{g}$ is 
+		quasi-nilpotent, i.e.
+		\begin{equation*}
+			\lim_{n \longrightarrow \infty}
+			\norm{\ad_{\xi}^n}^{\frac{1}{n}}
+			=
+			0.
+		\end{equation*}
+		
+		\item
+		$\lie{g}$ is uniformly topologically nil or (quasi-nilpotent) of type 
+		$(ii)$, if
+		\begin{equation*}
+			\lim_{n \longrightarrow \infty}
+			\mathcal{N}_1(n)
+			=
+			0
+		\end{equation*}
+		for
+		\begin{equation}
+			\mathcal{N}_1(n)
+			=
+			\sup \left\{ 
+			\left.
+				\norm{ \ad_{\xi}^n}^{\frac{1}{n}} 
+			\right|
+				\xi \in \mathbb{B}_1(0)
+			\right\}.
+		\end{equation}
+		
+		\item
+		$\lie{g}$ is topologically nilpotent or (quasi-nilpotent) of type 
+		$(iii)$, if for every sequence
+		$(\xi_n)_{n \in \mathbb{N}} \subset \mathbb{B}_1(0)$ we have
+		\begin{equation*}
+			\lim_{n \longrightarrow \infty}
+			\norm{ 
+				\ad_{\xi_1} \circ \ldots \circ \ad_{\xi_n}
+			}^{\frac{1}{n}}
+			=
+			0.
+		\end{equation*}
+		
+		\item
+		$\lie{g}$ is uniformly topologically nilpotent or (quasi-nilpotent) of 
+		type $(iv)$, if
+		\begin{equation*}
+			\lim_{n \longrightarrow \infty}
+			\mathcal{N}(n)
+			=
+			0
+		\end{equation*}
+		for
+		\begin{equation}
+			\mathcal{N}(n)
+			=
+			\sup \left\{ 
+			\left.
+				\norm{ 
+					\ad_{\xi_1} \circ \ldots \circ \ad_{\xi_n}
+				}^{\frac{1}{n}} 
+			\right|
+				\xi_1, \ldots, \xi_n \in \mathbb{B}_1(0)
+			\right\}.
+		\end{equation}
+	\end{definitionlist}
+\end{definition}
+This definition is directly taken from \cite{muller}, just using the little adaptations we explained before. We will need one more notion, which will be 
+turn out to be very useful later.
+\begin{definition}[Symmetrically topologically nil Banach-Lie algebras]
+	\label{Def:Nilpotencies2}
+	Let $\lie{g}$ be a Banach-Lie algebra like in Definition 
+	\ref{Def:Nilpotencies1}, then we say that $\lie{g}$ is symmetrically
+	topologically nil or (quasi-nilpotent) of type $(ii')$, if
+	\begin{equation*}
+		\lim_{n \longrightarrow \infty}
+		\mathcal{S}(n)
+		=
+		0
+	\end{equation*}
+	for
+	\begin{equation}
+		\mathcal{S}(n)
+		=
+		\sup \left\{ 
+		\left.
+			\left\Vert
+				\frac{1}{n!}
+				\sum\limits_{\sigma \in S_n}
+				\ad_{\xi_{\sigma(1)}} \circ \ldots \circ \ad_{\xi_{\sigma(n)}}
+			\right\Vert^{\frac{1}{n}} 
+		\right|
+			\xi_1, \ldots, \xi_n \in \mathbb{B}_1(0)
+		\right\}.
+	\end{equation}
+\end{definition}
+It is immediate to see the following implications:
+\begin{equation*}
+	(iv) \Longrightarrow 
+	(ii') \Longrightarrow 
+	(ii) \Longrightarrow 
+	(i)
+	\quad \text{ and } \quad
+	(iv) \Longrightarrow
+	(iii) \Longrightarrow 
+	(i),
+\end{equation*}
+whereas the relations between $(iii)$, $(ii)$ and $(ii')$ are not clear. In the 
+associative case, we find $(iii) \Longrightarrow (iv)$. It is also fair to ask 
+whether $(ii) \Longrightarrow (ii')$.
+
+\subsection{Examples}
+
+
+\section{Topologically nilpotent Banach-Lie algebras}
+
+
+\section{Uniformly quasi-nilpotent Banach-Lie algebras are $\E$-like}
+
+We have everything at the hand to state or main Theorem now:
+\begin{theorem}
+	\label{Thm:Main}
+	A Banach-Lie algebra is $\E$-like if and only if it is uniformly 
+	quasi-nilpotent.
+\end{theorem}
+Since it is rather long and technical, we will split up the proof into two parts.
+
+
+\subsection{$\E$-like Banach Lie Algebras are of Type $II$}
+It is rather easy to show, that being of type $(ii)$ is really necessary to be 
+$\E$-like.
+\begin{proposition}
+	Let $\lie{g}$ be a Banach-Lie algebra, which is not of type $(ii)$. Then it is 
+	not $\E$-like.
+\end{proposition}
+\begin{proof}
+	The idea is to construct two sequences which converge to zero, but whose 
+	product does not converge: Being not of type $(ii)$ means, that there is an
+	$\varepsilon > 0$, such that $\lim_{n \rightarrow \infty} \mathcal{N}_1(n) > 
+	\varepsilon$. This means that for every $n \in \mathbb{N}$, there is a sequence 
+	$\left(\xi_{n, k} \right)_{k \in \mathbb{N}} \subset \mathbb{B}_1(0)$, 
+	such that
+	\begin{equation*}
+		\lim_{k \longrightarrow \infty}
+		\left\Vert
+			(\ad_{\xi_{n, k}})^n
+		\right\Vert^{\frac{1}{n}}
+		=
+		\mathcal{N}_1(n).
+	\end{equation*}
+	So for every $n, k \in \mathbb{N}$ we have
+	\begin{equation*}
+		\left\Vert
+			(\ad_{\xi_{n, k}})^n
+		\right\Vert^{\frac{1}{n}}
+		> \varepsilon.
+	\end{equation*}
+	This means that we find for every element $\xi_{n,n}$ a sequence 
+	$(\alpha_{n, \ell})_{\ell \in \mathbb{N}}$ with $\norm{\alpha_{n, \ell}} = 1$ 
+	for all $n, \ell \in \mathbb{N}$ and
+	\begin{equation*}
+		\lim_{\ell \longrightarrow \infty}
+		(\ad_{\xi_{n,n}})^n(\alpha_{n,\ell})
+		> 
+		\varepsilon^n.
+	\end{equation*}
+	We define a new sequence $(\eta_n)_{n \in \mathbb{N}}$ with 
+	$\eta_n = \alpha_{n, \ell}$ where $\ell$ is chosen big enough to 
+	fulfil $(\ad_{\xi_{n,n}})^n(\alpha_{n,\ell}) > \varepsilon^n$.
+	Now let's assume we have an $\E$-like topology on $\algebra{U}(\lie{g})$, 
+	defined by a countable set of seminorms and we denote by $\algebra{P}$ the set 
+	of all continuous seminorms. Then we have for every $\xi \in \lie{g}$ and every 
+	$p \in \algebra{P}$
+	\begin{equation*}
+		p \left( \exp(\xi) \right)
+		=
+		p \left(
+			\sum\limits_{n=0}^\infty
+			\frac{\xi^n}{n!}
+		\right)
+		\leq
+		\sum\limits_{n=0}^\infty
+		\frac{p\left( \xi^n \right)}{n!}
+		<
+		\infty,
+	\end{equation*}
+	since the power series converges absolutely. Since the sequence $(\xi_{n,n})_{n 
+	\in \mathbb{N}}$ is bounded in $\lie{g}$, it is also bounded in $\algebra{U}
+	(\lie{g})$. Hence for every $t > 0$, the sequence $(\exp(t \xi_{n,n}))_{n \in 
+	\mathbb{N}}$ is bounded by the continuity of the exponential function and the 
+	sequence
+	\begin{equation*}
+		\left(
+			\frac{t^n}{n!}
+			p\left(
+				\xi_{n,n}^n
+			\right)
+		\right)_{n \in \mathbb{N}}
+	\end{equation*}
+	converges to zero (in $\lie{g}$ and in $\algebra{U}(\lie{g})$). The series 
+	$(\frac{1}{n} \eta_n)_{n \in \mathbb{n}}$ also converges to zero, again in 
+	$\lie{g}$ and $\algebra{U}(\lie{g})$.
+	Now we want to show that their product does \emph{not} converge to zero
+	to get a contradiction to the continuity of the multiplication. Therefore
+	we need again the projection map $\pi_1 \colon \algebra{U}(\lie{g}) 
+	\longrightarrow \lie{g}$ which is linear and continuous and should hence not 
+	spoil the convergence. For every fixed $t > 0$, we have
+	\begin{align*}
+		p \left(
+			\pi_1\left(
+				\frac{t^n \xi_{n,n}^n}{n!}
+				\cdot
+				\eta_n
+			\right)
+		\right)
+		&=
+		p\left(
+			\pi_1 \left(
+				\frac{1}{n!}
+				\sum\limits_{k=0}^n
+				\binom{n}{k}
+				B_k^* t^n
+				\xi_{n,n}^{\vee(k-n)}
+				\vee
+				(\ad_{\xi_{n,n}})^k(\eta_n)
+			\right)
+		\right)
+		\\
+		& =
+		p\left(
+			\frac{B_n^* t^n}{n!}
+			(\ad_{\xi_{n,n}})^n(\eta_n)
+		\right)
+		\\
+		& >
+		\frac{|B_n|^* t^n \varepsilon^n}{n!}.
+	\end{align*}
+	But we know that this series does not converge to zero, if we choose for 
+	example $t = \frac{3 \pi}{\varepsilon}$, which is allowed. Hence we have a 
+	contradiction.
+\end{proof}
+
+
+\subsection{Type $II'$ quasi-nilpotent Banach-Lie algebras are $\E$-like}
+
+For technical reasons, the reverse direction is split into two parts.
+
+\subsubsection{Part I}
+\begin{proposition}
+	Let $\lie{g}$ be a uniformly quasi-nilpotent Banach-Lie algebra and assume that 
+	there is a $p \geq 1$, such that $\lim_{n \rightarrow \infty} 
+	\frac{\mathcal{N}_1(n)}{\sqrt[p]{n!}} = 0$. Then there is an $\E$-like topology 
+	on $\algebra{U}(\lie{g})$.
+\end{proposition}
+\begin{proof}
+	The proof is constructive. We look at the situation in the symmetric tensor 
+	algebra and see that the product is continuous in $\Sym_{1^-}^{\bullet}
+	(\lie{g})$ by the following argumentation. Let's denote the norm on $\lie{g}$ 
+	for simplicity by $p$. Since $\lim_{n \rightarrow \infty} 
+	\frac{\mathcal{N}_1(n)}{\sqrt[p]{n}} = 0$, we know there is a $p \geq 1$ and a 
+	$c > 0$, such that $\mathcal{S}(n) \leq \frac{c}{\sqrt[p]{n}}$. Take $\xi_1, 
+	\ldots, \xi_k, \eta \in \lie{g}$, then we find for some $\varepsilon > 0$ with 
+	$R > 1 - \frac{1}{p} + \varepsilon$
+	\begin{align*}
+		p_R \big(
+		&
+			\xi_1 \tensor \cdots \tensor \xi_k
+			\star
+			\eta
+		\big)
+		\\
+		&=
+		\sum\limits_{n = 0}^k
+		\frac{|B_n^*|}{k!} \binom{k}{n}
+		(k + 1 - n)!^R
+		p^{k+1-n}
+		\left(
+			\sum	\limits_{\sigma \in S_k}
+			\xi_{\sigma(1)} \cdots \xi_{\sigma(k-n)}
+			\cdot
+			\left( 
+				\ad_{\xi_{\sigma(k-n+1)}} 
+				\circ \cdots \circ
+				\ad_{\xi_{\sigma(k)}}
+			\right)
+			(\eta)
+		\right)
+		\\
+		& \leq
+		(k + 1)^R
+		\sum\limits_{n = 0}^k
+		\frac{|B_n^*|}{n!}
+		\frac{1}{(k-n)!^{1 - R}}
+		p^{k+1-n}
+		\Bigg(
+			\sum\limits_{
+				I = \{i_1, \ldots, i_n\} \subset \{1, \ldots, k\}
+			}
+			(n-k)!
+			\xi_1 \cdots \widehat{\xi_I} \cdots \xi_k
+		\\
+		& \quad \cdot
+			\sum	\limits_{\sigma \in S_n}
+			\left( 
+				\ad_{\xi_{\sigma(1)}} 
+				\circ \cdots \circ
+				\ad_{\xi_{\sigma(n)}}
+			\right)
+			(\eta)
+		\Bigg)
+		\\
+		& \leq
+		(k + 1)^R
+		\sum\limits_{n = 0}^k
+		\frac{|B_n^*|}{n!}
+		\frac{(k-n)!}{(k-n)!^{1 - R}}
+		\sum\limits_{
+			I = \{i_1, \ldots, i_n\} \subset \{1, \ldots, k\}
+		}
+		p(\xi_1) \cdots \widehat{p(\xi_I)} \cdots p(\xi_k)
+		\\
+		& \quad \cdot
+		p \left(
+			\sum	\limits_{\sigma \in S_n}
+			\left( 
+				\ad_{\xi_{\sigma(1)}} 
+				\circ \cdots \circ
+				\ad_{\xi_{\sigma(n)}}
+			\right)
+			(\eta)
+		\right)
+		\\
+		& \leq
+		(k + 1)^R
+		\sum\limits_{n = 0}^k
+		\frac{|B_n^*|}{n!}
+		\frac{(k-n)!}{(k-n)!^{1 - R}}
+		\binom{k}{n}
+		\frac{c^n n!}{n!^{\frac{1}{p}}}
+		p(\xi_1) \cdots p(\xi_k) p(\eta)
+		\\
+		& \leq
+		(k + 1)^R
+		\sum\limits_{n = 0}^k
+		\frac{c^n |B_n^*|}{n!^{1 + \varepsilon}}
+		\binom{k}{n}^{1-R}
+		k!^R
+		p(\xi_1) \cdots p(\xi_k) p(\eta)
+		\\
+		& \leq
+		(k + 1)^R
+		\underbrace{
+			2^{k (1-R)}
+		}_{
+			=\kappa_1 k!^{\frac{1-R}{2}}
+		}
+		\underbrace{
+			\sum\limits_{n = 0}^k
+			\frac{c^n |B_n^*|}{n!^{1 + \varepsilon}}
+		}_{
+			= \kappa_2
+		}
+		k!^R
+		p^k(\xi_1 \tensor \cdots \tensor \xi_k) p(\eta)
+		\\
+		& \leq
+		(k-1)^R
+		\kappa
+		p_{R + \frac{1-R}{2}}
+		(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta).
+	\end{align*}
+	In the last step, we took $\kappa = \kappa_1 \kappa_2$. We can extend this 
+	estimate to any arbitrary tensor of degree at most $k$ on the left hand side.
+	Now we do the next step and take $\xi_1, \ldots, \xi_k, \eta_1, \ldots, 
+	\eta_\ell \in \lie{g}$. We can iterate this estimate to get
+	\begin{align*}
+		p_R \big(
+			\xi_1 \tensor \cdots \tensor \xi_k
+		&
+			\star
+			\eta_1 \tensor \cdots \tensor \eta_\ell
+		\big)
+		\\
+		& \leq
+		(k + \ell)^R (k + \ell - 1)^{1 - \frac{1 - R}{2}}
+		\cdots (k+1)^{{1 - \frac{1 - R}{2^{\ell - 1}}}}
+		\kappa^\ell
+		p_{1 - \frac{1-R}{2^\ell}}
+		\left( \xi_1 \tensor \cdots \tensor \xi_k \right)
+		p(\eta_1) \cdots p(\eta_\ell)
+		\\
+		& \leq
+		\left( \frac{(k+\ell)!}{\ell!} \right)^{\frac{1 + R}{2}}
+		\kappa^\ell
+		p_1 \left( \xi_1 \tensor \cdots \tensor \xi_k \right)
+		p^\ell \left( \eta_1 \tensor \cdots \tensor \eta_\ell \right)
+		\\
+		& \leq
+		2^{k + \ell}
+		\ell!^{\frac{1 + R}{2}}
+		\kappa^\ell
+		p_1 \left( \xi_1 \tensor \cdots \tensor \xi_k \right)
+		p^\ell \left( \eta_1 \tensor \cdots \tensor \eta_\ell \right)
+		\\
+		&=
+		(2p)_1 \left( \xi_1 \tensor \cdots \tensor \xi_k \right)
+		(2 \kappa p)_{\frac{1 + R}{2}} 
+		\left( \eta_1 \tensor \cdots \tensor \eta_\ell \right).
+	\end{align*}
+	Finally we can assume without loss of generality that $\ell \geq k$, since
+	we could do all estimates also for the right hand side in the same way.
+	By setting $R' = \frac{3}{4}(1-R)$, we find
+	\begin{equation*}
+		p_R \big(
+			\xi_1 \tensor \cdots \tensor \xi_k
+			\star
+			\eta_1 \tensor \cdots \tensor \eta_\ell
+		\big)
+		\leq
+		(2p)_{R'}
+		\left( \xi_1 \tensor \cdots \tensor \xi_k \right)
+		(2 \kappa p)_{R'}
+		\left( \eta_1 \tensor \cdots \tensor \eta_\ell \right)
+	\end{equation*}
+	and the proposition is proven.
+\end{proof}
+
+
+\subsubsection{Part II}
+Now we need to cover the last possible case: A uniformly quasi-nilpotent Banach-Lie 
+algebra, which has a characteristic sequence, which decreases slower than any power 
+of $n!$. An example for something like this would be $\mathcal{N}_1(n) = 
+(\log(n) + 1)^{-n}$ for $n \in \mathbb{N}$.
+\begin{proposition}
+	Let $\lie{g}$ be a uniformly quasi-nilpotent Banach-Lie algebra and assume that 
+	for all $p \geq 1$, we have $\lim_{n \rightarrow \infty} 
+	\frac{\mathcal{N}_1(n)}{\sqrt[p]{n!}} = 0$. Then there is an $\E$-like topology 
+	on $\algebra{U}(\lie{g})$.
+\end{proposition}
+\begin{proof}
+	Now the idea is to use increasing sequences as counterweights and to modify the 
+	$\Tensor_{1^-}$-topology in this way. Therefore, we need 
+	to define a series $(\widetilde{\alpha}_n)_{n \in \mathbb{N}}$ with
+	\begin{equation*}
+		\widetilde{\alpha}
+		=
+		\log \left(
+			\mathcal{N}_1(n)^{-1}
+		\right).
+	\end{equation*}
+	Since $\mathcal{N}_1(n)$ is monotonously decreasing as $\norm{[\xi, \eta]} \leq 
+	\norm{\xi} \norm{\eta}$, $\widetilde{\alpha}_n$ will be monotonously increasing.
+	It is easy to see, that we can define a new series $(\alpha_n)_{n \in 
+	\mathbb{N}}$, which fulfils $\alpha_n \leq \widetilde{\alpha}_n$ for all $n \in 
+	\mathbb{N}$ and which is ``convex'', that means for all $n, m \in \mathbb{N}$, 
+	$n \leq m$ and $t \in \mathbb{N}$ with $n \leq t \leq m$, we have
+	\begin{equation*}
+		\alpha_t 
+		\leq 
+		\alpha_n \left( 1 - \frac{t - n}{m - n} \right) + 
+		\alpha_m \frac{t - n}{m - n}.
+	\end{equation*}
+	We can define a convex, smooth and monotonously increasing function
+	\begin{equation*}
+		f \colon
+		\mathbb{R}_0^+
+		\longrightarrow
+		\mathbb{R}^+
+		, \quad
+		\forall_{n \in \mathbb{N}}
+		\colon
+		f(n) 
+		=
+		\alpha_n,
+	\end{equation*}
+	which must fulfil in addition
+	\begin{equation*}
+		\forall_{p \geq 1}
+		\colon
+		\lim_{x \rightarrow \infty}
+		\frac{p f(x)}{x \log(x)}
+		=
+		0
+		\quad \text{ and } \quad
+		\lim_{x \rightarrow \infty}
+		\frac{f(x)}{x}
+		=
+		\infty
+	\end{equation*}
+	since $\mathcal{N}_1(n)$ decreases more slowly than any power of the factorials, 
+	but $\lie{g}$ is still uniformly quasi-nilpotent.
+	
+	We will need an analogue of the estimate $\binom{n}{m} \leq 2^n$ for the series 
+	$\alpha$. This will be achieved by the following lemma.
+	\begin{lemma}
+		Let $(\alpha_n)_{n \mathbb{N}}$ be a monotonously increasing, convex 
+		sequence, such that
+		\begin{equation*}
+			\lim_{n \rightarrow \infty}
+			\frac{\alpha_n}{n \log(n)}
+			=
+			0
+			\quad \text{ and } \quad
+			\lim_{n \rightarrow \infty}
+			\frac{\alpha_n}{n}
+			=
+			\infty.
+		\end{equation*}
+		Then there are constants $b, c \geq 0$, such that for every $n,m \in 
+		\mathbb{N}$ with $m \leq n$ the following inequality holds:
+		\begin{equation}
+		\label{Lemma:LogBinomialEstimate}
+			\alpha_n - \alpha_m - \alpha_{n-m}
+			\leq
+			b + c n.
+		\end{equation}
+	\end{lemma}
+	\begin{subproof}
+		This is a logarithmic version of the estimate for the binomial coefficient.
+		First note that we can assign to the sequence $\alpha$ a smooth, 
+		monotonously increasing and convex function $f$ as we did before.
+		Note that $\lim_{x \rightarrow \infty} f'(x) = \infty$, since $f$ is convex 
+		and $\lim_{x \rightarrow \infty} \frac{f(x)}{x} = \infty$. Now we can use
+		the theorem of de l'H\^{o}spital to get
+		\begin{equation*}
+			0 
+			=
+			\lim_{x \rightarrow \infty}
+			\frac{f(x)}{x \log(x)}
+			=
+			\lim_{x \rightarrow \infty}
+			\frac{f'(x)}{\log(x) + 1}
+			=
+			\lim_{x \rightarrow \infty}
+			x f''(x)
+		\end{equation*}
+		and hence the is a $c \geq 0$ with $f''(x) \leq \frac{c}{x}$. 
+		Now assume $z = x + y$ for positive real numbers $x,y,z$. By Taylor's 
+		theorem, we find
+		\begin{align*}
+			\tag{I}
+			f(z)
+			&=
+			f(x) + y f'(x)
+			+ \int\limits_{x}^{z} (z - t) f''(t) dt
+			\\
+			\tag{II}
+			&=
+			f(y) + x f'(y)
+			+ \int\limits_{y}^{z} (z - t) f''(t) dt.
+		\end{align*}
+		For reasons of convexity, the function
+		\begin{equation*}
+			g(z,x)
+			=
+			g(z) - g(x) - g(z-x)
+		\end{equation*}
+		is maximal for fixed $z \in \mathbb{R}^+$ if $2x = z$. So we have proven
+		Equation \eqref{Lemma:LogBinomialEstimate}, if we can show 
+		$f(2x) - 2f(x) \leq cx + d$. Using (I) for $x = y$, we find
+		\begin{equation*}
+			f(2x)
+			=
+			f(x) - x f'(x) +
+			\int\limits_x^{2x} (2x-t) f''(t) dt
+			\quad
+			\Longleftrightarrow
+			\quad
+			f(2x) - 2 f(x)
+			=
+			x f'(x) - f(x) +
+			\int\limits_x^{2x} (2x-t) f''(t) dt.
+		\end{equation*}
+		Now we use a backward Taylor development to find
+		\begin{align*}
+			&&
+			f(0)
+			&=
+			f(x) - xf'(x) + \int_x^0 (0-t) f''(t) dt
+			\\
+			& \Longleftrightarrow &
+			xf'(x) - f(x)
+			&=
+			\int_0^x t f''(t) dt - f(0)
+			\\&&
+			& \leq
+			\int_0^x t f''(t) dt
+			\\&&
+			& \leq
+			\int_0^x t \frac{c}{t} dt
+			\\&&
+			&=
+			cx.
+		\end{align*}
+		We then get
+		\begin{align*}
+			f(2x) - 2 f(x)
+			& \leq
+			cx + \int\limits_x^{2x} (2x-t) f''(t) dt
+			\\
+			& \leq
+			cx + 
+			\int\limits_x^{2x} (2x-t) f\frac{c}{t} dt
+			\\
+			&=
+			cx + cx (\log(4) - 1)
+			\\
+			&=
+			c \log(4) x
+		\end{align*}
+	\end{subproof}
+	Now we can start doing the estimation. Let's define by $(\omega_n)$ a convex, 
+	monotonously increasing series, which is smaller equal than the inverse of 
+	$\max{\mathcal{N}_1(n), 2}$, but still growing faster than any exponential. This 
+	is exactly, what we did before. Define a series $(\alpha)$ by $\alpha_n = 
+	\sqrt{\omega_n}$. We will use $\alpha^{\frac{1}{2^m}}$ as counterweights for $m 
+	\in \mathbb{N}_0$, in order to get a Fr\'echet topology.
+	By doing analogous computations to the first part, we arrive at
+	\begin{align*}
+		p_\alpha \big(
+		&
+			\xi_1 \tensor \cdots \tensor \xi_k
+			\star_z
+			\eta
+		\big)
+		=
+		(k+1) 
+		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta)
+		\sum\limits_{n=0}^k
+		\frac{|B_n^*| |z|^n}{n!}
+		\frac{1}{\alpha_{k+1-n} \omega_n}
+		\\
+		& \leq
+		(k+1) 
+		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta)
+		\frac{1}{\alpha_{k+1}}
+		\sum\limits_{n=0}^k
+		\frac{|B_n^*| |z|^n}{n! \alpha_n}
+		\frac{\alpha_{k+1}}{\alpha_{k+1-n} \alpha_n}
+		\\
+		& \leq
+		(k+1) 
+		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta)
+		\frac{1}{\alpha_{k+1}}
+		\left(
+			\sum\limits_{n=0}^k
+			\frac{|B_n^*| |z|^n}{n! \alpha_n}
+		\right)
+		\left(
+			\sum\limits_{n=0}^k
+			\frac{\alpha_{k+1}}{\alpha_{k+1-n} \alpha_n}
+		\right)
+		\\
+		& \leq
+		(k+1) 
+		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta)
+		\frac{1}{\alpha_{k+1}}
+		\kappa_1
+		c^{k+1}
+		\\
+		& \leq
+		(k+1) 
+		p_{\alpha'}(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta)
+		\frac{\sqrt{\alpha_k}}{\alpha_{k+1}^{3/4}}
+		\kappa_1
+		\kappa_2
+		\\
+		&=
+		\kappa
+		(k+1)
+		\frac{1}{\sqrt[4]{\alpha_{k+1}}}
+		\frac{\sqrt{\alpha_k}}{\sqrt{\alpha_{k+1}}}
+		p_{\alpha'}(\xi_1 \tensor \cdots \tensor \xi_k)
+		p(\eta).
+	\end{align*}
+	We use the notation $\alpha' = \sqrt{\alpha}$ and $\alpha^{(n)} = 
+	\alpha^{\frac{1}{2^n}}$ to keep things readable. We find the estimate on all 
+	tensors of degree at most $k$ by the infimum argument and can iterate to higher 
+	tensors on the right hand side now:
+	\begin{align*}
+		p_\alpha \big(
+		&
+			\xi_1 \tensor \cdots \tensor \xi_k
+			\star_z
+			\eta_1 \tensor \cdots \tensor \eta_\ell
+		\big)
+		\\
+		& \leq
+		\kappa^\ell
+		\frac{(k + \ell)!}{k!}
+		\frac{\alpha_{k + \ell - 1}'}{\alpha_{k + \ell}' \alpha_{k+\ell}''}
+		\frac{\alpha_{k + \ell - 2}''}
+		{\alpha_{k + \ell - 1}'' \alpha_{k+\ell-1}^{(3)}}
+		\cdots
+		\frac{\alpha_{k}^{(\ell)}}
+		{\alpha_{k + 1}^{(\ell)} \alpha_{k+1}^{(\ell + 1)}}
+		p_{\alpha^{(\ell)}} (\xi_1 \tensor \cdots \tensor \xi_k)
+		p^\ell ( \eta_1 \tensor \cdots \tensor \eta_\ell )
+		\\
+		& \leq
+		\kappa^\ell
+		2^{k + \ell}
+		\ell!
+		\frac{1}{\alpha_{k + \ell}'}
+		k!
+		p^k (\xi_1 \tensor \cdots \tensor \xi_k)
+		p^\ell ( \eta_1 \tensor \cdots \tensor \eta_\ell )
+		\\
+		& \leq
+		\kappa^\ell
+		2^{k + \ell}
+		\frac{k! \ell!}{\alpha_k' \alpha_\ell '}
+		p^k (\xi_1 \tensor \cdots \tensor \xi_k)
+		p^\ell ( \eta_1 \tensor \cdots \tensor \eta_\ell )
+		\\
+		&=
+		(2p)_{\alpha'} (\xi_1 \tensor \cdots \tensor \xi_k)
+		(2 \kappa p)_{\alpha'} ( \eta_1 \tensor \cdots \tensor \eta_\ell ).
+	\end{align*}
+	This, together with the infimum argument, finishes the proof, since it is clear 
+	from the way we can describe the completion of $\left( \Sym^{\bullet}(\lie{g}), 
+	\star_z \right)$, that exponential functions are part of it. The continuity of 
+	the grading maps is also clear from the construction. Hence the topology is 
+	$\E$-like.
+\end{proof}
+
+
+
+\section{An Outlook to possible Generalizations and open Questions}
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

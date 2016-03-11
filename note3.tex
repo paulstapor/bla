@@ -1,0 +1,370 @@
+%
+% A new paper...
+% Title: Convergence of the Gutt Star Product
+% git-repository is gstar
+%
+% From now on, we proudly use the chairx style file for
+% everything. All stuff in there is soo useful!
+%
+
+
+%
+% Before we start, let's nag a bit about old latex constructs
+% just to learn... This will be removed in the final version
+%
+
+\RequirePackage[l2tabu, orthodox]{nag}
+
+
+%
+% we always start with 11pt, draft mode on for easier editing and
+% english as default language
+%
+
+\documentclass[
+11pt,                          % standard font size
+%draft,                         % draft or final?
+english                        % standard language
+]{article}
+
+
+%
+% some macro packages
+%
+
+\usepackage[english]{babel}    % with explicit language
+\usepackage{amsmath}           % ams mathematical stuff
+\usepackage[utf8]{inputenc}    % smart input of funny chars
+\usepackage[T1]{fontenc}       % also for the font encoding
+\usepackage{longtable}         % tables longer than one page
+\usepackage{exscale}           % large summation signs in 11pt
+\usepackage[final]{graphicx}   % to include pdf pictures
+\usepackage[sort]{cite}        % nicer citations
+\usepackage{array}             % nice tables
+\usepackage{wasysym}           % smiley symbols
+\usepackage[a4paper]{geometry} % geometry of page layout
+%\usepackage{gitinfo2}          % include git info: Version 2
+%\usepackage[multiuser]{fixme}  % correction notes, warnings etc.
+\usepackage{xspace}            % better spacing after macros
+\usepackage{tikz}              % for commutative diagrams and stuff
+\usepackage{ifdraft}           % to determine whether draft mode
+\usepackage{chairx}            % the Chair X style file
+\usepackage[expansion=false    % no font expansion
+           ]{microtype}        % only protrusion
+\usepackage[nottoc]{tocbibind} % refs and index in the toc
+\usepackage[backref=page,      % backrefs in the bibliography
+           final=true,         % always treat as final
+           pdfpagelabels       % use pdf page labels
+           ]{hyperref}         % hyperrefs are cool!
+
+%
+% Some own macros...
+%
+
+%\usepackage{mnsymbol}
+
+\newcommand{\ostar}{\star}
+\newcommand{\coproduct}{\Delta}
+\newcommand{\ocoproduct}{\Delta}
+
+\newcommand{\Eta}{\mathrm{H}}
+\newcommand{\Rho}{\operatorname{P}}
+\newcommand{\bch}[2]{\mathrm{BCH}\left(#1, #2\right)}
+\newcommand{\bchpart}[3]{\mathrm{BCH}_{#1}\left(#2, #3\right)}
+\newcommand{\bchparts}[4]{\mathrm{BCH}_{#1, #2}\left(#3, #4\right)}
+\newcommand{\bchtilde}[4]{\widetilde{\mathrm{BCH}}_{#1, #2}\left(#3; #4\right)}
+\newcommand\ot[2]{\stackrel{\mathclap{#1}}{#2}}
+%
+%\mathrel{\overset{\makebox[0pt]
+%	{\mbox{\normalfont\footnotesize\sffamily #1}}}{#2}}}
+
+
+%
+% pdf files for graphics in the following directory:
+%
+
+\graphicspath{{../tikz/}}
+
+
+%
+% tikz libraries to be loaded, feel free to add more...
+%
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathreplacing}
+
+
+%
+% page dimensions, scaling etc. Not final yet
+%
+
+
+\geometry{bindingoffset=0cm}
+\geometry{hcentering=true}
+\geometry{hscale=0.8}
+\geometry{vscale=0.8}
+
+
+%
+% check whether draft or not: synctex is soo cool
+%
+
+%\ifdraft{\synctex=1}{}
+
+
+%
+% fix me settings
+%
+
+%\fxusetheme{color}
+
+
+%
+% Get the authors from external file
+% This used in all documents of the paper project
+%
+
+%\input{../authors/authors}
+
+
+%
+% own local math macros follow here
+%
+
+
+%
+% title page for Convergence of the Gutt Star Product
+% authors are included from the authors file
+% This has to be adapted in the final version
+%
+
+\title{Two identical notions}
+
+
+
+%
+% the text starts here
+%
+
+\begin{document}
+
+
+
+\section{Topologically nilpotent Banach-Lie algebras}
+
+In this part, we want to prove that topologically nilpotent Banach-Lie algebras are 
+uniformly topologically nilpotent. The proof is almost the same as in [DiM\"u], it 
+just needs a slight change.
+\begin{proposition}
+	Topologically nilpotent Banach-Lie algebras are uniformly topologically 
+	nilpotent.
+\end{proposition}
+\begin{proof}
+	Let $\lie{g}$ be a Banach-Lie algebra, then the limit $\mathcal{N} = 
+	\lim_{n \rightarrow \infty} \mathcal{N}(n)$ exists. We will show 
+	that there exists a sequence $(\xi_1, \xi_2, \ldots) \subset \mathbb{B}_1(0)$, 
+	such that
+	\begin{equation*}
+		\limsup_{n \rightarrow \infty}
+		\norm{\ad_{\xi_1} \circ \cdots \circ \ad_{\xi_n} }^{1/n}
+		=
+		\mathcal{N},
+	\end{equation*}
+	which implies the proposition, since the left hand side converges to zero by 
+	the definition of topological nilpotency. It is clear that
+	\begin{equation*}
+		\limsup_{n \rightarrow \infty}
+		\norm{\ad_{\xi_1} \circ \cdots \circ \ad_{\xi_n} }^{1/n}
+		\leq
+		\mathcal{N},
+	\end{equation*}
+	for every such sequence, so we find a sequence such that
+	\begin{equation*}
+		\limsup_{n \rightarrow \infty}
+		\norm{\ad_{\xi_1} \circ \cdots \circ \ad_{\xi_n} }^{1/n}
+		\geq
+		\mathcal{N}
+	\end{equation*}
+	holds. Since this is clear for $\mathcal{N} = 0$, we suppose $\mathcal{N} > 0$.
+	We define the space of sequences $X = \mathbb{B}_1(0)^{\mathbb{N}}$ with the
+	metric
+	\begin{equation*}
+		\halbnorm{d}((\xi), (\eta))
+		=
+		\sum\limits_{i = 1}^\infty
+		2^{-i} \frac{\norm{\xi_i - \eta_i}}{1 + \norm{\xi_i - \eta_i}}.
+	\end{equation*}
+	With this metric, $X$ is complete. Define furthermore for $\delta > 0$
+	\begin{align*}
+		X_{k, \delta}
+		&=
+		\left\{
+			(\xi) \in X
+		\ \left| \
+			\norm{ \ad_{\xi_1} \circ \cdots \circ \ad_{\xi_n} }^{1/n}
+			>
+			(1 - \delta) \mathcal{N}
+			, \
+			\text{ for some }
+			n \geq k	
+		\right.
+		\right\}
+		\\
+		Y_{k, \delta}
+		&=
+		\left\{
+			(\xi) \in X
+		\ \left| \
+			\norm{ \ad_{\xi_1} \circ \cdots \circ \ad_{\xi_k} }^{1/k}
+			>
+			(1 - \delta) \mathcal{N}
+		\right.
+		\right\}.
+	\end{align*}
+	Then it is easy to see, that the $Y_{k, \delta}$ are open in $X$. Hence also 
+	$X_{k, \delta}$ is open in $X$, since
+	\begin{equation*}
+		X_{k, \delta}
+		=
+		\bigcup\limits_{n \geq k}
+		Y_{n, \delta}.
+	\end{equation*}
+	Our aim is to show, that each of these $X_{k, \delta}$ is dense in $X$, because 
+	then, we could conclude that
+	\begin{equation*}
+		\bigcap\limits_{k = 1}^\infty
+		X_{k, 1/k}
+		\neq
+		\emptyset
+	\end{equation*}
+	by the Baire category theorem for metric spaces. Clearly the set
+	$\bigcup\limits_{r < 1} \mathbb{B}_r(0)$
+	is dense in $X$ and we want to show that for any $k$ and any $\delta$, 
+	$X_{k, \delta}$ is dense in $\bigcup\limits_{r < 1} \mathbb{B}_r(0)$. 
+	So we need to show that for every $k \in \mathbb{N}$, $r < 1$, 
+	$(\xi) \in \mathbb{B}_r(0)^{\mathbb{N}}$, $0 < \delta < 1$ and $0 < \varepsilon 
+	< 1 - r$, there is a $(\eta) \in X_{k, \delta}$, such that
+	\begin{equation*}
+		\halbnorm{d}((\xi), (\eta))
+		<
+		\varepsilon.
+	\end{equation*}
+	So let's fix $k \in \mathbb{N}$, $\delta, r \in (0,1)$, $0 < \varepsilon < 1-r$
+	and $(\xi) \in \mathbb{B}_r(0)^\mathbb{N}$. Let $m \in \mathbb{N}$ be big enough
+	to have $2 \cdot 2^{-m} < \varepsilon$. Then, if for all $i \in \{1, \ldots, 
+	m\}$ the estimate $\norm{\xi_i - \eta_i} < \frac{\varepsilon}{2}$ holds for two 
+	sequences $(\xi), (\eta) \in X$, then $\halbnorm{d}((\xi), (\eta)) < 
+	\varepsilon$. We fix such an $m \in \mathbb{N}$ and choose $\ell \geq 
+	\max{k, m}$ such that
+	\begin{equation*}
+		\left(
+			\frac{\varepsilon}{2^{m + 1}}
+		\right)^{1 / \ell}
+		\geq
+		\sqrt{1 - \delta}.
+	\end{equation*}
+	This is certainly possible for $\ell$ big enough. We can also choose some
+	$\vartheta_1, \ldots, \vartheta_\ell \in \mathbb{B}_1(0)$ such that
+	\begin{equation*}
+		\norm{
+			\ad_{\vartheta_1} \circ \cdots \circ \ad_{\vartheta_\ell}
+		}^{1/ \ell}
+		\geq
+		\mathcal{N}(l) \sqrt{1 - \delta}
+		\geq
+		\mathcal{N} \sqrt{1 - \delta}.
+	\end{equation*}
+	Just by the definition of $\mathcal{N}(\ell)$, such elements must exist.
+	Now define $\varepsilon_t = \varepsilon \E^{2 \pi \I t/m} $ for $t = 0, 1, 
+	\ldots, m$ and set $\varepsilon_0 = 0$. Set for $t$ in the same limits
+	\begin{equation*}
+		\theta_i^t
+		=
+		\xi_i + \frac{\varepsilon_t}{2} \vartheta_i
+	\end{equation*}
+	and
+	\begin{equation*}
+		\Theta_t
+		=
+		\ad_{\theta_1^t} \circ \cdots \circ \ad_{\theta_m^t}
+		\circ
+		\ad_{\vartheta_{m+1}} \circ \cdots \circ \ad_{\vartheta_\ell}.
+	\end{equation*}
+	Then we have
+	\begin{equation*}
+		\Theta_0
+		=
+		\ad_{\xi_1} \circ \cdots \circ \ad_{\xi_m}
+		\circ
+		\ad_{\vartheta_{m+1}} \circ \cdots \circ \ad_{\vartheta_\ell}.
+	\end{equation*}
+	and for algebraic reasons and because of the linearity of $\ad$
+	\begin{equation*}
+		\sum\limits_{j=1}^m
+		(\Theta_j - \Theta_0)
+		=
+		\frac{m \varepsilon^m}{2^m}
+		\ad_{\vartheta_1} \circ \cdots \circ \ad_{\vartheta_\ell}.
+	\end{equation*}
+	Hence we find
+	\begin{equation*}
+		\Big\Vert
+			\sum\limits_{j=1}^m
+			(\Theta_j - \Theta_0)
+		\Big\Vert
+		=
+		\frac{m \varepsilon^m}{2^m}
+		\norm{ \ad_{\vartheta_1} \circ \cdots \circ \ad_{\vartheta_\ell} }
+		\geq
+		\frac{m \varepsilon^m}{2^m}
+		\mathcal{N}^\ell
+		\sqrt{1-\delta}^\ell.
+	\end{equation*}
+	Thus, there is an $s \in \{0, 1, \ldots, m\}$ with
+	\begin{equation*}
+		\norm{\Theta_s}
+		\geq
+		\frac{\varepsilon^m}{2^{m + 1}}
+		\mathcal{N}^\ell
+		\sqrt{1- \delta}^\ell
+		\geq
+		\mathcal{N}^\ell (1- \delta)^\ell.
+	\end{equation*}
+	We can now construct the wanted sequence $(\eta)$ by setting
+	\begin{equation*}
+		\eta_i
+		=
+		\begin{cases}
+			\theta_i^s
+			&
+			1 \leq i \leq m
+			\\
+			\vartheta_i
+			&
+			m+1 \leq i \leq \ell
+			\\
+			\xi_i
+			&
+			i \geq \ell + 1
+		\end{cases}
+	\end{equation*}
+	and get $(\eta) \in X_{k, \delta}$, since
+	\begin{equation*}
+		\norm{ \ad_{\eta_1} \circ \cdots \circ \ad_{\eta_\ell}}^{1/\ell}
+		=
+		\norm{ \Theta_s }^{1/\ell}
+		\geq
+		(1 - \delta) \mathcal{N}
+	\end{equation*}
+	and $\ell \geq k$. The choice of $m$ ensures moreover $\halbnorm{d}((\xi), 
+	(\eta)) < \varepsilon$ and hence the proof is finished.
+\end{proof}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
