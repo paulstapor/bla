@@ -196,8 +196,8 @@ english                        % standard language
 %
 
 \tableofcontents
-\newpage
 
+\newpage
 
 %
 % Introduction
@@ -209,82 +209,91 @@ english                        % standard language
 
 
 \section{A Topology on the Universal Enveloping Algebras}
-Given a Lie algebra $\lie{g}$, the construction of its universal enveloping algebra 
-$\algebra{U}(\lie{g})$ stays the same, no matter if $\lie{g}$ is finite-dimensional 
-or not and always yields an infinite-dimensional, associative algebra if $\lie{g} 
-\neq \{0\}$. If one wants to study $\algebra{U}(\lie{g})$ in a topological setting, 
-one can use different ways to see it. The most geometric one is as invariant 
-differential operators on the corresponding Lie group $G$. Another interpretation are 
-compactly supported distributions near the unit element on the Lie group. Both 
-approaches hold up to some extend also in infinite dimensions: While the first is  
-mostly used in the theory of quantum groups \cite{pflaum.schottenloher:1998a}, the 
-second allows some more generalizations to infinite dimensional $\lie{g}$, see e.g. 
+If one wants to study the universal enveloping algebra $\algebra{U}(\lie{g})$ of a 
+given Lie algebra $\lie{g}$ in a topological setting, there are different 
+possibilities to see it. The most geometric one are invariant differential operators 
+on the corresponding Lie group $G$. Another interpretation are compactly supported 
+distributions near the unit element of $G$. Both approaches are a priori bound to 
+finite-dimensional Lie algebras. While the first is mostly used in the theory of 
+quantum groups \cite{pflaum.schottenloher:1998a}, the second allows some more 
+generalizations to infinite-dimensional Lie algebras, see e.g. 
 \cite{beltita.nicolae:2015a}. There is yet another correspondence, which is 
 completely independent of the dimensions of $\lie{g}$ and uses the 
-Poincar\'e-Birkhoff-Witt Theorem: one can see it as the symmetric tensor algebra 
-$\Sym^{\bullet}(\lie{g})$ with the non-commutative product from $\algebra{U}
-(\lie{g})$. This approach was first discovered by Rasevski\u{i} 
-\cite{rasevskii:1966a} and Goodman \cite{goodman:1971a}, but seems to have gone 
-rather unnoticed. These first attempts were bound to finite-dimensional Lie algebras, 
-while a younger work \cite{esposito.stapor.waldmann:2015a:pre}, from the point of 
-view of deformation quantization, used a similar idea to construct an explicit 
-topology in a slightly different way on enveloping algebras of certain classes of 
-locally convex Lie algebras.
+Poincar\'e-Birkhoff-Witt Theorem: as a vector space, the symmetric tensor algebra 
+$\Sym^{\bullet}(\lie{g})$ is isomorphic to $\algebra{U}(\lie{g})$ via the total 
+symmetrization. So one can also pull-back the non-commutative product to the 
+symmetric algebra and topologize this deformed algebra. This approach was first 
+discovered by Rasevski{\u i} cite{rasevskii:1966a} and Goodman \cite{goodman:1971a}, 
+but seems to have gone rather unnoticed. These first attempts were bound to 
+finite-dimensional Lie algebras, while a younger work 
+\cite{esposito.stapor.waldmann:2015a:pre}, from the point of view of deformation 
+quantization, uses a similar idea to construct an explicit topology in a slightly 
+different way on universal enveloping algebras of Banach- and certain locally convex 
+Lie algebras.
 
-A very important aim of this last work was to construct a very coarse topology on 
-$\algebra{U}(\lie{g})$, in order to get a large completion. Since the elements in 
-$\algebra{U}(\lie{g})$ can be interpreted as polynomials, the elements in the 
-completion are certain entire functions. One important result was, that nilpotent 
-locally convex Lie algebras allow bigger completions: here, one can construct a 
-topology, which contains exponentials series $\exp(\xi)$ for every $\xi \in \lie{g}$, 
-while for non-nilpotent Lie algebras, this is not possible, at least with this 
-particular construction.
+A very important aim of this last article was to construct a very coarse locally 
+convex topology on $\algebra{U}(\lie{g})$, in order to get a large completion 
+$\widehat{\algebra{U}}(\lie{g})$. Since the elements in $\algebra{U}(\lie{g})$ can be 
+interpreted as polynomials, the elements in $\widehat{\algebra{U}}(\lie{g})$ are 
+certain entire functions. One important result was, that nilpotent locally convex Lie 
+algebras allow bigger completions: here, one can construct a topology, which contains 
+exponentials series $\exp(\xi)$ for every $\xi \in \lie{g}$, while for non-nilpotent 
+Lie algebras, this is not possible, at least with this particular construction based 
+on the symmetric algebra.
 
-The aim of this paper is to investigate further, when such a bigger completion and 
-hence a coarser topology is possible. Therefore, we first restrict to the easier case 
-of Banach-Lie algebras. We show that for general (Banach-) Lie algebras, the topology 
-from \cite{esposito.stapor.waldmann:2015a:pre} is as coarse, as possible. Since 
-moreover, in Banach-Lie algebras, there exists weaker forms of nilpotency, it is a 
-neat question to ask whether topologies with bigger completions containing 
-exponentials (which we want to call grouplike topologies on $\algebra{U}()\lie{g}$), 
-can exist for quasi-nilpotent Banach-Lie algebras. It is the main result of this work 
-to show that there is a particular form of quasi-nilpotency, which is equivalent to 
-the existence of such a topology on $\algebra{U}(\lie{g})$.
+The aim of the present work is to investigate further, when such a coarser topology 
+and hence a bigger completion is possible. Therefore, we first restrict to the easier 
+case of Banach-Lie algebras. We show that for general (Banach-) Lie algebras, the 
+$\Tensor_R$-topology from \cite{esposito.stapor.waldmann:2015a:pre} is as coarse as 
+possible. Since moreover, in Banach-Lie algebras, there exists weaker forms of 
+nilpotency, it is a neat question to ask whether topologies with bigger completions 
+containing exponentials (which we want to call grouplike topologies on $\algebra{U}
+(\lie{g})$), can exist for quasi-nilpotent Banach-Lie algebras. It is the main result 
+of this work to show that there is a particular form of quasi-nilpotency, which is 
+equivalent to the existence of such a topology on $\algebra{U}(\lie{g})$.
 
-Nilpotency is a very well-studied and well known phenomenon. Weaker forms of it in 
-infinite-dimensional algebras, are however less studied. A big part of the work in 
-this area deals with normed associative algebras, often for certain algebras of 
-compact operators \cite{shulman.turovskii:2000a}, but it seems like also in this 
-case, there is not yet a closed theory. Yet, different notions of quasi-nilpotency 
-were worked out and links between them are found, see e.g. \cite{dixon:1991a, 
-mueller:1994a, mueller:1997a}. Especially joint quasi-nilpotency of bounded subsets, 
-so called topological nilpotency, is an interesting field of study. This idea 
-originated from a work of Rota and Strang \cite{rota.strang:1960a}, and was carried 
-on in \cite{dixon.mueller:1992a}. A particularly nice paper from Galindo and Palacios 
-\cite{galindo.palacios:2012a} also deals with non-associative normed algebras. But 
-still, besides Wojty\'nski's theorem that a Banach-Lie algebra is quasi-nilpotent if 
-and only if it has a globally convergent Baker-Campbell-Hausdorff series 
+Although nilpotency is a very well-studied phenomenon, the situation in topological 
+infinite-dimensional algebras is less clear. Here, there are different and 
+inequivalent generalizations possible, which all imply real nilpotency in finite 
+dimensions. The probably weakest forms, quasi-nilpotency, means that the spectral 
+radius of every algebra element is zero. A big part of the work in this area deals 
+with normed associative algebras and for certain algebras of compact operators, 
+important results have been found, like in \cite{shulman.turovskii:2000a}. But, there 
+is not yet a closed theory of quasi-nilpotency. Nevertheless, different notions of 
+quasi-nilpotency are worked out in the associative case and links between them are 
+known, see e.g. \cite{dixon:1991a, mueller:1994a, dixon.mueller:1992a}. Especially 
+joint quasi-nilpotency of bounded subsets, so called topological nilpotency, is an 
+interesting field of study. This idea originated from a work of Rota and Strang 
+\cite{rota.strang:1960a} and was carried on (e.g. \cite{mueller:1997a}). A 
+particularly nice paper from Galindo and Palacios \cite{galindo.palacios:2012a} also 
+deals with topological nilpotency in non-associative normed algebras. But still, 
+besides Wojty\'nski's theorem that a Banach-Lie algebra is quasi-nilpotent if and 
+only if it has a globally convergent Baker-Campbell-Hausdorff series 
 \cite{wojtynski:1998a}, further particular results or even a good notion of different 
-types of quasi-nilpotency for general Banach-Lie algebras do not seem to exist.
+types of quasi-nilpotency for Banach-Lie algebras do not seem to exist.
 
 This work is organized as follows: In Section 2, we present the main techniques and 
-the construction of the already mentioned topology on a universal enveloping algebra 
-via the Poincar\'e-Birkhoff-Witt Theorem, as in 
-\cite{esposito.stapor.waldmann:2015a:pre} and use this possibility to present a new 
-result for locally convex, nilpotent Lie algebras in this context. Then we specify 
-what kind of topology we would like to achieve on $\algebra{U}(\lie{g})$ and define 
-projective grouplike topologies. Section 3 deals with different types of 
-quasi-nilpotent Banach-Lie algebras and tries to transfer some of the notions from 
-the associative case to the Lie case. We moreover show that an important result for 
-associative Banach algebras is also valid for Banach-Lie algebras and finally give an 
-example for each type of quasi-nilpotency. Section 4 contains the main result of this 
+the construction of the already mentioned $\Tensor_R$-topology on a universal 
+enveloping algebra via the Poincar\'e-Birkhoff-Witt Theorem and use this possibility 
+to present a new result for locally convex, nilpotent Lie algebras in this context. 
+Then we specify what kind of topology we would like to achieve on $\algebra{U}
+(\lie{g})$ and show, that these projective grouplike topologies are bound to the case 
+of quasi-nilpotent Banach-Lie algebras. Section 3 deals with different types of 
+quasi-nilpotency in Banach-Lie algebras and tries to transfer some of the notions 
+from the associative to the Lie case. We also show that, as it is the case for 
+associative Banach algebras, topological nilpotency and uniform topological 
+nilpotency coincide for Banach-Lie algebras and finally give an example for each type 
+of quasi-nilpotent structure. Section 4 contains the main result of this 
 work: we prove that so called uniform quasi-nilpotency of a Banach-Lie algebra 
 $\lie{g}$ is equivalent to the existence of a projective grouplike topology on 
-$\algebra{U}(\lie{g})$ in a constructive sense. Finally, in section 5, we state some 
-immediate corollaries from our results and show some ways and limits for a 
-generalization to locally convex Lie algebras.
+$\algebra{U}(\lie{g})$ by an explicit construction. Finally, in section 5, we state 
+some immediate corollaries from our results and show some possible ways and bounds 
+for a generalization to locally convex Lie algebras.
 
-Acknowledgements: I want to say thank you to...
+Acknowledgements: I want to thank Stefan Waldmann, Chiara Esposito and Matthias 
+Sch\"otz for fruitful discussion on the topic as well as Karl-Hermann Neeb for a 
+helpful remark.
+
 
 
 \subsection{Preliminaries and the $\Tensor_R$-Topology}
@@ -539,9 +548,9 @@ $R \geq 1$, under the condition that $\lie{g}$ is an AE-Lie algebra.
 AE algebras are ``almost'' locally multiplicatively convex (for short: lmc) 
 algebras, meaning they have nearly submultiplicative seminorms. An associative AE 
 algebra has for example an entire calculus. In this sense, the AE condition 
-\eqref{def:AE-property} is very restrictive for a locally convex algebra, but still 
-very weak in general, since every normed (and hence every finite dimensional) algebra 
-is AE, for example.
+\eqref{eq:def:AE-property} is very restrictive for a locally convex algebra, but 
+still very weak in general, since every normed (and hence every finite dimensional) 
+algebra is AE, for example.
 
 It is not clear, if all AE algebras are indeed lmc, but for associative, commutative 
 Fr\'echet algebras, which are AE, this is the case 
