@@ -140,7 +140,7 @@ english                        % standard language
 % This has to be adapted in the final version
 %
 
-\title{(Quasi-)Nilpotent Lie Algebras and their universal Envelopes}
+\title{(Quasi-)Nilpotent Lie Algebras and their Universal Envelopes}
 
 \author{
   \textbf{Paul Stapor}\thanks{\texttt{paul.stapor@stud-mail.uni-wuerzburg.de}},
@@ -209,6 +209,83 @@ english                        % standard language
 
 
 \section{A Topology on the Universal Enveloping Algebras}
+Given a Lie algebra $\lie{g}$, the construction of its universal enveloping algebra 
+$\algebra{U}(\lie{g})$ stays the same, no matter if $\lie{g}$ is finite-dimensional 
+or not and always yields an infinite-dimensional, associative algebra if $\lie{g} 
+\neq \{0\}$. If one wants to study $\algebra{U}(\lie{g})$ in a topological setting, 
+one can use different ways to see it. The most geometric one is as invariant 
+differential operators on the corresponding Lie group $G$. Another interpretation are 
+compactly supported distributions near the unit element on the Lie group. Both 
+approaches hold up to some extend also in infinite dimensions: While the first is  
+mostly used in the theory of quantum groups \cite{pflaum.schottenloher:1998a}, the 
+second allows some more generalizations to infinite dimensional $\lie{g}$, see e.g. 
+\cite{beltita.nicolae:2015a}. There is yet another correspondence, which is 
+completely independent of the dimensions of $\lie{g}$ and uses the 
+Poincar\'e-Birkhoff-Witt Theorem: one can see it as the symmetric tensor algebra 
+$\Sym^{\bullet}(\lie{g})$ with the non-commutative product from $\algebra{U}
+(\lie{g})$. This approach was first discovered by Rasevski\u{i} 
+\cite{rasevskii:1966a} and Goodman \cite{goodman:1971a}, but seems to have gone 
+rather unnoticed. These first attempts were bound to finite-dimensional Lie algebras, 
+while a younger work \cite{esposito.stapor.waldmann:2015a:pre}, from the point of 
+view of deformation quantization, used a similar idea to construct an explicit 
+topology in a slightly different way on enveloping algebras of certain classes of 
+locally convex Lie algebras.
+
+A very important aim of this last work was to construct a very coarse topology on 
+$\algebra{U}(\lie{g})$, in order to get a large completion. Since the elements in 
+$\algebra{U}(\lie{g})$ can be interpreted as polynomials, the elements in the 
+completion are certain entire functions. One important result was, that nilpotent 
+locally convex Lie algebras allow bigger completions: here, one can construct a 
+topology, which contains exponentials series $\exp(\xi)$ for every $\xi \in \lie{g}$, 
+while for non-nilpotent Lie algebras, this is not possible, at least with this 
+particular construction.
+
+The aim of this paper is to investigate further, when such a bigger completion and 
+hence a coarser topology is possible. Therefore, we first restrict to the easier case 
+of Banach-Lie algebras. We show that for general (Banach-) Lie algebras, the topology 
+from \cite{esposito.stapor.waldmann:2015a:pre} is as coarse, as possible. Since 
+moreover, in Banach-Lie algebras, there exists weaker forms of nilpotency, it is a 
+neat question to ask whether topologies with bigger completions containing 
+exponentials (which we want to call grouplike topologies on $\algebra{U}()\lie{g}$), 
+can exist for quasi-nilpotent Banach-Lie algebras. It is the main result of this work 
+to show that there is a particular form of quasi-nilpotency, which is equivalent to 
+the existence of such a topology on $\algebra{U}(\lie{g})$.
+
+Nilpotency is a very well-studied and well known phenomenon. Weaker forms of it in 
+infinite-dimensional algebras, are however less studied. A big part of the work in 
+this area deals with normed associative algebras, often for certain algebras of 
+compact operators \cite{shulman.turovskii:2000a}, but it seems like also in this 
+case, there is not yet a closed theory. Yet, different notions of quasi-nilpotency 
+were worked out and links between them are found, see e.g. \cite{dixon:1991a, 
+mueller:1994a, mueller:1997a}. Especially joint quasi-nilpotency of bounded subsets, 
+so called topological nilpotency, is an interesting field of study. This idea 
+originated from a work of Rota and Strang \cite{rota.strang:1960a}, and was carried 
+on in \cite{dixon.mueller:1992a}. A particularly nice paper from Galindo and Palacios 
+\cite{galindo.palacios:2012a} also deals with non-associative normed algebras. But 
+still, besides Wojty\'nski's theorem that a Banach-Lie algebra is quasi-nilpotent if 
+and only if it has a globally convergent Baker-Campbell-Hausdorff series 
+\cite{wojtynski:1998a}, further particular results or even a good notion of different 
+types of quasi-nilpotency for general Banach-Lie algebras do not seem to exist.
+
+This work is organized as follows: In Section 2, we present the main techniques and 
+the construction of the already mentioned topology on a universal enveloping algebra 
+via the Poincar\'e-Birkhoff-Witt Theorem, as in 
+\cite{esposito.stapor.waldmann:2015a:pre} and use this possibility to present a new 
+result for locally convex, nilpotent Lie algebras in this context. Then we specify 
+what kind of topology we would like to achieve on $\algebra{U}(\lie{g})$ and define 
+projective grouplike topologies. Section 3 deals with different types of 
+quasi-nilpotent Banach-Lie algebras and tries to transfer some of the notions from 
+the associative case to the Lie case. We moreover show that an important result for 
+associative Banach algebras is also valid for Banach-Lie algebras and finally give an 
+example for each type of quasi-nilpotency. Section 4 contains the main result of this 
+work: we prove that so called uniform quasi-nilpotency of a Banach-Lie algebra 
+$\lie{g}$ is equivalent to the existence of a projective grouplike topology on 
+$\algebra{U}(\lie{g})$ in a constructive sense. Finally, in section 5, we state some 
+immediate corollaries from our results and show some ways and limits for a 
+generalization to locally convex Lie algebras.
+
+Acknowledgements: I want to say thank you to...
+
 
 \subsection{Preliminaries and the $\Tensor_R$-Topology}
 As already mentioned, one possibility to see the universal enveloping algebra 
@@ -471,7 +548,7 @@ Fr\'echet algebras, which are AE, this is the case
 \cite{mitiagin.rolewicz.zelazko:1962a}. It seems like there is not much known about 
 this particular subclass of locally convex algebras. The first time, this expression 
 appeared, was in a work by Boseck, Czichowski and Rudolph 
-\cite{boseck.czichowski.rudoplh:1981a}, but in a different sense. They used the same 
+\cite{boseck.czichowski.rudolph:1981a}, but in a different sense. They used the same 
 notion of asymptotic estimate seminorms, but an AE algebra in their definition has to 
 fulfil additional, technical condition, which make those AE algebras lmc. We want to 
 use the weaker notion of AE algebra we just defined above. Equivalent definitions to 
@@ -2255,9 +2332,10 @@ Clearly, this is a result which we would like to have for an integrable Lie alge
 		submultiplicative. So we get a locally multiplicatively convex topology
 		on $\algebra{U}(\lie{g})$ and hence a very big completion with exponentials.
 		The problem is, this only works for finite-dimensional Lie algebras. We also 
-		know that it can not be extended to infinite-dimensional Banach-Lie 
+		know that it can not be extended to general infinite-dimensional Banach-Lie 
 		algebras: if we could, every Banach-Lie algebra would be integrable, which 
-		is known to be false. Furthermore, we know that the projection $\pi \colon
+		is known to be false \cite[Remark 1.14.15]{duistermaat.kolk:2000a}. 
+		Furthermore, we know that the projection $\pi \colon
 		\algebra{U}(\mathfrak{g}) \longrightarrow \lie{g}$ from
 		\eqref{eq:projection} would be discontinuous, although it projects on a
 		finite-dimensional subspace.
@@ -2395,6 +2473,12 @@ uniformly m-quasi-nilpotent Lie algebra.
 
 \begin{thebibliography}{1}
 
+\footnotesize
+\bibitem {beltita.nicolae:2015a}
+\textsc{Beltita, D. Nicolae, M.: }\newblock \emph{On universal enveloping algebras in 
+  a topological setting}.
+\newblock Studia Math. \textbf{230} (2015), 1--29.
+
 \bibitem {bogfjellmo.dahmen.schmedig:2015a}
 \textsc{Bogfjellmo, G., Dahmen, R., Schmedig, A.: }\newblock \emph{Character
   groups of Hopf algebras as infinite-dimensional Lie groups}.
@@ -2411,15 +2495,19 @@ uniformly m-quasi-nilpotent Lie algebra.
 \newblock \emph{North-Holland Mathematical Library} no. \textbf{14}.
 \newblock North-Holland Publishing Co., Amsterdam, New York, Oxford, 1977.
 
+\bibitem {dixon:1991a}
+\textsc{Dixon, P.: }\newblock \emph{Topologically nilpotent Banach algebras and 
+factorization}.
+\newblock Proc. Roy. Soc. Edinburgh Sect. A \textbf{119} (1991), 329--341.
+
 \bibitem {dixon.mueller:1992a}
 \textsc{Dixon, P., M\"uller, V.: }\newblock \emph{A note on topologically 
 nilpotent Banach algebras}.
 \newblock Studia Math. \textbf{102} (1992), 269--275.
 
-\bibitem {drinfeld:1983a}
-\textsc{Drinfel'd, V.~G.: }\newblock \emph{On constant quasiclassical solutions
-  of the Yang-Baxter quantum equation}.
-\newblock Sov. Math. Dokl.  \textbf{28} (1983), 667--671.
+\bibitem {duistermaat.kolk:2000a}
+\textsc{Duistermaat, J. J., Kolk, J. A. C.: }\newblock \emph{Lie Groups}, Universitext.
+\newblock Springer-Verlag, 2000.
 
 \bibitem {esposito.stapor.waldmann:2015a:pre}
 \textsc{Esposito, C., Stapor, P., Waldmann, S.: }\newblock \emph{Convergence 
@@ -2446,20 +2534,18 @@ normed algebras}.
   Bundle of a Lie Group}.
 \newblock Lett. Math. Phys.  \textbf{7} (1983), 249--258.
 
-\bibitem {michael:1952a}
-\textsc{Michael, E.~A.: }\newblock \emph{Locally Multiplicatively-Convex
-  Topological Algebras}.
-\newblock \emph{Mem. Amer. Math. Soc.} no. \textbf{11}.
-\newblock AMS, Providence, R. I., 1952.
-
 \bibitem {mitiagin.rolewicz.zelazko:1962a}
 \textsc{Mitiagin, B.~S., Rolewicz, S., {\.{Z}}elazko, W.: }\newblock
   \emph{Entire functions in $B_0$-algebras}.
 \newblock Studia Math.  \textbf{21} (1962), 291--306.
 
+\bibitem {mueller:1997a}
+\textsc{M{\"u}ller, V.: }\newblock \emph{On the joint spectral radius}.
+\newblock Annales Polonici Mathematici \textbf{66} (1997), 173--182.
+
 \bibitem {mueller:1994a}
 \textsc{M{\"u}ller, V.: }\newblock \emph{Nil, Nilpotent and PI-Algebras}.
-\newblock Func. Anal. Op. Theory  \textbf{30} (1994).
+\newblock Func. Anal. Op. Theory  \textbf{30} (1994), 259--265.
 
 \bibitem {pflaum.schottenloher:1998a}
 \textsc{Pflaum, M.~J., Schottenloher, M.: }\newblock \emph{Holomorphic
@@ -2470,6 +2556,16 @@ normed algebras}.
 \textsc{Ra{\v{s}}evski{\u{i}}, P.~K.: }\newblock \emph{Associative
   hyper-envelopes of Lie algebras, their regular representations and ideals}.
 \newblock Trans. Mosc. Math. Soc.  \textbf{15} (1966), 3--54.
+
+\bibitem {rota.strang:1960a}
+\textsc{Rota, G. C., Strang, W. G.: }\newblock \emph{A note on the joint spectral 
+  radius}.
+\newblock Indag. Math. \textbf{22} (1966), 379--381.
+
+\bibitem {shulman.turovskii:2000a}
+\textsc{Shulman, V. S., Turovski\u i, Y. V.: }\newblock \emph{Joint Spectral 
+  Radius, Operator Semigroups, and a Problem of W. Wojty\'nski}.
+\newblock J. Func. Anal. \textbf{177} (1966), 383--441.
 
 \bibitem {stapor:2015a}
 \textsc{Stapor, P.: }\newblock \emph{Convergence 
