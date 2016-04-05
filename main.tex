@@ -206,9 +206,6 @@ english                        % standard language
 \section{Introduction}
 \label{sec:Introduction}
 
-
-
-\section{A Topology on the Universal Enveloping Algebras}
 If one wants to study the universal enveloping algebra $\algebra{U}(\lie{g})$ of a 
 given Lie algebra $\lie{g}$ in a topological setting, there are different 
 possibilities to see it. The most geometric one are invariant differential operators 
@@ -295,6 +292,7 @@ Sch\"otz for fruitful discussion on the topic as well as Karl-Hermann Neeb for a
 helpful remark.
 
 
+\section{A Topology on the Universal Enveloping Algebras}
 
 \subsection{Preliminaries and the $\Tensor_R$-Topology}
 As already mentioned, one possibility to see the universal enveloping algebra 
@@ -346,15 +344,16 @@ $\mathbb{K} = \mathbb{R}$ or $\mathbb{C}$ and the canonical projections $\pi_n
 	\right).
 \end{equation}
 Then it is extended bilinearly to the whole symmetric algebra. This associative 
-product also sometimes called Gutt star product.
+product is sometimes called Gutt star product, since Gutt was the first to describe 
+it in the sense of deformation theory in \cite{gutt:1983a}.
 The parameter $z$ is motivated from deformation theory and allows to treat the 
 symmetric and the universal enveloping algebra at the same time, since the former is 
 obtained putting $z = 0$ and the latter setting $z = 1$. In this way, also the 
-properties of the product can be studied by letting vary the parameter $z$. Since 
-this allows to treat everything from an additional point of view, we will keep this 
-so called deformation parameter in our equations, strongly inspired by
-\cite{esposito.stapor.waldmann:2015a:pre}. Since one aim of this paper is to extend 
-this approach and to prove a link between possible topologies on $\algebra{U}
+properties of the product can be studied by letting vary the parameter $z$ and hence 
+making $(\Sym^{\bullet}(\lie{g}), \star_z)$ ``more or less'' commutative. Since this 
+allows to treat everything from an additional point of view, we will keep this so 
+called deformation parameter in our equations. Since one aim of this paper is to 
+extend this approach and to prove a link between possible topologies on $\algebra{U}
 (\lie{g})$ and the properties of the Lie bracket of $\lie{g}$, we will briefly
 introduce these concepts.
 
@@ -372,7 +371,7 @@ with a vector $\eta$. Explicit formulas for this are known since a long time, e.
     \frac{1}{k!} \binom{k}{j}
     z^j B_j^*
     \sum\limits_{\sigma \in S_k}
-    \xi_{\sigma(1)} \cdots \xi_{\sigma(k - j)}
+    \xi_{\sigma(1)} \vee \cdots \vee \xi_{\sigma(k - j)} \vee
     [\xi_{\sigma(k - j + 1)},
     [ \ldots [\xi_{\sigma(k)}, \eta] \ldots ]
     ]
@@ -384,7 +383,7 @@ with a vector $\eta$. Explicit formulas for this are known since a long time, e.
     \frac{1}{k!} \binom{k}{j}
     z^j B_j
     \sum\limits_{\sigma \in S_k}
-    \xi_{\sigma(1)} \cdots \xi_{\sigma(k - j)}
+    \xi_{\sigma(1)} \vee \cdots \vee \xi_{\sigma(k - j)} \vee
     [\xi_{\sigma(k - j + 1)},
     [ \ldots [\xi_{\sigma(k)}, \eta] \ldots ]
     ]
@@ -398,7 +397,7 @@ The constants $B_j$ are the Bernoulli numbers, which are defined by
 	\frac{B_j}{j!}
 	x^j
 \end{equation}
-and $B_j^* = (-1)^j B_j$. There are also formulas for more complicated products, but 
+and $B_j^* = (-1)^j B_j$. There are also formulas for more involved products, but 
 we will not introduce them here, since \eqref{eq:gstarformulaL} and 
 \eqref{eq:gstarformulaR} will suffice for our purposes. Finally, we extend this 
 product to the whole tensor algebra by symmetrizing beforehand which will be very 
@@ -471,7 +470,7 @@ $\forall_{x, y \in \Tensor_R^{\bullet}(V)}$
 	\halbnorm{p}_R(y),
 \end{equation}
 if and only if $R = 0$. A very detailed discussion of this topology can be found in 
-\cite{waldmann:2014a}. Yet, we mention some basic facts: for $R' > R$, the 
+\cite{waldmann:2014a}. We mention some basic facts: for $R' > R$, the 
 topology of $\Tensor_{R'}^{\bullet}(\lie{g})$ is strictly finer than the one of 
 $\Tensor_R^{\bullet}(\lie{g})$ and hence the completion 
 $\widehat{\Tensor}_{R'}^{\bullet}(\lie{g})$ is smaller than for $R < R'$.
@@ -501,7 +500,7 @@ $\prod_{n=0}^\infty \Tensor^n(\lie{g})$ by
 \end{equation}
 The $c > 0$ in \eqref{eq:TR-completion-explicit} is actually superfluous, but we put 
 it there to underline the exponential behaviour of $\halbnorm{p}_R$ when the seminorm 
-$\halbnorm{p}$ gets scaled by some $c > 0$.
+$\halbnorm{p}$ gets rescaled by $c > 0$.
 
 The $\Tensor_R$-topology has, due to projective tensor product, a 
 very good feature: if we need to show a continuity estimate on arbitrary tensors 
@@ -509,7 +508,7 @@ $x,y \in \Tensor^{\bullet}(\lie{g})$, it is enough to show it on factorizing ten
 $\xi_1 \tensor \cdots \tensor \xi_k$ and $\eta_1 \tensor \cdots \tensor \eta_\ell$ 
 for arbitrary $k, \ell \in \mathbb{N}$. Once this is done, one uses the so called 
 ``infimum argument'' to get it an all tensors. This is a technical property of the 
-projective tensor product and a detailed explanation on it can be found in
+projective tensor product and a detailed explanation can be found in
 \cite[Proposition 3.2]{esposito.stapor.waldmann:2015a:pre}.
 
 We say the Lie bracket in $\lie{g}$ is jointly continuous, if for every 
@@ -549,7 +548,7 @@ AE algebras are ``almost'' locally multiplicatively convex (for short: lmc)
 algebras, meaning they have nearly submultiplicative seminorms. An associative AE 
 algebra has for example an entire calculus. In this sense, the AE condition 
 \eqref{eq:def:AE-property} is very restrictive for a locally convex algebra, but 
-still very weak in general, since every normed (and hence every finite dimensional) 
+still very weak in general, since every normed (and hence every finite-dimensional) 
 algebra is AE, for example.
 
 It is not clear, if all AE algebras are indeed lmc, but for associative, commutative 
@@ -557,7 +556,7 @@ Fr\'echet algebras, which are AE, this is the case
 \cite{mitiagin.rolewicz.zelazko:1962a}. It seems like there is not much known about 
 this particular subclass of locally convex algebras. The first time, this expression 
 appeared, was in a work by Boseck, Czichowski and Rudolph 
-\cite{boseck.czichowski.rudolph:1981a}, but in a different sense. They used the same 
+\cite{boseck.czichowski.rudolph:1981a}, but in a different sense. They use the same 
 notion of asymptotic estimate seminorms, but an AE algebra in their definition has to 
 fulfil additional, technical condition, which make those AE algebras lmc. We want to 
 use the weaker notion of AE algebra we just defined above. Equivalent definitions to 
@@ -568,15 +567,15 @@ ours (using different names) where used in \cite{gloeckner.neeb:2012a} and
 If the Lie algebra $\lie{g}$ is nilpotent and locally convex, it is automatically 
 AE. In this case, continuity of $\star_z$ can already be achieved in the projective 
 limit $\Sym_{1^-}^{\bullet}(\lie{g})$. This is important, since the completion of 
-this projective limit is bigger than $\widehat{\Sym}_1^{\bullet}(\lie{g})$: in the 
-case of $1^-$, the exponential series of $\xi \in \lie{g}$ is in the completion for 
-every $\xi$, whereas in the case $R = 1$, there are no exponentials. One aim of this 
+this projective limit is bigger than $\widehat{\Sym}_1^{\bullet}(\lie{g})$: for $R = 
+1^-$, the exponential series of $\xi \in \lie{g}$ is in the completion for every 
+$\xi \in \lie{g}$, whereas for $R = 1$, there are no exponentials. One aim of this 
 paper is to find a certain type of quasi-nilpotency, which allows still such a 
 projective limit and a continuous product.
 
 Finally, we should mention that the construction of the $\Tensor_1$- and the 
 $\Tensor_{1^-}$-topology is functorial: continuous morphisms between (nilpotent) 
-AE-Lie algebras $\lie{g}$ and $\lie{gh}$ lift to continuous morphisms between the 
+AE-Lie algebras $\lie{g}$ and $\lie{h}$ lift to continuous morphisms between the 
 algebras $\Sym_1^{\bullet}(\lie{g})$ and $\Sym_1^{\bullet}(\lie{h})$ or 
 $\Sym_{1^-}^{\bullet}(\lie{g})$ and $\Sym_{1^-}^{\bullet}(\lie{h})$, respectively, 
 and hence to continuous morphisms of the topologized universal enveloping algebras.
@@ -586,10 +585,10 @@ In this sense, the $\Tensor_R$-topologies behave ``reasonably well''.
 
 \subsection{Nilpotent locally convex Lie-Algebras}
 As a first result in this work, we want to show that for nilpotent, locally convex 
-Lie algebras, we do not only find the algebras $\Tensor_R^{\bullet}(\lie{g})$ for 
+Lie algebras, we do not only find the algebras $\Sym_R^{\bullet}(\lie{g})$ for 
 $R \geq 1^-$, but also a rich structure of bimodules. For $R < 1$, 
 $\left( \Sym_R^{\bullet}(\lie{g}), \star_z \right)$ will not be a locally convex 
-algebra any more, but it is still a vector space and forms a bimodule over 
+algebra any more, but it is still a vector space and a bimodule over 
 $\Sym_{R'}^{\bullet}(\lie{g})$ for a sufficiently big $R' \geq 1$.
 \begin{proposition}
 	\label{prop:bimodules}
@@ -619,13 +618,12 @@ $\Sym_{R'}^{\bullet}(\lie{g})$ for a sufficiently big $R' \geq 1$.
 \end{proposition}
 \begin{proof}
 	Let $\halbnorm{p}$ be a continuous seminorm and $R \geq 0$. We need to
-	compute the estimate using \eqref{eq:gstarformulaR}:
+	compute an estimate using \eqref{eq:gstarformulaR}:
 	\begin{align*}
+		&
 		\halbnorm{p}_R
 		\big(
-			\xi_1
-		&	
-			 \tensor \cdots \tensor \xi_k \star_z \eta
+			\xi_1 \tensor \cdots \tensor \xi_k \star_z \eta
 		\big)
 		\\
 		&=
@@ -636,7 +634,7 @@ $\Sym_{R'}^{\bullet}(\lie{g})$ for a sufficiently big $R' \geq 1$.
         \halbnorm{p}^{k - n + 1}
         \left(
             \sum\limits_{\sigma \in S_k}
-            \xi_{\sigma(1)} \cdots \xi_{\sigma(k - j)}
+            \xi_{\sigma(1)} \vee \cdots \vee \xi_{\sigma(k - j)} \vee
             [\xi_{\sigma(k - j + 1)},
             [ \ldots [\xi_{\sigma(k)}, \eta] \ldots ]
             ]
@@ -689,11 +687,11 @@ $\Sym_{R'}^{\bullet}(\lie{g})$ for a sufficiently big $R' \geq 1$.
 	\begin{align*}
 		\halbnorm{p}_R
 		\big(
-			\xi_1
+			(\xi_1
 		&	
-			 \tensor \cdots \tensor \xi_k 
+			 \tensor \cdots \tensor \xi_k )
 			 \star_z 
-			 \eta_1 \tensor \cdots \tensor \eta_\ell
+			 (\eta_1 \tensor \cdots \tensor \eta_\ell)
 		\big)
 		\\
 		& \leq
@@ -720,16 +718,16 @@ $\Sym_{R'}^{\bullet}(\lie{g})$ for a sufficiently big $R' \geq 1$.
 		(2^{N + 1} c \halbnorm{p})_{R + N (1 - R)}
 		( \eta_1 \tensor \cdots \tensor \eta_\ell ).
 	\end{align*}
-	Using the infimum argument and knowing that this estimate works from both sides,
+	Using the infimum argument and knowing that this estimate works for both sides,
 	we find the statement from the proposition.
 \end{proof}
 \begin{remark}
-	The same result can be achieved omitting the condition of submultiplicative 
-	seminorms, hence for just locally convex nilpotent Lie algebras. It uses a more 
+	The same result can be achieved for simply locally convex Lie algebras, omitting 
+	submultiplicativity of the seminorms. It uses a more 
 	involved formula for two factorizing tensors. Since the advantage is not so big,
 	we omit this proof here. It can be found in \cite{stapor:2015a}.
 \end{remark}
-A priori, these module structures only exist for nilpotent Lie algebras. It is easy 
+These module structures only exist for nilpotent Lie algebras. It is easy 
 to construct a counter-example: take the solvable Lie algebra generated by $x, y$ 
 with the relation $[x,y] = y$ and use a norm such that $\norm{x} = \norm{y} = 1$. 
 For any $R < 1$ and any $\varepsilon > 0$ such that $R + \varepsilon < 1$, the 
@@ -747,7 +745,7 @@ Obviously, the nilpotency of a Lie-algebra $\lie{g}$ allows certain features for
 topologies on $\algebra{U}(\lie{g})$ which a non-nilpotent Lie algebras does not 
 allow, at least for the $\Tensor_R$-topology. 
 Especially the size of the completion and the question if exponentials can be 
-obtained or not is very interesting and we of course want to know, if there may be 
+obtained or not is very interesting and we want to know, if there may be 
 other topologies on $\algebra{U}(\lie{g})$, which allow bigger completions. To make 
 this more concrete, we give the following definition.
 \begin{definition}[Projective grouplike Topologies]
@@ -762,15 +760,7 @@ this more concrete, we give the following definition.
 		\item
 		For every $\xi \in \lie{g}$, the exponential series $\sum_{n=0}^\infty 
 		\frac{\xi^n}{n!}$ converges in the completion of $(\algebra{U}(\lie{g}), 
-		\tau)$ and the map
-		\begin{equation}
-			\label{eq:exp-is-continuous}
-			\mathbb{K} \ni t
-			\longmapsto
-			\exp(t \xi)
-			\in \widehat{\algebra{U}}(\lie{g})
-		\end{equation}
-		is continuous for every $\xi \in \lie{g}$.
+		\tau)$.
 		
 		\item
 		The projection 
@@ -794,21 +784,22 @@ this more concrete, we give the following definition.
 	If point $(iii.)$ is not fulfilled, we call $\tau$ just grouplike.
 \end{definition}
 From any topology on the universal enveloping algebra, we would expect the first 
-point. The second point was motivated from the discussion before. The third point 
+point. The second was motivated from the discussion before and is of particular 
+interest concerning the integrability of the Lie algebra. The third point 
 may look a bit arbitrary on the first sight, but it has its own motivation: if we 
 start with a Banach-Lie algebra $\lie{g}$, we would certainly like it to carry the 
 same topology as a subspace of $\widehat{\algebra{U}}(\lie{g})$ after embedding it 
 and taking the completion, everything else seems pointless. But we do not need a 
 \emph{continuous projection} onto $\lie{g}$. A continuous homeomorphism would 
-suffice. However, $\pi$ is the best candidate for such a homeomorphism, in the case 
-of seeing $\algebra{U}(\lie{g})$ as the symmetric algebra with deformed product, it 
+suffice. However, $\pi$ is the best candidate for such a homeomorphism and if we
+see $\algebra{U}(\lie{g})$ as $(\Sym^{\bullet}(\lie{g}), \star_z)$, it 
 is even the only canonical candidate. This argument is even more intuitive in the 
 finite-dimensional case: here, there are \emph{always} continuous projections onto 
 $\lie{g}$ by the Hahn-Banach theorem. So we would like the most intuitive one to be 
 continuous, too. This justifies point three.
 
-Now, we want to show that asking for the existence of a projective grouplike topology 
-on $\algebra{U}(\lie{g})$ puts strong restrictions to $\lie{g}$ itself.
+We want to show that asking for the existence of a projective grouplike topology 
+on $\algebra{U}(\lie{g})$ puts strong restrictions on $\lie{g}$ itself.
 \begin{proposition}
 	\label{prop:bch-desaster}
 	Let $\lie{g}$ be a Banach-Lie algebra and $\algebra{U}(\lie{g})$ has a projective 
@@ -914,14 +905,12 @@ at the spectral radii of the elements $a \in \algebra{A}$ or at the joint spectr
 radii of bounded subsets of $\algebra{A}$. Unfortunately, for a Banach-Lie algebra, 
 a good notion of the spectral radius of elements is not so obvious. In 
 \cite{galindo.palacios:2012a}, Galindo and Palacios constructed a ``Lie-spectral 
-radius'', but finally could not prove bigger theorems with this. We want to go a 
-different way. Let $\lie{g}$ be a Banach-Lie algebra, then we know that $\lie{g}$ 
-itself is not an associative Banach algebra, but the bounded linear operators on it 
-$\Bounded(\lie{g})$ surely form such an algebra using the spectral norm. The image 
-of the map $\ad \colon \lie{g} \longrightarrow \Bounded(\lie{g})$ certainly 
-generates a subalgebra of $\Bounded(\lie{g})$ and hence a normed (but not 
-necessarily complete) associative algebra. However, we can now use the notions from 
-the associative theory by applying them to this subalgebra of $\Bounded(\lie{g})$.
+radius'', but could not prove bigger theorems with this. We want to go a different 
+way. Let $\lie{g}$ be a Banach-Lie algebra, then the bounded linear operators 
+$\Bounded(\lie{g})$ form an associative Banach algebra with the spectral norm. The 
+image $\ad \colon \lie{g} \longrightarrow \Bounded(\lie{g})$ generates a normed (but 
+not necessarily complete) subalgebra of $\Bounded(\lie{g})$. We can now use the 
+notions from the associative theory:
 \begin{definition}
 	\label{def:nilpotencies}
 	Let $\lie{g}$ be a Banach-Lie algebra in which the Lie bracket fulfils the 
@@ -939,7 +928,7 @@ the associative theory by applying them to this subalgebra of $\Bounded(\lie{g})
 		$\lie{g}$ is quasi-nilpotent (or topologically nil, or radical, or 
 		of type $(i)$), if every $\xi \in \lie{g}$ is quasi-nilpotent, i.e.
 		\begin{equation*}
-			\lim_{n \longrightarrow \infty}
+			\lim_{n \rightarrow \infty}
 			\norm{\ad_{\xi}^n}^{\frac{1}{n}}
 			=
 			0.
@@ -949,7 +938,7 @@ the associative theory by applying them to this subalgebra of $\Bounded(\lie{g})
 		$\lie{g}$ is uniformly quasi-nilpotent (or uniformly topologically nil, or 
 		of type $(ii)$), if
 		\begin{equation*}
-			\lim_{n \longrightarrow \infty}
+			\lim_{n \rightarrow \infty}
 			\mathcal{N}_1(n)
 			=
 			0
@@ -961,7 +950,7 @@ the associative theory by applying them to this subalgebra of $\Bounded(\lie{g})
 			\sup \left\{ 
 			\left.
 				\norm{ \ad_{\xi}^n}^{\frac{1}{n}} 
-			\right|
+			\ \right| \
 				\xi \in \mathbb{B}_1(0)
 			\right\}.
 		\end{equation}
@@ -971,7 +960,7 @@ the associative theory by applying them to this subalgebra of $\Bounded(\lie{g})
 		$(iii)$), if for every sequence
 		$(\xi_n)_{n \in \mathbb{N}} \subset \mathbb{B}_1(0)$ we have
 		\begin{equation*}
-			\lim_{n \longrightarrow \infty}
+			\lim_{n \rightarrow \infty}
 			\norm{ 
 				\ad_{\xi_1} \circ \ldots \circ \ad_{\xi_n}
 			}^{\frac{1}{n}}
@@ -983,7 +972,7 @@ the associative theory by applying them to this subalgebra of $\Bounded(\lie{g})
 		$\lie{g}$ is uniformly topologically nilpotent (or of 
 		type $(iv)$), if
 		\begin{equation*}
-			\lim_{n \longrightarrow \infty}
+			\lim_{n \rightarrow \infty}
 			\mathcal{N}(n)
 			=
 			0
@@ -997,13 +986,13 @@ the associative theory by applying them to this subalgebra of $\Bounded(\lie{g})
 				\norm{ 
 					\ad_{\xi_1} \circ \ldots \circ \ad_{\xi_n}
 				}^{\frac{1}{n}} 
-			\right|
+			\ \right| \
 				\xi_1, \ldots, \xi_n \in \mathbb{B}_1(0)
 			\right\}.
 		\end{equation}
 	\end{definitionlist}
 \end{definition}
-This definition is directly taken from \cite{mueller:1994a}, just using $\ad_\xi$ 
+This definition is the same as in \cite{mueller:1994a}, just using $\ad_\xi$ 
 instead of $\xi$ itself. We will need reformulation of type $(ii.)$, which seems to 
 be stronger on the first sight but which is in fact equivalent. For the moment, we 
 define it as follows.
@@ -1021,16 +1010,15 @@ define it as follows.
 	\begin{equation}
 		\mathcal{S}(n)
 		=
-		\sup \left\{ 
-		\left.
-			\left\Vert
+		\sup \Bigg\{ 
+			\bigg\Vert
 				\frac{1}{n!}
 				\sum\limits_{\sigma \in S_n}
 				\ad_{\xi_{\sigma(1)}} \circ \ldots \circ \ad_{\xi_{\sigma(n)}}
-			\right\Vert^{\frac{1}{n}} 
-		\right|
+			\bigg\Vert^{\frac{1}{n}} 
+		\ \Bigg| \ 
 			\xi_1, \ldots, \xi_n \in \mathbb{B}_1(0)
-		\right\}.
+		\Bigg\}.
 	\end{equation}
 \end{itemize}
 It is immediate to see that the following implications hold:
@@ -1047,7 +1035,7 @@ It is immediate to see that the following implications hold:
 To show that $(ii) \Longrightarrow (ii')$, we need a little combinatorial lemma.
 \begin{lemma}
 	\label{lemma:symmetric-to-power}
-	Let $R$ be a ring of characteristic $0$, $n\in \mathbb{N}$ and $a_1, 
+	Let $R$ be a ring, $n\in \mathbb{N}$ and $a_1, 
 	\ldots, a_n \in R$, then we have the identity
 	\begin{equation*}
 		\sum\limits_{\sigma \in S_n}
@@ -1069,12 +1057,12 @@ To show that $(ii) \Longrightarrow (ii')$, we need a little combinatorial lemma.
 	$(ii')$.
 \end{proposition}
 \begin{proof}
-	Let $\lie{g}$ be a type $(ii)$-Banach-Lie algebra and fix the series
-	$\chi_n = \mathcal{N}_1(n)$. Hence for every $\xi \in \mathbb{B}_1(0)$, we have
+	Let $\lie{g}$ be a type $(ii)$-Banach-Lie algebra. For every $\xi \in 
+	\mathbb{B}_1(0)$, we have
 	\begin{equation*}
 		\norm{(\ad_\xi)^n}^{\frac{1}{n}}
 		\leq
-		\chi_n.
+		\mathcal{N}_1(n).
 	\end{equation*}
 	Note that 
 	\begin{equation*}
@@ -1116,34 +1104,34 @@ To show that $(ii) \Longrightarrow (ii')$, we need a little combinatorial lemma.
 		\frac{1}{n!}
 		\sum\limits_{k = 1}^n
 		\binom{n}{k}
-		k^n \chi_n^n
+		k^n (\mathcal{N}_1(n))^n
 		\\
 		& \leq
 		\frac{n^n}{n!}
 		\sum\limits_{k = 1}^n
 		\binom{n}{k}
-		\chi_n^n
+		(\mathcal{N}_1(n))^n
 		\\
 		& \leq
-		(2 \E \chi_n)^n.
+		(2 \E \mathcal{N}_1(n))^n.
 	\end{align*}
 	Hence we find
 	\begin{equation*}
 		\mathcal{S}(n)
 		\leq
-		\sqrt[n]{(2 \E \chi_n)^n}
+		\sqrt[n]{(2 \E \mathcal{N}_1(n))^n}
 		=
-		2 \E \chi_n,
+		2 \E \mathcal{N}_1(n),
 	\end{equation*}
-	which converges to zero if $\chi_n$ itself does.
+	which converges to zero if $\mathcal{N}_1(n)$ itself does.
 \end{proof}
 
 
 
 \subsection{Topologically nilpotent Banach-Lie Algebras}
-In the case of associative algebras, it is known that $(iii.) \Longrightarrow 
-(vi.)$ \cite{dixon.mueller:1992a}. This is also true for Banach-Lie algebras.
-The proof of Dixon and M\"uller can be slightly adapted.
+For associative algebras, Dixon and M\"uller proved that $(iii.) \Longrightarrow 
+(vi.)$ \cite[Theorem 3]{dixon.mueller:1992a}. With a slight adaptation, their proof 
+also works for Banach-Lie algebras.
 \begin{proposition}
 	\label{prop:top-nilpotency}
 	Topologically nilpotent Banach-Lie algebras are uniformly topologically 
@@ -1178,17 +1166,18 @@ The proof of Dixon and M\"uller can be slightly adapted.
 	\end{equation*}
 	holds. Since this is clear for $\mathcal{N} = 0$, we suppose $\mathcal{N} > 0$.
 	Define complete metric space $X = \mathbb{B}_1(0)^{\mathbb{N}}$ with
-	\begin{equation*}
+	\begin{equation}
+		\label{eq:metric-on-X}
 		\halbnorm{d}((\xi), (\eta))
 		=
 		\sum\limits_{i = 1}^\infty
 		2^{-i} \frac{\norm{\xi_i - \eta_i}}{1 + \norm{\xi_i - \eta_i}}.
-	\end{equation*}
+	\end{equation}
 	Now, the proof is completely analogous to the one for the associative case.
 	The main change is in the definition on $X$: we need to use the unit ball in 
 	$\lie{g}$ to construct it, and then to go on with $\ad_{\lie{g}}$ every time
-	we need the associative algebra structure. Since we have for all $\xi \in 
-	\lie{g}$ the inequality $\norm{\xi} \geq \norm{\ad_{\xi}}$. 
+	we need the associative algebra structure, which is possible since we have for 
+	all $\xi \in \lie{g}$ the inequality $\norm{\xi} \geq \norm{\ad_{\xi}}$. 
 	The main argument is the Baire category theorem: for $\delta > 0$, the sets
 	\begin{equation*}
 		X_{k, \delta}
@@ -1234,12 +1223,9 @@ with the following implications:
 
 \subsection{Examples}
 
-Since we now know different types of quasi-nilpotency, we want to see if there are 
-really examples for Banach-Lie algebras, which are of a certain type. In this part, 
-we first give a construction for Banach-Lie algebras, which are of type $(ii.)$ but 
-not of type $(iii.)$ and then we construct a Banach-Lie algebra, which is of type 
-$(i.)$ but not of type $(ii.)$.
-
+Since we know that different types of quasi-nilpotency exist, we want to give an 
+example for each one of it. The examples are commutator Lie algebras of associative 
+algebras. These in turn are is inspired by \cite[Theorem 1]{dixon.mueller:1992a}
 
 
 \subsubsection{Example 1: A uniformly quasi-nilpotent Banach-Lie Algebra}
@@ -1247,7 +1233,7 @@ $(i.)$ but not of type $(ii.)$.
 Take the free associative $\mathbb{C}$-algebra in the generators $\{x_n\}_{n \in 
 \mathbb{N}}$ together with the relation $x_i x_j = \delta_{i+1}^j x_i x_j$. Let 
 $p \in [1, \infty)$ and use the $\ell^p$-norm on this space to complete it. An 
-arbitrary element in this algebra will have the form
+arbitrary element in this algebra, which we call $\algebra{A}_p$, will have the form
 \begin{equation*}
 	a =
 	\sum\limits_{i < j}
@@ -1262,8 +1248,6 @@ arbitrary element in this algebra will have the form
 		|a_{i, j}|^p
 	\right)^{1/p}.
 \end{equation*}
-We want to call this associative algebra $\algebra{A}_p$. Since we will need it for 
-our calculations, we state the following lemma.
 \begin{lemma}
 	\label{lemma:Ex1}
 	Let $p \in [1, \infty)$ and $a \in \algebra{A}_p$. 
@@ -1359,12 +1343,14 @@ our calculations, we state the following lemma.
 		=
 		\sqrt[p]{\frac{1}{n^n}},
 	\end{equation*}
-	so $\chi_n \geq \sqrt[p]{\frac{1}{n}}$.
+	so $\mathcal{N}_1(n) \geq \sqrt[p]{\frac{1}{n}}$.
 	Hence $\algebra{A}_p$ is at least uniformly topologically nil. But since
 	\begin{equation*}
 		\norm{x_1 \cdots x_n}_p
 		=
 		\norm{x_1}_p \cdots \norm{x_n}_p
+		=
+		1
 	\end{equation*}
 	and $\norm{x_i} = 1$, we see that $\algebra{A}_p$ is 
 	\emph{not} topologically nilpotent, hence the statement is true.
@@ -1453,55 +1439,55 @@ $\algebra{A}_p$ concerning its nilpotency.
 \subsubsection{Example 2: A quasi-nilpotent Banach-Lie Algebra}
 
 We combine all algebras $\algebra{A}_p$ to one, by taking their direct sum and 
-complete it using an $\ell^1$-norm: Take the free $\mathbb{C}$-algebra in the 
-generators $\{x_n^m\}_{n,m \in \mathbb{N}}$, now with the relation $x_n^m \cdot 
-x_{n'}^{m'} = x_n^m \cdot x_{n'}^{m'} \delta_m^{m'} \delta_{n+1}^{n'}$. Now an 
+complete it using an $\ell^1$-norm: take the free $\mathbb{C}$-algebra in the 
+generators $\{x_{m;n}\}_{m,n \in \mathbb{N}}$, now with the relation $x_{m;n} \cdot 
+x_{m';n'} = x_{m;n} \cdot x_{m';n'} \delta_m^{m'} \delta_{n+1}^{n'}$. Now an 
 arbitrary element of this algebra, which we want to call $\algebra{A}_\infty$, will 
 have the form
 \begin{equation*}
 	a =
 	\sum\limits_{m \in \mathbb{N}}
 	\sum\limits_{i < j}
-	a_{i, j}^m x_i^m x_{i + 1}^m \cdots x_{j - 1}^m
+	a_{m; i, j} x_{m; i} x_{m; i + 1} \cdots x_{m; j - 1}
 	, \
-	a_{i,j}^m \in \mathbb{C}
+	a_{m; i,j} \in \mathbb{C}
 	\quad \text{ with } \quad
 	\norm{a}
 	=
 	\sum\limits_{m \in \mathbb{N}}
 	\left(
 		\sum\limits_{i < j}
-		|a_{i, j}^m|^m
+		|a_{m; i, j}|^m
 	\right)^{1/m}.
 \end{equation*}
-One can see from what preceded, that this algebra is still not of type topologically 
+One can see from what preceded, that this algebra is still type topologically 
 nilpotent. It is also not of type $(ii.)$. We can find a sequence $(a_n)_{n \in 
-\mathbb{N}}$ with $\norm{ a_n } = 1$ such that the sequence $\norm{(a_n)^n}^{1/n}$ 
+\mathbb{N}}$ with $\norm{ a_n } = 1$ such that the sequence $\norm{a_n^n}^{1/n}$ 
 does not converge to zero. This is enough, since certainly $\mathcal{N}_1(n) \geq 
-\norm{(a_n)^n}^{1/n}$. Set
+\norm{a_n^n}^{1/n}$. Set
 \begin{equation*}
 	a_n
 	=
 	\frac{1}{\sqrt[n]{n}}
-	(x_1^n + \cdots + x_n^n),
+	(x_{n;1} + \cdots + x_{n;n}),
 \end{equation*}
 then we get
 \begin{equation*}
-	\norm{(a_n)^n}
+	\norm{a_n^n}
 	=
-	\Big\Vert
+	\left\Vert
 		\frac{1}{\sqrt[n]{n}^n}
-		x_1^n \cdots x_n^n
-	\Big\Vert
+		x_{n; 1} \cdots x_{n; n}
+	\right\Vert
 	=
 	\frac{1}{n}
-	\norm{ x_1^n \cdots x_n^n }
+	\norm{ x_{n; 1} \cdots x_{n; n} }
 	=
 	\frac{1}{n}
 \end{equation*}
 and hence
 \begin{equation*}
-	\sqrt[n]{ \norm{(a_n)^n} }
+	\sqrt[n]{ \norm{a_n^n} }
 	=
 	\sqrt[n]{\frac{1}{n}}
 	\longrightarrow
@@ -1513,21 +1499,21 @@ $a \in \algebra{A}_\infty$ and choose some $\varepsilon > 0$. Then we can write
 	a 
 	=
 	\sum\limits_{m=1}^\infty
-	a^m
+	a_m
 	=
 	\sum\limits_{m=1}^\infty
 	\sum\limits_{i < j}
-	a_{i, j}^m x_i^m \cdots x_{j-1}^m	
+	a_{m; i, j} x_{m; i} \cdots x_{m; j - 1}	
 \end{equation*}
 and there must be an $M \in \mathbb{N}$, such that
 \begin{equation*}
-	\Big\Vert
+	\bigg\Vert
 		\sum\limits_{m = M+1}^\infty
-		a^m
-	\Big\Vert
+		a_m
+	\bigg\Vert
 	=
-	\sum\limits_{m = M+1}^\infty
-	\norm{a^m}_m
+	\sum\limits_{m = M + 1}^\infty
+	\norm{a_m}_m
 	<
 	\frac{\varepsilon}{2}.
 \end{equation*}
@@ -1537,12 +1523,12 @@ Hence we find for $n \in \mathbb{N}$
 	=
 	\sqrt[n]{
 		\sum\limits_{m=1}^\infty
-		\norm{(a^m)^n}_m
+		\norm{a_m^n}_m
 	}
 	\leq
 	\sum\limits_{m = 1}^M
 	\sqrt[n]{
-		\left\Vert \left( a^m \right)^n \right\vert_m
+		\left\Vert a_m^n \right\Vert_m
 	}
 	+
 	\sqrt[n]{ \left( \frac{\varepsilon}{2} \right)^n }
@@ -1561,6 +1547,12 @@ topologically nilpotent associate Banach algebra and then a Banach-Lie algebra w
 the same property. Just take again the free $\\mathbb{K}$-algebra generated by the 
 $x_i$, $i \in \mathbb{N}$ and use the norm
 \begin{equation}
+	a =
+	\sum\limits_{i < j}
+	a_{i, j} x_i x_{i + 1} \cdots x_{j - 1}
+	, \
+	a_{i,j} \in \mathbb{C}
+	\quad \text{ with } \quad
 	\norm{a}
 	=
 	\sum\limits_{n = 1}^\infty
@@ -1627,7 +1619,7 @@ to complete it. We will call this algebra $\algebra{A}_0$.
 
 We have everything at the hand to state our main theorem now:
 \begin{theorem}
-	\label{Thm:Main}
+	\label{thm:main}
 	A Banach-Lie algebra $\lie{g}$ has a grouplike topology on 
 	$\algebra{U}(\lie{g})$ if and only if it is uniformly quasi-nilpotent.
 \end{theorem}
@@ -1668,14 +1660,19 @@ Topologies}
 	$(\alpha_{n, \ell})_{\ell \in \mathbb{N}}$ with $\norm{\alpha_{n, \ell}} = 1$ 
 	for all $n, \ell \in \mathbb{N}$ and
 	\begin{equation*}
-		\lim_{\ell \longrightarrow \infty}
+		\lim_{\ell \rightarrow \infty}
 		(\ad_{\xi_{n,n}})^n(\alpha_{n,\ell})
 		> 
 		\varepsilon^n.
 	\end{equation*}
 	We define a new sequence $(\eta_n)_{n \in \mathbb{N}}$ with 
 	$\eta_n = \alpha_{n, \ell}$ where $\ell$ is chosen big enough to 
-	fulfil $(\ad_{\xi_{n,n}})^n(\alpha_{n,\ell}) > \varepsilon^n$.
+	fulfil 
+	\begin{equation*}
+		(\ad_{\xi_{n,n}})^n(\alpha_{n,\ell}) 
+		>
+		\varepsilon^n.
+	\end{equation*}
 	Now assume we have a projective grouplike topology on $\algebra{U}(\lie{g})$ 
 	and we denote by $\algebra{P}$ the set of all continuous seminorms on it. 
 	Then we have for a fixed $t \in \mathbb{R}$ and for every $\xi \in \lie{g}$ 
@@ -1983,7 +1980,12 @@ $\mathcal{N}_1(n)$.
 \begin{proposition}
 	\label{prop:mainthm_rev_2}
 	Let $\lie{g}$ be a uniformly quasi-nilpotent Banach-Lie algebra and assume that 
-	$\lim_{n \rightarrow \infty} \frac{\mathcal{N}_1(n)}{n!} = 0$. 
+	\begin{equation*}
+		\lim_{n \rightarrow \infty} 
+		\left( \frac{1}{n}\mathcal{N}_1(n) \right)
+		= 
+		0.
+	\end{equation*}
 	Then there is a projective grouplike topology on $\algebra{U}(\lie{g})$.
 \end{proposition}
 \begin{proof}
@@ -2113,26 +2115,23 @@ $\mathcal{N}_1(n)$.
 			\int\limits_x^{2x} (2x-t) f''(t) dt.
 		\end{equation*}
 		Now we use a backward Taylor development to find
-		\begin{align*}
-			&&
+		\begin{equation*}
 			f(0)
-			&=
+			=
 			f(x) - xf'(x) + \int_x^0 (0-t) f''(t) dt
-			\\
-			& \Longleftrightarrow &
+		\end{equation*}
+		\begin{equation*}
+			\Longleftrightarrow
 			xf'(x) - f(x)
-			&=
+			=
 			\int_0^x t f''(t) dt - f(0)
-			\\&&
-			& \leq
+			\leq
 			\int_0^x t f''(t) dt
-			\\&&
-			& \leq
+			\leq
 			\int_0^x t \frac{c}{t} dt
-			\\&&
-			&=
+			=
 			cx.
-		\end{align*}
+		\end{equation*}
 		We then get
 		\begin{align*}
 			f(2x) - 2 f(x)
@@ -2351,8 +2350,8 @@ Clearly, this is a result which we would like to have for an integrable Lie alge
 	\end{remarklist}
 \end{remark}
 Using the work of Wojty\`nski \cite{wojtynski:1998a}, Galindo and Palacios 
-\cite{galindo.palacios:} and Theorem \ref{thm:main}, we can somehow draw a little 
-scheme to classify quasi-nilpotency in Banach-Lie algebras:
+\cite{galindo.palacios:2012a} and Theorem \ref{thm:main}, we can somehow draw a 
+little scheme to classify quasi-nilpotency in Banach-Lie algebras:
 \begin{equation}
 	\label{classification}
 	\begin{array}{lccl}
