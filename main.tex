@@ -1620,10 +1620,11 @@ to complete it. We will call this algebra $\algebra{A}_0$.
 We have everything at the hand to state our main theorem now:
 \begin{theorem}
 	\label{thm:main}
-	A Banach-Lie algebra $\lie{g}$ has a grouplike topology on 
-	$\algebra{U}(\lie{g})$ if and only if it is uniformly quasi-nilpotent.
+	Let $\lie{g}$ be a Banach-Lie algebra $\lie{g}$. Then there is a projective 
+	grouplike topology on $\algebra{U}(\lie{g})$ if and only if $\lie{g}$ is 
+	uniformly quasi-nilpotent.
 \end{theorem}
-Since it is rather long and technical, we will split up the proof into two parts.
+Since it is rather technical, we split up the proof into two parts.
 
 
 \subsection{Uniform Quasi-nilpotency is necessary for projective grouplike 
@@ -1636,13 +1637,13 @@ Topologies}
 \end{proposition}
 \begin{proof}
 	The idea is to construct two sequences which converge to zero, but whose 
-	product does not converge: Being not of type $(ii)$ means, that there is an
-	$\varepsilon > 0$, such that $\lim_{n \rightarrow \infty} \mathcal{N}_1(n) > 
-	\varepsilon$. This means that for every $n \in \mathbb{N}$, there is a sequence 
+	product does not converge: Being not uniformly quasi-nilpotent means, that there 
+	is an $\varepsilon > 0$, such that $\lim_{n \rightarrow \infty} \mathcal{N}_1(n) 
+	> \varepsilon$. This means that for every $n \in \mathbb{N}$, there is a sequence 
 	$\left(\xi_{n, k} \right)_{k \in \mathbb{N}} \subset \mathbb{B}_1(0)$, 
 	such that
 	\begin{equation*}
-		\lim_{k \longrightarrow \infty}
+		\lim_{k \rightarrow \infty}
 		\left\Vert
 			(\ad_{\xi_{n, k}})^n
 		\right\Vert^{\frac{1}{n}}
@@ -1676,17 +1677,17 @@ Topologies}
 	Now assume we have a projective grouplike topology on $\algebra{U}(\lie{g})$ 
 	and we denote by $\algebra{P}$ the set of all continuous seminorms on it. 
 	Then we have for a fixed $t \in \mathbb{R}$ and for every $\xi \in \lie{g}$ 
-	and every $p \in \algebra{P}$
+	and every $\halbnorm{p} \in \algebra{P}$
 	\begin{equation*}
-		p \left( \exp(t \xi) \right)
+		\halbnorm{p} \left( \exp(t \xi) \right)
 		=
-		p \left(
+		\halbnorm{p} \left(
 			\sum\limits_{n=0}^\infty
 			\frac{|t|^n \xi^n}{n!}
 		\right)
 		\leq
 		\sum\limits_{n=0}^\infty
-		\frac{p\left( \xi^n \right)}{n!}
+		\frac{\halbnorm{p} \left( \xi^n \right)}{n!}
 		<
 		\infty,
 	\end{equation*}
@@ -1696,7 +1697,7 @@ Topologies}
 	\begin{equation*}
 		\left(
 			\frac{t^n}{n!}
-			p\left(
+			\halbnorm{p} \left(
 				\xi_{n,n}^n
 			\right)
 		\right)_{n \in \mathbb{N}}
@@ -1707,10 +1708,10 @@ Topologies}
 	Now we want to show that their product does \emph{not} converge to zero
 	to get a contradiction to the continuity of the multiplication. Therefore
 	we need again the projection map $\pi_1 \colon \algebra{U}(\lie{g}) 
-	\longrightarrow \lie{g}$ which is linear and continuous and should hence not 
+	\longrightarrow \lie{g}$ which is linear and continuous and hence does not 
 	spoil the convergence. For every fixed $t > 0$, we have
 	\begin{align*}
-		p \left(
+		\halbnorm{p} \left(
 			\pi_1\left(
 				\frac{t^n \xi_{n,n}^n}{n!}
 				\cdot
@@ -1718,7 +1719,7 @@ Topologies}
 			\right)
 		\right)
 		&=
-		p\left(
+		\halbnorm{p} \left(
 			\pi_1 \left(
 				\frac{1}{n \cdot n!}
 				\sum\limits_{k=0}^n
@@ -1731,7 +1732,7 @@ Topologies}
 		\right)
 		\\
 		& =
-		p\left(
+		\halbnorm{p} \left(
 			\frac{B_n^* t^n}{n \cdot n!}
 			(\ad_{\xi_{n,n}})^n(\eta_n)
 		\right)
@@ -1759,18 +1760,18 @@ enough, one needs to modify this a little, which we do in Proposition
 	\label{prop:mainthm_rev_1}
 	Let $\lie{g}$ be a uniformly quasi-nilpotent Banach-Lie algebra and assume that 
 	there is a $p \geq 1$, such that $\lim_{n \rightarrow \infty} 
-	\frac{\mathcal{N}_1(n)}{\sqrt[p]{n!}} = 0$. Then the $\Tensor_{1^-}$-topology is 
+	\frac{\sqrt[p]{n!}}{\mathcal{N}_1(n)} = 0$. Then the $\Tensor_{1^-}$-topology is 
 	projective grouplike.
 \end{proposition}
 \begin{proof}
 	The continuity of the projection $\pi$ is clear from the construction and the 
 	fact that it is grouplike is can be seen from Equation 
-	\eqref{eq:TR-completion-explicit}. the only problem is the question of 
+	\eqref{eq:TR-completion-explicit}. The only problem is the question of 
 	continuity of $\star_z$. We look at the situation in the symmetric tensor 
 	algebra and see that the product is continuous in $\Sym_{1^-}^{\bullet}
 	(\lie{g})$ by the following argumentation. Denote the norm on $\lie{g}$ 
-	for simplicity by $\halbnorm{p}$ again. Since $\lim_{n \rightarrow \infty} 
-	\frac{\mathcal{N}_1(n)}{\sqrt[p]{n}} = 0$, we know there is a $p \geq 1$ and a 
+	again by $\halbnorm{p}$. Since $\lim_{n \rightarrow \infty} 
+	\frac{\sqrt[p]{n}}{\mathcal{N}_1(n)} = 0$, we know there is a $p \geq 1$ and a 
 	$c > 0$, such that $\mathcal{S}(n) \leq \frac{c}{\sqrt[p]{n}}$. Take $\xi_1, 
 	\ldots, \xi_k, \eta \in \lie{g}$, then we find for some $\varepsilon > 0$ with 
 	$R > 1 - \frac{1}{p} + \varepsilon$
@@ -1890,14 +1891,14 @@ enough, one needs to modify this a little, which we do in Proposition
 	\end{align*}
 	In the last step, we took $\kappa = \kappa_1 \kappa_2$. We can extend this 
 	estimate to any arbitrary tensor of degree at most $k$ on the left hand side.
-	Now we do the next step and take $\xi_1, \ldots, \xi_k, \eta_1, \ldots, 
-	\eta_\ell \in \lie{g}$. We can iterate this estimate to get
+	We do the next step: we take $\xi_1, \ldots, \xi_k, \eta_1, \ldots, 
+	\eta_\ell \in \lie{g}$ and iterate this estimate to get
 	\begin{align*}
 		\halbnorm{p}_R \big(
-			\xi_1 \tensor \cdots \tensor \xi_k
+			(\xi_1 \tensor \cdots \tensor \xi_k)
 		&
 			\star
-			\eta_1 \tensor \cdots \tensor \eta_\ell
+			(\eta_1 \tensor \cdots \tensor \eta_\ell)
 		\big)
 		\\
 		& \leq
@@ -1931,9 +1932,9 @@ enough, one needs to modify this a little, which we do in Proposition
 	By setting $R' = \frac{3}{4}(1-R)$, we find
 	\begin{equation*}
 		p_R \big(
-			\xi_1 \tensor \cdots \tensor \xi_k
+			(\xi_1 \tensor \cdots \tensor \xi_k)
 			\star
-			\eta_1 \tensor \cdots \tensor \eta_\ell
+			(\eta_1 \tensor \cdots \tensor \eta_\ell)
 		\big)
 		\leq
 		(2p)_{R'}
@@ -1944,14 +1945,15 @@ enough, one needs to modify this a little, which we do in Proposition
 	and the proposition is proven.
 \end{proof}
 
-Now we need to cover the last possible case: A uniformly quasi-nilpotent Banach-Lie 
+Now we need to cover the last possible case: a uniformly quasi-nilpotent Banach-Lie 
 algebra, which has a characteristic sequence, which decreases slower than any power 
 of $n!$. An example for something like this would be a Banach-Lie algebra fulfilling 
 $\mathcal{N}_1(n) = (\log(n) + 1)^{-n}$ for $n \in \mathbb{N}$, for example. To 
 control this case, we need a to adapt the $\Tensor_{1^-}$-topology. If we have a 
-monotonously increasing sequence $(\alpha) = (\alpha_n)_{n \in \mathbb{B}}$, such 
+monotonously increasing sequence $(\alpha) = (\alpha_n)_{n \in \mathbb{M}}$, such 
 that for every $c > 0$ we have
 \begin{equation}
+	\label{eq:increasingsequence}
 	\lim\limits_{n \rightarrow \infty}
 	\frac{\alpha_n}{c^n}
 	=
@@ -1970,19 +1972,18 @@ then we can use it as a counterweight to the factorials and define a seminorm
 	\frac{n!}{\alpha_n}
 	\halbnorm{p}^n
 \end{equation}
-on $\Tensor^{\bullet}(\lie{g})$ from a seminorm $\halbnorm{p}$ on $\lie{g}$. Since 
-we do not want to introduce a new notation, we just call the norm of the Banach-Lie 
-algebra $\halbnorm{p}$. In this way, we get a Fr\'echet-topology on 
-$\Tensor^{\bullet}(\lie{g})$ using all powers $(\alpha_n^{1/r})_{n \in \mathbb{N}}$, 
-$r \in \mathbb{N}$ of the sequence $(\alpha)$. Such a sequence is always there for 
-every uniformly quasi-nilpotent Banach-Lie algebra: it is given by 
-$\mathcal{N}_1(n)$.
+on $\Tensor^{\bullet}(\lie{g})$ from a seminorm $\halbnorm{p}$ on $\lie{g}$. We call 
+the norm of the Banach-Lie algebra $\halbnorm{p}$, again and get a Fr\'echet-topology 
+on $\Tensor^{\bullet}(\lie{g})$ using all powers $(\alpha_n^{1/r})_{n \in 
+\mathbb{N}}$, $r \in \mathbb{N}$ of the sequence $(\alpha)$. Such a sequence is 
+always there for every uniformly quasi-nilpotent Banach-Lie algebra: it is given by 
+$\mathcal{N}_1(n)^{-1}$.
 \begin{proposition}
 	\label{prop:mainthm_rev_2}
 	Let $\lie{g}$ be a uniformly quasi-nilpotent Banach-Lie algebra and assume that 
 	\begin{equation*}
 		\lim_{n \rightarrow \infty} 
-		\left( \frac{1}{n}\mathcal{N}_1(n) \right)
+		\frac{1}{n \mathcal{N}_1(n) }
 		= 
 		0.
 	\end{equation*}
@@ -2035,7 +2036,7 @@ $\mathcal{N}_1(n)$.
 		=
 		\infty
 	\end{equation*}
-	since $\mathcal{N}_1(n)$ decreases more slowly than any power of the factorials, 
+	since $\mathcal{N}_1(n)$ decreases slower than any power of the factorials, 
 	but $\lie{g}$ is still uniformly quasi-nilpotent. We want an analogue of the 
 	estimate $\binom{n}{m} \leq 2^n$ for the series $\omega$, which is done by the 
 	following lemma.
@@ -2150,11 +2151,11 @@ $\mathcal{N}_1(n)$.
 		\end{align*}
 	\end{subproof}
 	Now we can start doing the estimation using the sequence $(\omega_n)$. 
-	Define a series $(\alpha)$ by $\alpha_n = \sqrt{\omega_n}$. As pointed out 
+	Define $(\alpha)$ by $\alpha_n = \sqrt{\omega_n}$. As pointed out 
 	before, we will use $\alpha^{\frac{1}{2^m}}$ as counterweights.
 	By doing analogous computations to the first part, we arrive at
 	\begin{align*}
-		p_\alpha \big(
+		\halbnorm{p}_\alpha \big(
 		&
 			\xi_1 \tensor \cdots \tensor \xi_k
 			\star_z
@@ -2162,16 +2163,16 @@ $\mathcal{N}_1(n)$.
 		\big)
 		=
 		(k+1) 
-		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
-		p(\eta)
+		\halbnorm{p}^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		\halbnorm{p}(\eta)
 		\sum\limits_{n=0}^k
 		\frac{|B_n^*| |z|^n}{n!}
 		\frac{1}{\alpha_{k+1-n} \omega_n}
 		\\
 		& \leq
 		(k+1) 
-		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
-		p(\eta)
+		\halbnorm{p}^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		\halbnorm{p}(\eta)
 		\frac{1}{\alpha_{k+1}}
 		\sum\limits_{n=0}^k
 		\frac{|B_n^*| |z|^n}{n! \alpha_n}
@@ -2179,8 +2180,8 @@ $\mathcal{N}_1(n)$.
 		\\
 		& \leq
 		(k+1) 
-		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
-		p(\eta)
+		\halbnorm{p}^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		\halbnorm{p}(\eta)
 		\frac{1}{\alpha_{k+1}}
 		\left(
 			\sum\limits_{n=0}^k
@@ -2193,16 +2194,16 @@ $\mathcal{N}_1(n)$.
 		\\
 		& \leq
 		(k+1) 
-		p^k(\xi_1 \tensor \cdots \tensor \xi_k)
-		p(\eta)
+		\halbnorm{p}^k(\xi_1 \tensor \cdots \tensor \xi_k)
+		\halbnorm{p}(\eta)
 		\frac{1}{\alpha_{k+1}}
 		\kappa_1
 		c^{k+1}
 		\\
 		& \leq
 		(k+1) 
-		p_{\alpha'}(\xi_1 \tensor \cdots \tensor \xi_k)
-		p(\eta)
+		\halbnorm{p}_{\sqrt{\alpha}}(\xi_1 \tensor \cdots \tensor \xi_k)
+		\halbnorm{p}(\eta)
 		\frac{\sqrt{\alpha_k}}{\alpha_{k+1}^{3/4}}
 		\kappa_1
 		\kappa_2
@@ -2212,8 +2213,8 @@ $\mathcal{N}_1(n)$.
 		(k+1)
 		\frac{1}{\sqrt[4]{\alpha_{k+1}}}
 		\frac{\sqrt{\alpha_k}}{\sqrt{\alpha_{k+1}}}
-		p_{\alpha'}(\xi_1 \tensor \cdots \tensor \xi_k)
-		p(\eta).
+		\halbnorm{p}_{\sqrt{\alpha}}(\xi_1 \tensor \cdots \tensor \xi_k)
+		\halbnorm{p}(\eta).
 	\end{align*}
 	We use the notation $\alpha' = \sqrt{\alpha}$ and $\alpha^{(n)} = 
 	\alpha^{\frac{1}{2^n}}$ to keep things readable. We find the estimate on all 
@@ -2265,7 +2266,10 @@ $\mathcal{N}_1(n)$.
 	the projections from the grading is clear from the construction and so the 
 	topology defined by those $\halbnorm{p}_{\alpha^{m}}$ is projective grouplike.
 \end{proof}
-
+As well as $\Sym_1^{\bullet}(\lie{g})$ or $\Sym_{1^-}^{\bullet}(\lie{g})$ for general 
+or nilpotent AE-Lie algebras, the (adapted) construction of $\Sym_{1^-}^{\bullet}
+(\lie{g})$ is functorial for uniformly quasi-nilpotent Banach-Lie algebras. Since 
+this is again a very technical proof, we move it to the appendix.
 
 
 \section{Conclusions and further ideas}
@@ -2330,23 +2334,21 @@ Clearly, this is a result which we would like to have for an integrable Lie alge
 
 		\item
 		Maybe the most interesting case is rejecting the existence of the 
-		projection, hence point $(iii.)$. One can choose 
-		the coarsest topology on $\algebra{U}(\lie{g})$, such that all 
+		projection. For finite-dimensional $\lie{g}$, one can choose 
+		the coarsest locally convex topology on $\algebra{U}(\lie{g})$, such that all 
 		finite-dimensional representations of $\algebra{U}(\lie{g}) 
 		\longrightarrow V$ are continuous. This topology was investigated by
-		Schottenloher and Pflaum in \cite{pflaum.schottenloher:1998a}
+		Schottenloher and Pflaum in \cite{pflaum.schottenloher:1998a}.
 		Every representation gives a seminorm on $\algebra{U}(\lie{g})$, using e.g.
 		the spectral norm on the representation space $V$, which is in addition
 		submultiplicative. So we get a locally multiplicatively convex topology
 		on $\algebra{U}(\lie{g})$ and hence a very big completion with exponentials.
-		The problem is, this only works for finite-dimensional Lie algebras. We also 
-		know that it can not be extended to general infinite-dimensional Banach-Lie 
-		algebras: if we could, every Banach-Lie algebra would be integrable, which 
-		is known to be false \cite[Remark 1.14.15]{duistermaat.kolk:2000a}. 
-		Furthermore, we know that the projection $\pi \colon
-		\algebra{U}(\mathfrak{g}) \longrightarrow \lie{g}$ from
-		\eqref{eq:projection} would be discontinuous, although it projects on a
-		finite-dimensional subspace.
+		Unfortunately, this only works for finite-dimensional Lie algebras, since for 
+		infinite-dimensional Lie algebras, this topology may fail to be Hausdorff. We 
+		also know that something similar can not be extended to general 
+		infinite-dimensional Banach-Lie algebras: if we could, every Banach-Lie 
+		algebra would be integrable, which is known to be false 
+		\cite[Remark 1.14.15]{duistermaat.kolk:2000a}.
 	\end{remarklist}
 \end{remark}
 Using the work of Wojty\`nski \cite{wojtynski:1998a}, Galindo and Palacios 
@@ -2432,7 +2434,7 @@ $\halbnorm{q}$.
 	$\halbnorm{p}$, there is another continuous seminorm $\halbnorm{q}$ such that 
 	\begin{equation}
 		\lim\limits_{n \rightarrow \infty}
-		\mathcal{N}_{1; \halbnorm{p}. \halbnorm{q}}(n)
+		\mathcal{N}_{1; \halbnorm{p}, \halbnorm{q}}(n)
 		=
 		0
 		\quad \text{ with } \quad
@@ -2455,7 +2457,7 @@ $\halbnorm{q}$.
 	$\halbnorm{p}$
 	\begin{equation}
 		\lim\limits_{n \rightarrow \infty}
-		\mathcal{N}_{1; \halbnorm{p}. \halbnorm{p}}(n)
+		\mathcal{N}_{1; \halbnorm{p}, \halbnorm{p}}(n)
 		=
 		0
 	\end{equation}
@@ -2467,7 +2469,7 @@ $\lie{g}$. Also the theorems we used on the way are not true for general locally
 convex Lie algebras, maybe not even for AE-Lie algebras. One could think of redoing 
 the proof of Proposition \ref{prop:top-nilpotency} for a Fr\'echet-Lie algebra, 
 since the construction \eqref{eq:metric-on-X} would still give a metric space $X$, 
-when we have a metric on $\lie{g}$ itself. But already to reconstruct the argument 
+if we had a metric on $\lie{g}$ itself. But already to reconstruct the argument 
 with the dense and open balls $X_{k, \delta}$, one would probably need 
 submultiplicativity of the seminorms. Even then, it is not clear whether all 
 arguments would really work.
@@ -2476,6 +2478,150 @@ To redo the arguments of the Propositions \ref{prop:mainthm_rev_1} and
 \ref{prop:mainthm_rev_2}, submultiplicativity of the seminorms would definitely be 
 needed, but this is the only restriction. Those results should hence hold for every 
 uniformly m-quasi-nilpotent Lie algebra.
+
+
+
+\appendix
+\section{Functoriality of the adapted $\Tensor_{1^-}$-Topology}
+\label{sec:app}
+
+To prove that the adapted $\Tensor_{1^-}$-topology is functorial, we have to show an 
+analogon to \cite[Lemma 3.11]{esposito.stapor.waldmann:2015a:pre}. 
+\begin{proposition}
+	Let $(\alpha)$ is an increasing sequence in the sense of Equation 
+	\eqref{eq:increasingsequence} and $\halbnorm{p}$ the norm of 
+	$\lie{g}$, then there exist another convex, increasing sequence $(\beta)$ 
+	and some $c > 0$, which only depend on $\alpha$, such that for $n \in \mathbb{N}$ 
+	and $\xi_1, \ldots, \xi_n \in \lie{g}$ the following estimate holds:
+	\begin{equation}
+		\halbnorm{p}_\alpha
+		\left(
+			\xi_1 \star_z \cdots \star_z \xi_n
+		\right)
+		\leq
+		\frac{n!}{\beta_n} c^n
+		\halbnorm{p}(\xi_1) \cdots \halbnorm{p}(\xi_n).
+	\end{equation}
+\end{proposition}
+\begin{proof}
+	The easiest way is to tart directly from \cite[Equation (5.3.14)]{stapor:2015a}.
+	There are just some slight adaptions: In the expression 
+	$[w_1] \vee \cdots \vee [w_{n-\ell}]$, there are $n - \ell$ Lie words with $n$
+	letters, but the rackets are not nested to one side. To rearrange them, we can 
+	use antisymmetry and Jacobi identity, but we pay it with more expressions. All 
+	together, we get at most $2^n$-times as many expressions as before, and $n - 
+	\ell$ words, each one with $k_i$ letters and brackets nested to one side. 
+	Finally, we can use the quasi-nilpotency and get
+	\begin{align*}
+		\halbnorm{p}_\alpha
+		\big(
+		&
+			\xi_1 \star_z \cdots \star_z \xi_n
+		\big)
+		=
+		\sum\limits_{\ell = 0}^{n-1}
+		\frac{(n-\ell)!}{\alpha_{n - \ell}}
+		\sum\limits_{\substack{
+			1 \leq j \leq n-1 \\
+			i_j \in \{0, \ldots, j\} \\
+			\sum_{j=1}^{n-1} i_j = \ell
+		}}
+		|B_{i_1}^*| \cdots |B_{i_{n-1}}^*|
+		|z|^\ell
+		\frac{\binom{1}{i_1}}{1!}
+		\frac{\binom{2 - i_1}{i_2}}{(2 - i_1)!}
+		\cdots
+		\\
+		& \quad \cdot
+		\frac{\binom{n - 1 - i_1 - \cdots - i_{n-2}}{i_{n-1}}}
+		{(n - 1 - i_1 - \cdots - i_{n-2})!}
+		\sum\limits_{\substack{
+			\sigma_1 \in S_1 \\
+			\cdots \\
+			\sigma_{n-1} \in S_{n - 1 - i_1 - \cdots - i_{n-2}} 
+		}}
+		\halbnorm{p}^{n-\ell}
+		([w_1] \cdots [w_{n-\ell}])
+		\\
+		& \leq
+		\sum\limits_{\ell = 0}^{n-1}
+		\frac{(n-\ell)!}{\alpha_{n - \ell}}
+		\sum\limits_{\substack{
+			1 \leq j \leq n-1 \\
+			i_j \in \{0, \ldots, j\} \\
+			\sum_{j=1}^{n-1} i_j = \ell
+		}}
+		|z|^\ell
+		2^n
+		\frac{1! (2 - i_1)! \cdots (n-1-i_1- \cdots - i_{n-2})!}
+		{(1 - i_1)! \cdots (n-2-i_1- \cdots - i_{n-1})!}
+		\frac{\halbnorm{p}(\xi_1) \cdots \halbnorm{p}(\xi_n)}
+		{\alpha_{k_1} \cdots \alpha_{k_{n - \ell}}}
+		\\
+		& \leq
+		\sum\limits_{\ell = 0}^{n-1}
+		\frac{(n-\ell)! \ell!}{\sqrt{\alpha_{n - \ell}}}
+		\sum\limits_{\substack{
+			1 \leq j \leq n-1 \\
+			i_j \in \{0, \ldots, j\} \\
+			\sum_{j=1}^{n-1} i_j = \ell
+		}}
+		|z|^\ell
+		4^n
+		\frac{\halbnorm{p}(\xi_1) \cdots \halbnorm{p}(\xi_n)}
+		{\sqrt{\alpha_{n - \ell}} 
+		\sqrt{\alpha_{k_1}} \cdots \sqrt{\alpha_{k_{n - \ell}}}}		
+		\\
+		& \stackrel{(*)}{\leq}
+		\sum\limits_{\ell = 0}^{n-1}
+		\frac{(n-\ell)! \ell!}{\sqrt{\alpha_{n - \ell}}}
+		\sum\limits_{\substack{
+			1 \leq j \leq n-1 \\
+			i_j \in \{0, \ldots, j\} \\
+			\sum_{j=1}^{n-1} i_j = \ell
+		}}
+		|z|^\ell
+		\frac{4^n c^\ell}{\beta_{\ell}}
+		\halbnorm{p}(\xi_1) \cdots \halbnorm{p}(\xi_n)
+		\\
+		& \leq
+		\sum\limits_{\ell = 0}^{n-1}
+		\frac{n!}{\beta_{n - \ell} \beta_\ell}
+		(|z| + 1)^n
+		(4c)^n
+		\sum\limits_{\substack{
+			1 \leq j \leq n-1 \\
+			i_j \in \{0, \ldots, j\} \\
+			\sum_{j=1}^{n-1} i_j = \ell
+		}}
+		\halbnorm{p}(\xi_1) \cdots \halbnorm{p}(\xi_n)
+		\\
+		& \leq
+		\frac{n!}{\beta_n}
+		(|z| + 1)^n (4c)^n
+		\halbnorm{p}(\xi_1 \tensor \cdots \tensor \xi_n)
+		\underbrace{
+			\sum\limits_{\ell = 0}^{n-1}
+			\sum\limits_{\substack{
+				1 \leq j \leq n-1 \\
+				i_j \in \{0, \ldots, j\} \\
+				\sum_{j=1}^{n-1} i_j = \ell
+			}}
+			1
+		}_{ \leq 4^n }
+		\\
+		&=
+		( (|z| + 1) \kappa \halbnorm{p})_\beta
+		(\xi_1 \tensor \cdots \tensor \xi_n),
+	\end{align*}
+	where we set $\kappa = 16 c$. In $(*)$ we used \cite[Lemma 6.4.7]{stapor:2015a}
+	and constructed a new increasing sequence from $(\alpha)$. We can assume it
+	to be smaller than $\sqrt{\alpha}$. The same estimate holds if $\alpha_n = n!^p$,
+	since the construction of $(\beta)$ is also possible for any sequence which 
+	increases faster than exponentially. Hence the statement from the proposition 
+	follows and with this, we can proceed analogous the usual $\Tensor_1$-topology 
+	and get functoriality.
+\end{proof}
 
 
 
